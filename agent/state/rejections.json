@@ -1,0 +1,12 @@
+{
+  "items": {
+    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-sol-and-luna": {
+      "retryAfter": "2026-09-24T22:38:52.160Z",
+      "reason": "editor: Body is 150 words, needs at least 300 (too thin/filler-heavy)."
+    },
+    "github-release:anthropics/claude-code:v2.1.280": {
+      "retryAfter": "2026-09-24T22:43:22.837Z",
+      "reason": "editor: The article claims `CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH` 'removes' the 2,048-character cap, whereas the source states it allows you to 'change' the cap.; The article states that mouse wheel scrolling now functions for `/plugin` state options, but the source only says `/plugin` state options can now be clicked (while the wheel scrolls the `/skills` list).; The article's analysis refers to `path`, `file_text`, etc., as 'deprecated parameter names', which is an unsupported assumption; the source only describes them as incorrect keys sent by the model instead of `file_path` and `content`."
+    }
+  }
+}
