@@ -53,17 +53,14 @@ export const commentConfig: CommentConfig = {
 
 	//giscus评论系统配置
 	giscus: {
-		// TODO: after pushing this repo to GitHub, enable GitHub Discussions on it,
-		// install the giscus app (https://github.com/apps/giscus), then generate the
-		// repo/repoId/category/categoryId values at https://giscus.app and paste them below.
 		// 设置 Giscus 评论系统仓库
-		repo: "your-github-username/lockdraft",
+		repo: "SllcKYlldrM/lockdraft",
 		// 设置 Giscus 评论系统仓库ID
-		repoId: "",
+		repoId: "R_kgDOUoBP9A",
 		// 设置 Giscus 评论系统分类
 		category: "General",
 		// 获取 Giscus 评论系统分类ID
-		categoryId: "",
+		categoryId: "DIC_kwDOUoBP9M4DGQPP",
 		// 获取 Giscus 评论系统映射方式
 		mapping: "title",
 		// 获取 Giscus 评论系统严格模式
