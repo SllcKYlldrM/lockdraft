@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="avatarBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#0f2942"/>
+    </linearGradient>
+    <linearGradient id="boltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5ec8e0"/>
+      <stop offset="100%" stop-color="#3b9ec9"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="100" fill="url(#avatarBg)"/>
+  <g opacity="0.25" stroke="#7fd4e8" stroke-width="1.5">
+    <circle cx="45" cy="60" r="2.5" fill="#7fd4e8" stroke="none"/>
+    <circle cx="155" cy="50" r="2.5" fill="#7fd4e8" stroke="none"/>
+    <circle cx="165" cy="140" r="2.5" fill="#7fd4e8" stroke="none"/>
+    <circle cx="35" cy="150" r="2.5" fill="#7fd4e8" stroke="none"/>
+    <line x1="45" y1="60" x2="100" y2="100"/>
+    <line x1="155" y1="50" x2="100" y2="100"/>
+    <line x1="165" y1="140" x2="100" y2="100"/>
+    <line x1="35" y1="150" x2="100" y2="100"/>
+  </g>
+  <path d="M108 55 L74 112 H96 L88 148 L128 88 H104 Z" fill="url(#boltGrad)"/>
+</svg>
