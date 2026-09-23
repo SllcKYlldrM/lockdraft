@@ -27,11 +27,15 @@ export interface CategoryDefinition {
   slug: string;
 }
 
+// Every category here must have at least one topic pointing at it (see
+// `topics` below) — planGuideCandidates in roles/planner.ts only generates
+// guide candidates for a category by filtering topics whose `category`
+// matches its id, so an orphaned category id would silently never produce
+// any guides.
 export const categories: CategoryDefinition[] = [
   { id: "ai-news", name: "AI News", slug: "ai-news" },
   { id: "agents", name: "Agents", slug: "agents" },
   { id: "automation", name: "Automation", slug: "automation" },
-  { id: "tutorials", name: "Tutorials", slug: "tutorials" },
   { id: "prompt-engineering", name: "Prompt Engineering", slug: "prompt-engineering" },
 ];
 
