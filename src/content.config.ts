@@ -54,6 +54,19 @@ type ProjectData = {
 	lang: string;
 };
 
+type PromptData = {
+	title: string;
+	description: string;
+	published: Date;
+	updated?: Date;
+	draft: boolean;
+	category: string;
+	models: string[];
+	tags: string[];
+	difficulty: string;
+	prompt: string;
+};
+
 type ContentCollection<T> = CollectionConfig<
 	ZodType<T>,
 	ReturnType<typeof glob>
@@ -130,14 +143,32 @@ const projectsCollection: ContentCollection<ProjectData> = defineCollection({
 	}),
 });
 
+const promptsCollection: ContentCollection<PromptData> = defineCollection({
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/prompts" }),
+	schema: z.object({
+		title: z.string(),
+		description: z.string().optional().default(""),
+		published: z.date(),
+		updated: z.date().optional(),
+		draft: z.boolean().optional().default(false),
+		category: z.string().optional().default("general"),
+		models: z.array(z.string()).optional().default([]),
+		tags: z.array(z.string()).optional().default([]),
+		difficulty: z.string().optional().default("beginner"),
+		prompt: z.string(),
+	}),
+});
+
 export const collections: {
 	dynamic: typeof dynamicCollection;
 	posts: typeof postsCollection;
 	spec: typeof specCollection;
 	projects: typeof projectsCollection;
+	prompts: typeof promptsCollection;
 } = {
 	dynamic: dynamicCollection,
 	posts: postsCollection,
 	spec: specCollection,
 	projects: projectsCollection,
+	prompts: promptsCollection,
 };

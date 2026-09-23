@@ -83,6 +83,21 @@ export async function getSortedProjects(): Promise<
 }
 
 /**
+ * 获取全部提示词并按发布时间降序排序（最新在前）
+ */
+export async function getSortedPrompts(): Promise<
+	CollectionEntry<"prompts">[]
+> {
+	const allPrompts = await getCollection("prompts", ({ data }) => {
+		return import.meta.env.PROD ? data.draft !== true : true;
+	});
+
+	return allPrompts.sort(
+		(a, b) => b.data.published.getTime() - a.data.published.getTime(),
+	);
+}
+
+/**
  * 系列内排序：按 seriesOrder 升序，未设置者排最后；再按发布日期降序、标题兜底
  * 注意：判断 seriesOrder 是否设置必须用 !== undefined，否则 0 会被当作「未设置」排到最后
  */

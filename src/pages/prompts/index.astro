@@ -1,0 +1,197 @@
+---
+import { Icon } from "astro-icon/components";
+import PromptCard from "@/components/pages/prompts/PromptCard.astro";
+import MainGridLayout from "@/layouts/MainGridLayout.astro";
+import "@/styles/pages/common.css";
+import "@/styles/pages/card-grid.css";
+import { getSortedPrompts } from "@/utils/content-utils";
+
+const title = "Prompts";
+const description =
+	"A curated library of ready-to-use prompts for AI models, agents, and automation workflows. Copy, tweak, and ship.";
+
+const prompts = await getSortedPrompts();
+const promptMeta = prompts.map((p) => ({
+	id: p.id,
+	title: p.data.title,
+	description: p.data.description,
+	category: p.data.category,
+	models: p.data.models,
+	tags: p.data.tags,
+	difficulty: p.data.difficulty,
+	published: p.data.published,
+}));
+
+const categories = Array.from(
+	new Set(promptMeta.map((p) => p.category)),
+).sort();
+const models = Array.from(new Set(promptMeta.flatMap((p) => p.models))).sort();
+---
+
+<MainGridLayout title={title} description={description}>
+	<section class="page-shell">
+		<header class="card-base page-header">
+			<div class="page-heading">
+				<div class="page-icon" aria-hidden="true">
+					<Icon name="material-symbols:auto-awesome-rounded" />
+				</div>
+				<div>
+					<h2>{title}</h2>
+					{description && <p>{description}</p>}
+				</div>
+			</div>
+			<div class="page-count" aria-label={title}>
+				<Icon name="material-symbols:auto-awesome-rounded" />
+				<strong>{promptMeta.length}</strong>
+				<span>{title}</span>
+			</div>
+
+			<prompt-filter style="grid-column: 1 / -1">
+				<div class="relative mb-3">
+					<Icon
+						name="material-symbols:search"
+						class="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-neutral-500 text-lg pointer-events-none"
+					/>
+					<input
+						type="text"
+						data-search
+						placeholder="Search prompts..."
+						class="w-full pl-10 pr-4 py-2 rounded-xl border border-(--line-divider) bg-transparent text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-500 focus:border-(--primary) focus:ring-1 focus:ring-(--primary) outline-none transition-all duration-200 text-sm"
+					/>
+				</div>
+
+				<div class="flex flex-wrap items-center gap-2 mb-2">
+					<span class="text-xs font-medium text-neutral-400 dark:text-neutral-500 mr-1">Category:</span>
+					<button data-category="all" class="category-pill px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-200" data-active>
+						All
+					</button>
+					{categories.map((c) => (
+						<button data-category={c} class="category-pill px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-200">
+							{c}
+						</button>
+					))}
+				</div>
+
+				{models.length > 0 && (
+					<div class="flex flex-wrap items-center gap-2">
+						<span class="text-xs font-medium text-neutral-400 dark:text-neutral-500 mr-1">Model:</span>
+						<button data-model="all" class="category-pill px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-200" data-active>
+							All
+						</button>
+						{models.map((m) => (
+							<button data-model={m} class="category-pill px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-200">
+								{m}
+							</button>
+						))}
+					</div>
+				)}
+			</prompt-filter>
+		</header>
+
+		{promptMeta.length > 0 ? (
+			<div class="card-grid" style="--card-grid-min-width: 320px">
+				{promptMeta.map((p) => (
+					<PromptCard
+						id={p.id}
+						title={p.title}
+						description={p.description}
+						category={p.category}
+						models={p.models}
+						tags={p.tags}
+						difficulty={p.difficulty}
+						published={p.published}
+					/>
+				))}
+			</div>
+		) : (
+			<div class="card-base flex flex-col items-center justify-center py-16 text-neutral-400 dark:text-neutral-500">
+				<Icon name="material-symbols:auto-awesome-rounded" class="text-6xl mb-4 opacity-50" />
+				<p class="text-lg">No prompts yet.</p>
+			</div>
+		)}
+
+		<div class="prompts-empty hidden flex-col items-center justify-center py-12 text-neutral-400 dark:text-neutral-500">
+			<Icon name="material-symbols:search-off-rounded" class="text-4xl mb-3" />
+			<div class="text-sm">No prompts match your filters.</div>
+		</div>
+	</section>
+
+	<script slot="head" is:inline>
+		if (!customElements.get("prompt-filter")) {
+			class PromptFilter extends HTMLElement {
+				selectedCategory = "all";
+				selectedModel = "all";
+				connectedCallback() {
+					this.addEventListener("click", this.handleClick);
+					this.addEventListener("input", this.handleInput);
+				}
+				disconnectedCallback() {
+					this.removeEventListener("click", this.handleClick);
+					this.removeEventListener("input", this.handleInput);
+				}
+				handleClick(e) {
+					const button = e.target.closest("button");
+					if (!button) return;
+					if (button.dataset.category !== undefined) {
+						this.selectedCategory = button.dataset.category;
+						this.querySelectorAll("button[data-category]").forEach((b) =>
+							b.removeAttribute("data-active"),
+						);
+						button.setAttribute("data-active", "");
+					}
+					if (button.dataset.model !== undefined) {
+						this.selectedModel = button.dataset.model;
+						this.querySelectorAll("button[data-model]").forEach((b) =>
+							b.removeAttribute("data-active"),
+						);
+						button.setAttribute("data-active", "");
+					}
+					this.applyFilters();
+				}
+				handleInput() {
+					this.applyFilters();
+				}
+				applyFilters() {
+					const container = this.closest(".page-shell");
+					if (!container) return;
+					const input = this.querySelector("[data-search]");
+					const query = (input?.value || "").toLowerCase().trim();
+					const cards = container.querySelectorAll(".prompt-card");
+					let hasVisible = false;
+					cards.forEach((card) => {
+						const categoryMatch =
+							this.selectedCategory === "all" ||
+							card.dataset.category === this.selectedCategory;
+						const modelMatch =
+							this.selectedModel === "all" ||
+							(card.dataset.models || "").split(",").includes(this.selectedModel);
+						const tags = (card.dataset.tags || "").toLowerCase();
+						const title = (
+							card.querySelector(".post-card-title")?.textContent || ""
+						).toLowerCase();
+						const desc = (
+							card.querySelector(".description")?.textContent || ""
+						).toLowerCase();
+						const searchMatch =
+							!query ||
+							title.includes(query) ||
+							desc.includes(query) ||
+							tags.includes(query);
+						if (categoryMatch && modelMatch && searchMatch) {
+							card.style.display = "";
+							hasVisible = true;
+						} else {
+							card.style.display = "none";
+						}
+					});
+					const empty = container.querySelector(".prompts-empty");
+					if (empty) {
+						empty.classList.toggle("hidden", hasVisible);
+						empty.classList.toggle("flex", !hasVisible);
+					}
+				}
+			}
+			customElements.define("prompt-filter", PromptFilter);
+		}
+	</script>
+</MainGridLayout>

@@ -1,0 +1,87 @@
+---
+import { Icon } from "astro-icon/components";
+import { formatDateToYYYYMMDD } from "@/utils/date-utils";
+import { url } from "@/utils/url-utils";
+
+interface Props {
+	id: string;
+	title: string;
+	description?: string;
+	category: string;
+	models: string[];
+	tags?: string[];
+	difficulty: string;
+	published: Date;
+}
+
+const {
+	id,
+	title,
+	description,
+	category,
+	models,
+	tags = [],
+	difficulty,
+	published,
+} = Astro.props;
+
+const detailUrl = url(`/prompts/${id}/`);
+
+const difficultyClass: Record<string, string> = {
+	beginner: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+	intermediate: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
+	advanced: "bg-rose-500/10 text-rose-600 dark:text-rose-400",
+};
+---
+
+<div
+  class="prompt-card post-card-wrapper card-base flex flex-col w-full rounded-(--radius-large) overflow-hidden relative p-4"
+  data-category={category}
+  data-models={models.join(",")}
+  data-tags={tags.join(",")}
+>
+  <div class="flex items-center gap-2 flex-wrap">
+    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-(--primary)/10 text-(--primary)">
+      {category}
+    </span>
+    <span class={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${difficultyClass[difficulty] || difficultyClass.beginner}`}>
+      {difficulty}
+    </span>
+  </div>
+
+  <a
+    href={detailUrl}
+    class="post-card-title font-bold text-[1.2rem] leading-[1.6rem] text-black/90 dark:text-white/90 line-clamp-1 hover:text-(--primary) transition-colors mt-3"
+  >
+    {title}
+  </a>
+
+  {description && (
+    <p class="description text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2 leading-relaxed mt-2" title={description}>
+      {description}
+    </p>
+  )}
+
+  {models.length > 0 && (
+    <div class="flex flex-wrap items-center gap-1.5 mt-3">
+      {models.map((m) => (
+        <span class="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-neutral-500/10 text-neutral-600 dark:text-neutral-400">
+          {m}
+        </span>
+      ))}
+    </div>
+  )}
+
+  <div class="mt-auto pt-4 flex items-center justify-between">
+    <time datetime={published.toISOString()} class="text-50 text-xs font-medium">
+      {formatDateToYYYYMMDD(published)}
+    </time>
+    <a
+      href={detailUrl}
+      class="inline-flex items-center gap-1 text-xs font-medium text-(--primary) hover:underline"
+    >
+      View prompt
+      <Icon name="material-symbols:chevron-right-rounded" class="text-sm" />
+    </a>
+  </div>
+</div>

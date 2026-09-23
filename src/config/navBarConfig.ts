@@ -18,7 +18,7 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 
 	// 文章及其子菜单
 	links.push({
-		name: "文章",
+		name: "Articles",
 		url: "#",
 		icon: "material-symbols:article",
 		children: [
@@ -36,25 +36,14 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		],
 	});
 
-	//社交及其子菜单
-	links.push({
-		name: "社交",
-		url: "#",
-		icon: "material-symbols:group",
-		children: [
-			// 友链
-			LinkPresets.Friends,
+	// 提示词库
+	links.push(LinkPresets.Prompts);
 
-			// 留言
-			LinkPresets.Guestbook,
-		],
-	});
-
-	// 我的及其子菜单
+	// 更多及其子菜单
 	links.push({
-		name: "我的",
+		name: "More",
 		url: "#",
-		icon: "material-symbols:person",
+		icon: "material-symbols:apps-rounded",
 		children: [
 			// 动态
 			LinkPresets.Dynamic,
@@ -62,43 +51,20 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 			// 项目
 			LinkPresets.Projects,
 
-			// 相册
-			LinkPresets.Gallery,
-
 			// 书签导航
 			LinkPresets.Booknav,
 
-			// 哔哩哔哩追番
-			LinkPresets.Bilibili,
-
-			// 番组计划
-			LinkPresets.Bangumi,
-
-			// VNDB
-			LinkPresets.VNDB,
-
-			// MyAnimeList
-			LinkPresets.MAL,
+			// 留言
+			LinkPresets.Guestbook,
 		],
 	});
 
-	// 关于及其子菜单
-	links.push({
-		name: "关于",
-		url: "#",
-		icon: "material-symbols:info",
-		children: [
-			// 打赏
-			LinkPresets.Sponsor,
-
-			// 关于页面
-			LinkPresets.About,
-		],
-	});
+	// 关于页面
+	links.push(LinkPresets.About);
 
 	// 自定义导航栏链接
 	links.push({
-		name: "链接",
+		name: "Links",
 		url: "#",
 		icon: "material-symbols:link",
 		// 子菜单
@@ -109,28 +75,8 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 				external: true,
 				icon: "fa7-brands:github",
 			},
-			{
-				name: "Gitee",
-				url: "https://gitee.com/CuteLeaf/Firefly",
-				external: true,
-				icon: "fa7-brands:gitee",
-			},
-			{
-				name: "Firefly文档",
-				url: "https://docs-firefly.cuteleaf.cn",
-				external: true,
-				icon: "material-symbols:docs",
-			},
 		],
 	});
-
-	// 文档链接
-	// links.push({
-	// 	name: "文档",
-	// 	url: "https://docs-firefly.cuteleaf.cn",
-	// 	external: true,
-	// 	icon: "material-symbols:docs",
-	// });
 
 	return { links } as NavBarConfig;
 };
@@ -146,74 +92,79 @@ export const navBarSearchConfig: NavBarSearchConfig = {
 // ============================================================================
 export const LinkPresets: Record<string, NavBarLink> = {
 	Home: {
-		name: "主页",
+		name: "Home",
 		url: "/",
 		icon: "material-symbols:home",
 	},
 	Archive: {
-		name: "归档",
+		name: "Archive",
 		url: "/archive/",
 		icon: "material-symbols:archive",
 	},
 	Categories: {
-		name: "分类",
+		name: "Categories",
 		url: "/categories/",
 		icon: "material-symbols:folder-open-rounded",
 	},
 	Tags: {
-		name: "标签",
+		name: "Tags",
 		url: "/tags/",
 		icon: "material-symbols:tag-rounded",
 	},
 	Series: {
-		name: "系列",
+		name: "Series",
 		url: "/series/",
 		icon: "material-symbols:layers",
 	},
+	Prompts: {
+		name: "Prompts",
+		url: "/prompts/",
+		icon: "material-symbols:auto-awesome-rounded",
+	},
 	Friends: {
-		name: "友链",
+		name: "Friends",
 		url: "/friends/",
 		icon: "material-symbols:link-2-rounded",
 		pageKey: "friends",
 	},
 	Guestbook: {
-		name: "留言",
+		name: "Guestbook",
 		url: "/guestbook/",
 		icon: "material-symbols:chat",
 		pageKey: "guestbook",
 	},
 	Dynamic: {
-		name: "动态",
+		name: "News Bites",
 		url: "/dynamic/",
 		icon: "material-symbols:forum-rounded",
 		pageKey: "dynamic",
 	},
 	Projects: {
-		name: "项目",
+		name: "Projects",
 		url: "/projects/",
 		icon: "material-symbols:rocket-launch",
 		pageKey: "projects",
 	},
 	Gallery: {
-		name: "相册",
+		name: "Gallery",
 		url: "/gallery/",
 		icon: "material-symbols:photo-library",
 		pageKey: "gallery",
 	},
 	Booknav: {
-		name: "书签导航",
+		name: "Resources",
 		url: "/booknav/",
 		icon: "material-symbols:bookmarks",
 		pageKey: "booknav",
 	},
 	Bilibili: {
-		name: "哔哩哔哩",
+		name: "Bilibili",
 		url: "/bilibili/",
 		icon: "fa7-brands:bilibili",
 		pageKey: "bilibili",
 	},
 	Bangumi: {
-		name: "番组计划",
+		name: "Bangumi",
 		url: "/bangumi/",
 		icon: "material-symbols:movie",
 		pageKey: "bangumi",
@@ -231,13 +182,13 @@ export const LinkPresets: Record<string, NavBarLink> = {
 		pageKey: "mal",
 	},
 	Sponsor: {
-		name: "打赏",
+		name: "Sponsor",
 		url: "/sponsor/",
 		icon: "material-symbols:favorite",
 		pageKey: "sponsor",
 	},
 	About: {
-		name: "关于我",
+		name: "About",
 		url: "/about/",
 		icon: "material-symbols:person",
 	},
