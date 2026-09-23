@@ -32,6 +32,16 @@ workflows and the lower `maxNewsPerDay` in `agent.config.ts`.
 | Editor | `src/core/roles/editor.ts` | Mechanical checks (word count, tables, duplicate headings) + LLM quality/fact pass |
 | Artist | `src/core/roles/artist.ts` | Cover image: official source og:image → Gemini retry → free anonymous AI Horde fallback → local branded fallback |
 
+A separate, smaller pipeline writes the `prompts` collection
+(`src/content/prompts/` — reusable fill-in-the-blank prompt templates, not
+blog posts): `src/core/roles/prompt-planner.ts` picks the least-covered
+category, `src/core/roles/prompt-writer.ts` writes an original template
+with `{{placeholder}}` fields, and `editor.ts`'s `reviewPrompt` checks it's
+genuinely reusable (not a disguised one-off answer) and doesn't duplicate
+an existing prompt in that category. No source grounding or cover image —
+a prompt template makes no factual claims to verify and the collection has
+no image field.
+
 An `overlapRatio` check (`src/core/quality/overlap.ts`) independently
 guards against near-copies by comparing 8-word sequences between the
 article and its source — this runs regardless of what the editor says.
@@ -67,10 +77,11 @@ npm run dry-run   # fetches sources, scores/plans, does NOT call the
                    # writer or write files — safe to run anytime
 npm run news       # full news pipeline, writes .md + images if it publishes
 npm run guide      # full guide pipeline, writes .md + images if it publishes
+npm run prompt     # full prompt pipeline, writes one .md to src/content/prompts if it publishes
 ```
 
 From the site root, the same commands are available as `pnpm
-agent:dry-run` / `pnpm agent:news` / `pnpm agent:guide`.
+agent:dry-run` / `pnpm agent:news` / `pnpm agent:guide` / `pnpm agent:prompt`.
 
 ## How it decides what to publish
 
@@ -91,6 +102,12 @@ agent:dry-run` / `pnpm agent:news` / `pnpm agent:guide`.
   the editor's quality pass and the mechanical checks (word count, table
   count, duplicate headings) are what stand between a draft and the
   live site.
+- **Prompts**: runs weekly. Picks the least-covered category in
+  `topics.ts`'s `promptCategories` and writes one new, original,
+  reusable prompt template that doesn't duplicate an existing one in
+  that category. Also `draft: false`, gated by the editor's mechanical
+  checks (has a `{{placeholder}}`, has both required body sections) and
+  quality pass.
 
 ## Quality gates before publication
 
@@ -137,7 +154,8 @@ covering it.
 ## GitHub Actions
 
 `.github/workflows/agent-news.yml` (every 2 hours, offset from
-Metarotation's) and `agent-guide.yml` (daily), both also runnable manually
-via "Run workflow". Add these repository secrets: `GEMINI_API_KEY`,
-`OPENROUTER_API_KEY`, and optionally `REDDIT_CLIENT_ID` /
+Metarotation's), `agent-guide.yml` (daily), and `agent-prompt.yml`
+(weekly), all also runnable manually via "Run workflow". Add these
+repository secrets: `GEMINI_API_KEY`, `OPENROUTER_API_KEY`, and optionally
+`REDDIT_CLIENT_ID` /
 `REDDIT_CLIENT_SECRET` / `YOUTUBE_API_KEY`.

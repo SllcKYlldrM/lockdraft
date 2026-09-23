@@ -1,5 +1,6 @@
 import { runNewsPipeline } from "./core/pipeline/news-run.ts";
 import { runGuidePipeline } from "./core/pipeline/guide-run.ts";
+import { runPromptPipeline } from "./core/pipeline/prompt-run.ts";
 
 const command = process.argv[2];
 
@@ -58,16 +59,30 @@ async function main() {
       }
       break;
     }
+    case "prompt": {
+      const summary = await runPromptPipeline();
+      printSummary(summary);
+      if (
+        summary.errors.length > 0 &&
+        summary.published.length === 0 &&
+        summary.rejected.length === 0
+      ) {
+        process.exitCode = 1;
+      }
+      break;
+    }
     case "dry-run": {
       const news = await runNewsPipeline({ dryRun: true });
       printSummary(news);
       const guide = await runGuidePipeline({ dryRun: true });
       printSummary(guide);
+      const prompt = await runPromptPipeline({ dryRun: true });
+      printSummary(prompt);
       console.log("\n(dry run — no files were written, no state was saved)");
       break;
     }
     default:
-      console.error(`Unknown command "${command}". Use: news | guide | dry-run`);
+      console.error(`Unknown command "${command}". Use: news | guide | prompt | dry-run`);
       process.exitCode = 1;
   }
 }

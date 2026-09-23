@@ -39,6 +39,22 @@ export const categories: CategoryDefinition[] = [
   { id: "prompt-engineering", name: "Prompt Engineering", slug: "prompt-engineering" },
 ];
 
+// Categories for the separate `prompts` collection (src/content/prompts/,
+// reusable fill-in-the-blank prompt templates — not blog posts). This uses
+// the existing human-written prompts' own lowercase vocabulary, which is
+// deliberately a different (smaller, flatter) taxonomy than `categories`
+// above: prompts are organized by task type, not by AI-product topic, so
+// there's no natural mapping to `topics`/`categories`. See
+// roles/prompt-planner.ts for how these are rotated through.
+export const promptCategories: string[] = [
+  "coding",
+  "agents",
+  "automation",
+  "writing",
+  "research",
+  "prompt-engineering",
+];
+
 export const topics: TopicDefinition[] = [
   {
     id: "claude",

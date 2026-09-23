@@ -24,7 +24,8 @@
     "github-cards": "npx tsx scripts/generate-github-card-data.ts",
     "agent:dry-run": "pnpm --dir agent run dry-run",
     "agent:news": "pnpm --dir agent run news",
-    "agent:guide": "pnpm --dir agent run guide"
+    "agent:guide": "pnpm --dir agent run guide",
+    "agent:prompt": "pnpm --dir agent run prompt"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",

@@ -78,3 +78,38 @@ export function contentDirFor(_kind: "news" | "guides"): string {
 export function imagesDirFor(_kind: "news" | "guides"): string {
   return path.join(sitePath, "public/images/posts");
 }
+
+export interface ExistingPrompt {
+  slug: string;
+  title: string;
+  category: string;
+}
+
+const PROMPTS_DIR = path.join(sitePath, "src/content/prompts");
+
+export async function loadExistingPrompts(): Promise<ExistingPrompt[]> {
+  let files: string[];
+  try {
+    files = (await fs.readdir(PROMPTS_DIR)).filter(
+      (f) => (f.endsWith(".md") || f.endsWith(".mdx")) && !f.startsWith("_"),
+    );
+  } catch {
+    return [];
+  }
+
+  const prompts: ExistingPrompt[] = [];
+  for (const file of files) {
+    const raw = await fs.readFile(path.join(PROMPTS_DIR, file), "utf-8");
+    const { data } = matter(raw);
+    prompts.push({
+      slug: file.replace(/\.mdx?$/, ""),
+      title: data.title ?? "",
+      category: data.category ?? "",
+    });
+  }
+  return prompts;
+}
+
+export function promptsDir(): string {
+  return PROMPTS_DIR;
+}

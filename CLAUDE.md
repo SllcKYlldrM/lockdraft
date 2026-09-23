@@ -93,16 +93,20 @@ LQIP data is generated into `src/constants/lqips.json` and committed — regener
 ## Content agent
 
 `agent/` is a standalone Node/TypeScript pnpm workspace package (its own
-`package.json`) that autonomously researches and writes posts into
-`src/content/posts/`: a news pipeline (RSS/GitHub Releases/Hacker
-News/Reddit/YouTube → scored candidates → written, edited, and
-overlap-checked article) and a daily long-form guide pipeline (finds an
-under-covered topic via `agent/topics.ts`, grounds the draft in a fetched
-official source, and runs it through the same editor pass). Both publish
-with `draft: false` after `pnpm build` passes in CI — see `agent/README.md`
-for the full pipeline, quality gates, and GitHub Actions workflows
-(`.github/workflows/agent-news.yml`, `agent-guide.yml`). It is a port of
-the same-shaped agent running on the Metarotation site and shares its
+`package.json`) that autonomously researches and writes content into two
+collections: a news pipeline and a daily long-form guide pipeline into
+`src/content/posts/` (news scores candidates from RSS/GitHub
+Releases/Hacker News/Reddit/YouTube; guides find an under-covered topic
+via `agent/topics.ts`, ground the draft in a fetched official source, and
+both run through the same editor pass), plus a weekly prompt pipeline into
+`src/content/prompts/` (picks the least-covered category and writes an
+original, reusable `{{placeholder}}`-style prompt template — no source
+grounding, since a template makes no factual claims to verify). All three
+publish with `draft: false` after `pnpm build` passes in CI — see
+`agent/README.md` for the full pipeline, quality gates, and GitHub Actions
+workflows (`.github/workflows/agent-news.yml`, `agent-guide.yml`,
+`agent-prompt.yml`). The news/guide pipelines are a port of the
+same-shaped agent running on the Metarotation site and share its
 Gemini/OpenRouter API keys, so quota is shared between the two.
 
 ## Deployment

@@ -9,6 +9,7 @@
   "scripts": {
     "news": "tsx src/cli.ts news",
     "guide": "tsx src/cli.ts guide",
+    "prompt": "tsx src/cli.ts prompt",
     "dry-run": "tsx src/cli.ts dry-run",
     "test": "node --test --import tsx src/**/*.test.ts",
     "typecheck": "tsc --noEmit"

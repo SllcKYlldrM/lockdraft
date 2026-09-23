@@ -1,8 +1,8 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
-import type { Article } from "../../core/types.ts";
-import { contentDirFor } from "../site-context.ts";
+import type { Article, PromptArticle } from "../../core/types.ts";
+import { contentDirFor, promptsDir } from "../site-context.ts";
 import { categories } from "../../../topics.ts";
 
 /**
@@ -49,6 +49,36 @@ export async function publishArticle(article: Article): Promise<string> {
   if (typeof frontmatter.published === "string") {
     frontmatter.published = new Date(frontmatter.published);
   }
+
+  const file = matter.stringify(`\n${article.body}\n`, frontmatter);
+  const filePath = path.join(dir, `${fm.slug}.md`);
+  await fs.writeFile(filePath, file, "utf-8");
+  return filePath;
+}
+
+/**
+ * Writes a prompt-collection entry (src/content/prompts/, matching
+ * content.config.ts's `promptsCollection` schema). Unlike posts, the
+ * frontmatter itself carries the main content (`prompt`, a multi-line
+ * string) — gray-matter/js-yaml automatically dumps a multi-line string in
+ * literal block (`|`) style, matching the existing human-written prompts.
+ */
+export async function publishPrompt(article: PromptArticle): Promise<string> {
+  const dir = promptsDir();
+  await fs.mkdir(dir, { recursive: true });
+
+  const fm = article.frontmatter;
+  const frontmatter: Record<string, unknown> = {
+    title: fm.title,
+    description: fm.description,
+    published: new Date(fm.published),
+    draft: fm.draft,
+    category: fm.category,
+    models: fm.models,
+    tags: fm.tags,
+    difficulty: fm.difficulty,
+    prompt: article.promptTemplate,
+  };
 
   const file = matter.stringify(`\n${article.body}\n`, frontmatter);
   const filePath = path.join(dir, `${fm.slug}.md`);

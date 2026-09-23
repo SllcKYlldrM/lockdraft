@@ -1,5 +1,5 @@
 import { z } from "zod";
-import type { ArticleFrontmatter } from "../types.ts";
+import type { ArticleFrontmatter, PromptFrontmatter } from "../types.ts";
 
 // Mirrors lockdraft/src/content.config.ts `postsCollection` schema. Keep in
 // sync manually — this is the pre-write gate that stops a malformed file
@@ -69,5 +69,30 @@ export function validateFrontmatter(
     errors.push(`topic "${frontmatter.topic}" is not in topics.ts`);
   }
 
+  return { valid: errors.length === 0, errors };
+}
+
+// Mirrors `promptsCollection` in content.config.ts.
+export const promptFrontmatterSchema = z.object({
+  title: z.string().min(1).max(100),
+  slug: z.string().min(1),
+  description: z.string().min(1).max(160),
+  category: z.string().min(1),
+  models: z.array(z.string()).default([]),
+  tags: z.array(z.string()).default([]),
+  difficulty: z.enum(["beginner", "intermediate", "advanced"]),
+  published: z.string().min(1),
+  draft: z.boolean(),
+  prompt: z.string().min(1),
+});
+
+export function validatePromptFrontmatter(
+  frontmatter: PromptFrontmatter,
+  promptTemplate: string,
+): ValidationResult {
+  const result = promptFrontmatterSchema.safeParse({ ...frontmatter, prompt: promptTemplate });
+  const errors = result.success
+    ? []
+    : result.error.issues.map((i) => `${i.path.join(".")}: ${i.message}`);
   return { valid: errors.length === 0, errors };
 }

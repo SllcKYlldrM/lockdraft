@@ -1,7 +1,7 @@
 import { callLLM, type ModelRef } from "../llm/provider.ts";
 import { extractJson } from "../llm/json.ts";
 import { limits } from "../../../agent.config.ts";
-import type { Article, EditorVerdict } from "../types.ts";
+import type { Article, EditorVerdict, PromptArticle } from "../types.ts";
 
 function countTables(body: string): number {
   return (body.match(/^\|.*\|$/gm) ?? [])
@@ -135,6 +135,88 @@ fundamentally unsalvageable (e.g. off-topic, incoherent).`;
     // bad JSON). This is an infrastructure failure, not a verdict on the
     // article's quality — rethrow so the caller treats it as a transient
     // error (retry next run) instead of a permanent content rejection.
+    throw new Error(`Editor LLM call failed: ${(err as Error).message}`);
+  }
+}
+
+/**
+ * Reviews a prompt-collection entry. Mechanical checks first: the template
+ * must actually be reusable ({{placeholder}} present) and the body must
+ * have both required sections. Then an LLM pass for genuine reusability,
+ * duplication, and instruction quality — a prompt template has different
+ * failure modes than a news/guide article (there's no source text to
+ * fact-check against; the risk is a disguised one-off answer instead).
+ */
+export async function reviewPrompt(
+  article: PromptArticle,
+  existingTitlesInCategory: string[],
+): Promise<EditorVerdict> {
+  const mechanicalIssues: string[] = [];
+
+  if (!/\{\{[a-zA-Z0-9_]+\}\}/.test(article.promptTemplate)) {
+    mechanicalIssues.push(
+      "Prompt template has no {{placeholder}} fields — it reads like a one-off answer, not a reusable template.",
+    );
+  }
+  if (!/^##\s+When to use this/im.test(article.body)) {
+    mechanicalIssues.push('Body is missing a "## When to use this" section.');
+  }
+  if (!/^##\s+Tips/im.test(article.body)) {
+    mechanicalIssues.push('Body is missing a "## Tips" section.');
+  }
+  if (article.frontmatter.description.length > 160) {
+    mechanicalIssues.push("Description exceeds 160 characters.");
+  }
+  if (article.frontmatter.title.length > 100) {
+    mechanicalIssues.push("Title exceeds 100 characters.");
+  }
+
+  if (mechanicalIssues.length > 0) {
+    return { status: "revise", issues: mechanicalIssues };
+  }
+
+  const prompt = `Review this reusable AI prompt template for an
+AI/automation site's prompt library. Check for:
+
+1. Genuine reusability — every {{placeholder}} should stand in for
+   information that varies per use. Flag it if the template is really a
+   disguised one-off question (specific details baked in that should be a
+   placeholder instead).
+2. Whether the instructions it gives the model being prompted are concrete
+   and structured, not vague ("help me with X").
+3. Whether it duplicates the purpose of an existing prompt too closely —
+   check against this category's existing titles: ${existingTitlesInCategory.join(", ") || "(none yet)"}
+4. Tone/filler issues in the "When to use this" and "Tips" sections.
+
+Title: ${article.frontmatter.title}
+Description: ${article.frontmatter.description}
+Difficulty: ${article.frontmatter.difficulty}
+Prompt template:
+"""
+${article.promptTemplate}
+"""
+Body:
+"""
+${article.body}
+"""
+
+Respond with ONLY this JSON shape:
+{"status": "pass" | "revise" | "reject", "issues": ["short issue 1", ...]}
+Use "revise" for fixable problems, "reject" only if the piece is
+fundamentally unsalvageable (off-topic, incoherent, or not really a
+prompt at all).`;
+
+  try {
+    const response = await callLLM("editor", [
+      { role: "system", content: "You are a meticulous copy editor. Output only valid JSON." },
+      { role: "user", content: prompt },
+    ]);
+    const verdict = extractJson<EditorVerdict>(response);
+    if (!["pass", "revise", "reject"].includes(verdict.status)) {
+      return { status: "revise", issues: ["Editor returned an unrecognized status."] };
+    }
+    return verdict;
+  } catch (err) {
     throw new Error(`Editor LLM call failed: ${(err as Error).message}`);
   }
 }

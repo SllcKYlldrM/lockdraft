@@ -99,6 +99,42 @@ export interface Article {
   kind: "news" | "guides";
 }
 
+export type PromptDifficulty = "beginner" | "intermediate" | "advanced";
+
+/** A category/gap the prompt planner picked to fill next. */
+export interface PromptCandidate {
+  category: string;
+  /** Existing prompt titles in this category, passed to the writer so it
+   * doesn't propose a near-duplicate. */
+  existingTitles: string[];
+}
+
+export interface PromptFrontmatter {
+  title: string;
+  slug: string;
+  description: string;
+  category: string;
+  models: string[];
+  tags: string[];
+  difficulty: PromptDifficulty;
+  published: string; // ISO 8601
+  draft: boolean;
+}
+
+/**
+ * A reusable prompt template for the `prompts` collection — distinct from
+ * Article: the "content" is a fill-in-the-blank prompt (frontmatter.prompt)
+ * plus a short Markdown body explaining when/how to use it, not a
+ * standalone piece of writing.
+ */
+export interface PromptArticle {
+  frontmatter: PromptFrontmatter;
+  /** The reusable prompt text itself, with {{placeholder}} fields. */
+  promptTemplate: string;
+  /** Markdown body: "## When to use this" + "## Tips" sections. */
+  body: string;
+}
+
 export type EditorStatus = "pass" | "revise" | "reject";
 
 export interface EditorVerdict {
@@ -117,7 +153,7 @@ export interface CoverResult {
 
 export interface RunSummary {
   runId: string;
-  pipeline: "news" | "guide";
+  pipeline: "news" | "guide" | "prompt";
   startedAt: string;
   finishedAt: string;
   published: string[]; // slugs

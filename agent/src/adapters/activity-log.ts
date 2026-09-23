@@ -7,7 +7,7 @@ export type AgentActivityStatus = "active" | "done" | "waiting" | "error";
 export interface AgentActivityEvent {
   eventId: string;
   runId: string;
-  pipeline: "news" | "guide";
+  pipeline: "news" | "guide" | "prompt";
   workerId: string;
   workerName: string;
   status: AgentActivityStatus;
