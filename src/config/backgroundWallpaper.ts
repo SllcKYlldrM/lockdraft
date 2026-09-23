@@ -82,13 +82,6 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			// 图标支持 Iconify 格式：fa7-brands:github、fa7-solid:envelope、mdi:rss 等
 			links: [
 				{
-					// TODO: replace with your GitHub profile/org URL
-					name: "GitHub",
-					icon: "fa7-brands:github",
-					url: "https://github.com/",
-					showName: true,
-				},
-				{
 					// TODO: replace with the contact email you want published publicly
 					name: "Email",
 					icon: "fa7-solid:envelope",

@@ -62,22 +62,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 	// 关于页面
 	links.push(LinkPresets.About);
 
-	// 自定义导航栏链接
-	links.push({
-		name: "Links",
-		url: "#",
-		icon: "material-symbols:link",
-		// 子菜单
-		children: [
-			{
-				name: "GitHub",
-				url: "https://github.com/CuteLeaf/Firefly",
-				external: true,
-				icon: "fa7-brands:github",
-			},
-		],
-	});
-
 	return { links } as NavBarConfig;
 };
 
