@@ -2,7 +2,6 @@ import { createGuideBrief, planGuideCandidates } from "../roles/planner.ts";
 import { writeGuideArticle } from "../roles/writer.ts";
 import { reviewArticle } from "../roles/editor.ts";
 import { buildGuideFactPack } from "../../adapters/guide-fact-pack.ts";
-import { makeCover } from "../roles/artist.ts";
 import { validateFrontmatter } from "../quality/frontmatter.ts";
 import {
   loadTopics,
@@ -158,27 +157,12 @@ export async function runGuidePipeline(opts: GuideRunOptions = {}): Promise<RunS
       if (!validation.valid) {
         rejected.push({ id: brief.workingTitle, reason: `frontmatter: ${validation.errors.join("; ")}` });
       } else {
-        emit("guide-artist", "Guide Artist", "active", `Creating cover for ${article.frontmatter.title}`);
-        const cover = await makeCover(article, {
-          topicName: topic?.name,
-        });
-        emit("guide-artist", "Guide Artist", "done", `Cover result: ${cover.source}`);
-        if (!cover.publicPath) {
-          rejected.push({
-            id: brief.workingTitle,
-            reason: "cover: official image and AI cover generation both failed",
-          });
-        } else {
-          article.frontmatter.cover = cover.publicPath;
-          article.frontmatter.coverAlt = cover.alt;
-
-          if (!opts.dryRun) {
-            emit("guide-publisher", "Guide Publisher", "active", `Publishing ${article.frontmatter.slug}`);
-            await publishArticle(article);
-            emit("guide-publisher", "Guide Publisher", "done", `Published ${article.frontmatter.slug}`);
-          }
-          published.push(article.frontmatter.slug);
+        if (!opts.dryRun) {
+          emit("guide-publisher", "Guide Publisher", "active", `Publishing ${article.frontmatter.slug}`);
+          await publishArticle(article);
+          emit("guide-publisher", "Guide Publisher", "done", `Published ${article.frontmatter.slug}`);
         }
+        published.push(article.frontmatter.slug);
       }
     }
   } catch (err) {

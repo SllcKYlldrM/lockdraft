@@ -5,7 +5,6 @@ draft: false
 description: >-
   OpenAI announces prompt caching upgrades for GPT-6, introducing explicit
   breakpoints, new diagnostics, and improved hit rates to lower latency.
-image: /images/posts/openai-previews-advanced-prompt-caching-for-gpt-6.jpg
 tags:
   - openai
   - gpt-6

@@ -75,10 +75,6 @@ export function contentDirFor(_kind: "news" | "guides"): string {
   return POSTS_DIR;
 }
 
-export function imagesDirFor(_kind: "news" | "guides"): string {
-  return path.join(sitePath, "public/images/posts");
-}
-
 export interface ExistingPrompt {
   slug: string;
   title: string;

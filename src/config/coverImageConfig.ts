@@ -19,7 +19,11 @@ import type { CoverImageConfig } from "../types/coverImageConfig";
  */
 export const coverImageConfig: CoverImageConfig = {
 	// 是否在文章详情页显示封面图
-	enableInPost: true,
+	// 全站封面图关闭开关：设为 false 后，image-utils.ts 的
+	// processCoverImageSync() 会直接返回空字符串，所以文章详情页、
+	// PostCard 列表缩略图、OG/JSON-LD 图片都不会再使用任何封面图，
+	// 无论 frontmatter 是否设置了 image 字段。
+	enableInPost: false,
 
 	// 是否使用标题和元数据叠加在封面上的布局
 	enableInPostOverlay: false,

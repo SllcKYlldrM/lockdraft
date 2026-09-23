@@ -147,7 +147,7 @@ async function callModel(ref: ModelRef, messages: ChatMessage[]): Promise<string
  * all configured models fail — callers must handle by skipping the item.
  */
 export async function callLLM(
-  role: Exclude<Role, "artist">,
+  role: Role,
   messages: ChatMessage[],
   primaryOverride?: ModelRef,
 ): Promise<string> {
@@ -174,102 +174,3 @@ export async function callLLM(
   throw new AggregateError(failures, `All ${role} models failed — ${details}`);
 }
 
-/**
- * Generates an image via the configured artist model. Returns raw bytes
- * (PNG) or undefined if generation is unavailable/fails. The publishing
- * pipelines treat an undefined result as a blocking cover failure.
- */
-async function generateGeminiImage(prompt: string): Promise<Buffer | undefined> {
-  const cfg = modelConfig.artist;
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey || cfg.primary.provider !== "gemini") return undefined;
-
-  const retryDelays = [5_000, 15_000];
-  for (let attempt = 0; attempt < 3; attempt++) {
-    try {
-      await throttle("gemini");
-      const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/${cfg.primary.model}:generateContent?key=${apiKey}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          signal: AbortSignal.timeout(45_000),
-          body: JSON.stringify({
-            contents: [{ role: "user", parts: [{ text: prompt }] }],
-          }),
-        },
-      );
-      if (!res.ok) {
-        if (![429, 500, 502, 503, 504].includes(res.status)) return undefined;
-        throw new Error(`Gemini image returned ${res.status}`);
-      }
-      const data = (await res.json()) as {
-        candidates?: {
-          content?: { parts?: { inlineData?: { data?: string } }[] };
-        }[];
-      };
-      const b64 = data.candidates?.[0]?.content?.parts?.find(
-        (p) => p.inlineData?.data,
-      )?.inlineData?.data;
-      if (b64) return Buffer.from(b64, "base64");
-    } catch {
-      if (attempt < retryDelays.length) await sleep(retryDelays[attempt] ?? 15_000);
-    }
-  }
-  return undefined;
-}
-
-/**
- * Anonymous AI Horde fallback. It is free but queued at lower priority, so
- * this intentionally runs only after Gemini retries have failed.
- */
-async function generateAiHordeImage(prompt: string): Promise<Buffer | undefined> {
-  try {
-    const submit = await fetch("https://stablehorde.net/api/v2/generate/async", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        apikey: "0000000000",
-      },
-      signal: AbortSignal.timeout(20_000),
-      body: JSON.stringify({
-        prompt,
-        params: { width: 1024, height: 576, steps: 20, n: 1 },
-        nsfw: false,
-        censor_nsfw: true,
-      }),
-    });
-    if (!submit.ok) return undefined;
-    const queued = (await submit.json()) as { id?: string };
-    if (!queued.id) return undefined;
-
-    const deadline = Date.now() + 120_000;
-    while (Date.now() < deadline) {
-      await sleep(5_000);
-      const statusRes = await fetch(
-        `https://stablehorde.net/api/v2/generate/status/${queued.id}`,
-        { signal: AbortSignal.timeout(15_000) },
-      );
-      if (!statusRes.ok) return undefined;
-      const status = (await statusRes.json()) as {
-        done?: boolean;
-        faulted?: boolean;
-        generations?: { img?: string }[];
-      };
-      if (status.faulted) return undefined;
-      if (!status.done) continue;
-      const imageUrl = status.generations?.[0]?.img;
-      if (!imageUrl) return undefined;
-      const imageRes = await fetch(imageUrl, { signal: AbortSignal.timeout(30_000) });
-      if (!imageRes.ok) return undefined;
-      return Buffer.from(await imageRes.arrayBuffer());
-    }
-  } catch {
-    return undefined;
-  }
-  return undefined;
-}
-
-export async function generateImage(prompt: string): Promise<Buffer | undefined> {
-  return (await generateGeminiImage(prompt)) ?? (await generateAiHordeImage(prompt));
-}

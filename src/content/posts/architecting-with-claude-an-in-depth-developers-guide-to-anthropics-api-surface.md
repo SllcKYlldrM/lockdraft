@@ -7,8 +7,6 @@ draft: false
 description: >-
   Master Claude's API surface. Learn to configure adaptive thinking, set up
   server-side fallbacks, manage data residency, and leverage tools.
-image: >-
-  /images/posts/architecting-with-claude-an-in-depth-developers-guide-to-anthropics-api-surface.jpg
 tags:
   - claude
   - anthropic

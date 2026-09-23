@@ -2,7 +2,6 @@ import { scout } from "../roles/scout.ts";
 import { isBreakingNewsCandidate, planNews } from "../roles/planner.ts";
 import { writeNewsArticle } from "../roles/writer.ts";
 import { reviewArticle } from "../roles/editor.ts";
-import { makeCover } from "../roles/artist.ts";
 import { overlapRatio } from "../quality/overlap.ts";
 import { validateFrontmatter } from "../quality/frontmatter.ts";
 import { getSourceText } from "../article-fetcher.ts";
@@ -227,26 +226,6 @@ export async function runNewsPipeline(opts: NewsRunOptions = {}): Promise<RunSum
           rejected.push({ id: candidate.item.id, reason: `frontmatter: ${validation.errors.join("; ")}` });
           continue;
         }
-
-        emit("news-artist", "News Artist", "active", `Creating cover for ${article.frontmatter.title}`);
-        const cover = await makeCover(article, {
-          sourceUrl: candidate.item.sourceUrl,
-          topicName: topic?.name,
-        });
-        emit("news-artist", "News Artist", "done", `Cover result: ${cover.source}`);
-        if (!cover.publicPath) {
-          const reason = "cover: official image and AI cover generation both failed";
-          rejections.set(candidate.item.id, {
-            retryAfter: new Date(
-              Date.now() + limits.rejectionRetryHours * 60 * 60 * 1000,
-            ).toISOString(),
-            reason,
-          });
-          rejected.push({ id: candidate.item.id, reason });
-          continue;
-        }
-        article.frontmatter.cover = cover.publicPath;
-        article.frontmatter.coverAlt = cover.alt;
 
         if (!opts.dryRun) {
           emit("news-publisher", "News Publisher", "active", `Publishing ${article.frontmatter.slug}`);

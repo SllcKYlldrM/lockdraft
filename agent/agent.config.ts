@@ -11,8 +11,7 @@ import { fileURLToPath } from "node:url";
 const geminiTextModel = process.env.LOCKDRAFT_GEMINI_TEXT_MODEL ?? "gemini-3.6-flash";
 
 // Planner uses Gemini Flash-Lite for better briefs at low cost. Writer/editor use Gemini text as the quality-first primary
-// when GEMINI_API_KEY is available, with OpenRouter fallbacks. Gemini is
-// also used for the required artist role.
+// when GEMINI_API_KEY is available, with OpenRouter fallbacks.
 export const modelConfig = {
   planner: {
     primary: { provider: "gemini", model: "gemini-3.5-flash-lite" },
@@ -32,10 +31,6 @@ export const modelConfig = {
     emergencyFallback: { provider: "openrouter", model: "qwen/qwen3.7-flash" },
     lastResortFallback: { provider: "openrouter", model: "deepseek/deepseek-v4-flash" },
     guideQuality: { provider: "gemini", model: "gemini-3.1-pro-preview" },
-  },
-  artist: {
-    primary: { provider: "gemini", model: "gemini-3.1-flash-image" },
-    fallback: undefined,
   },
 } as const;
 

@@ -2,7 +2,7 @@
 // dependencies on the LockDraft site — it is the contract between
 // core/ (portable) and adapters/ (site-specific).
 
-export type Role = "planner" | "writer" | "editor" | "artist";
+export type Role = "planner" | "writer" | "editor";
 
 export type SourceKind =
   | "rss"
@@ -79,8 +79,6 @@ export interface ArticleFrontmatter {
   category: string;
   topic?: string;
   tags: string[];
-  cover?: string;
-  coverAlt?: string;
   published: string; // ISO 8601
   author: string;
   draft: boolean;
@@ -140,15 +138,6 @@ export type EditorStatus = "pass" | "revise" | "reject";
 export interface EditorVerdict {
   status: EditorStatus;
   issues: string[];
-}
-
-export interface CoverResult {
-  /** Absolute path on disk where the cover was written, if any. */
-  filePath?: string;
-  /** Site-relative path to store in frontmatter `image`, e.g. /images/posts/x.jpg */
-  publicPath?: string;
-  alt?: string;
-  source: "official" | "ai" | "fallback" | "none";
 }
 
 export interface RunSummary {

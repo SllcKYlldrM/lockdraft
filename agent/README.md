@@ -30,7 +30,14 @@ workflows and the lower `maxNewsPerDay` in `agent.config.ts`.
 | Planner | `src/core/roles/planner.ts` | Scores news candidates 0-100; picks the next under-covered guide topic |
 | Writer | `src/core/roles/writer.ts` | Writes a fully original article from source material (never copies phrasing) |
 | Editor | `src/core/roles/editor.ts` | Mechanical checks (word count, tables, duplicate headings) + LLM quality/fact pass |
-| Artist | `src/core/roles/artist.ts` | Cover image: official source og:image → Gemini retry → free anonymous AI Horde fallback → local branded fallback |
+
+There is no cover-image role. An earlier Artist role generated one per
+article (official og:image → Gemini → local branded fallback), but the
+AI-generated ones were abstract gradients with no text/subject — added no
+informational value and looked nearly identical across articles — so the
+site turned off cover images entirely
+(`coverImageConfig.enableInPost: false`) and the agent stopped generating
+them. Posts publish with no `image` field.
 
 A separate, smaller pipeline writes the `prompts` collection
 (`src/content/prompts/` — reusable fill-in-the-blank prompt templates, not
@@ -58,10 +65,7 @@ cp .env.example .env   # fill in the keys you have; every key is optional,
 For the full primary path, set `GEMINI_API_KEY`; `OPENROUTER_API_KEY` is the
 independent text-generation fallback. Planner uses Gemini 3.5 Flash-Lite;
 Writer/Editor use Gemini 3.6 Flash with Gemini 3.5 Flash, then pinned
-low-cost Qwen and DeepSeek OpenRouter fallbacks; Artist uses Gemini image
-generation. An article always receives a cover: if the official og:image,
-Gemini retry, and free anonymous AI Horde fallback are unavailable, the
-agent creates a local branded SVG/JPEG cover without an external API.
+low-cost Qwen and DeepSeek OpenRouter fallbacks.
 Higher-risk guides also receive a second Gemini 3.1 Pro review. Reddit and
 YouTube keys are optional — those sources are skipped without them
 (YouTube has no configured channels by default — see `agent.config.ts`).
@@ -75,8 +79,8 @@ amount if the agent needs to run more than a handful of times per day.
 ```bash
 npm run dry-run   # fetches sources, scores/plans, does NOT call the
                    # writer or write files — safe to run anytime
-npm run news       # full news pipeline, writes .md + images if it publishes
-npm run guide      # full guide pipeline, writes .md + images if it publishes
+npm run news       # full news pipeline, writes .md if it publishes
+npm run guide      # full guide pipeline, writes .md if it publishes
 npm run prompt     # full prompt pipeline, writes one .md to src/content/prompts if it publishes
 ```
 

@@ -36,6 +36,16 @@ export function processCoverImageSync(
 	image: string | undefined,
 	seed?: string,
 ): string {
+	// Single chokepoint for both consumers (PostCard's list thumbnail and
+	// the post detail page's cover/OG-image/JSON-LD/poster), so
+	// `enableInPost: false` acts as a true site-wide "no cover images"
+	// switch instead of only hiding the detail-page banner while OG tags
+	// and list cards still pick up whatever `image` a post's frontmatter
+	// happens to set.
+	if (!coverImageConfig.enableInPost) {
+		return "";
+	}
+
 	if (!image || image === "") {
 		return "";
 	}

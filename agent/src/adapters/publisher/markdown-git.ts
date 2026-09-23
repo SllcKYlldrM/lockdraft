@@ -25,12 +25,16 @@ export async function publishArticle(article: Article): Promise<string> {
   const extraTags: string[] = [fm.newsType, fm.guideType].filter(Boolean) as string[];
   const tags = [...new Set([...fm.tags, ...extraTags])];
 
+  // No `image` field — the site turned off cover images entirely
+  // (coverImageConfig.enableInPost: false); see the removed
+  // src/core/roles/artist.ts for why (AI-generated abstract covers with
+  // no text/subject added no informational value and looked nearly
+  // identical across articles).
   const frontmatter: Record<string, unknown> = {
     title: fm.title,
     published: fm.published,
     draft: fm.draft,
     description: fm.description,
-    image: fm.cover,
     tags,
     category: categoryName,
     author: fm.author,

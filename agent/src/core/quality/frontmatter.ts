@@ -17,11 +17,6 @@ const baseFields = {
   description: z.string().min(1).max(160),
   category: z.string().min(1),
   tags: z.array(z.string()).default([]),
-  image: z
-    .string()
-    .refine((v) => v.startsWith("/"), "image must start with /")
-    .optional(),
-  imageAlt: z.string().optional(),
   published: z.string().min(1),
   author: z.string().min(1),
   draft: z.boolean(),
@@ -41,18 +36,12 @@ export function validateFrontmatter(
   frontmatter: ArticleFrontmatter,
   knownTopicIds: string[],
 ): ValidationResult {
-  // `image`/`imageAlt` are set by the artist role after this validation
-  // normally runs during the pipeline (frontmatter is checked before the
-  // cover is generated), so map from the agent's internal `cover`/`coverAlt`
-  // naming only when present.
   const mapped = {
     title: frontmatter.title,
     slug: frontmatter.slug,
     description: frontmatter.description,
     category: frontmatter.category,
     tags: frontmatter.tags,
-    image: frontmatter.cover,
-    imageAlt: frontmatter.coverAlt,
     published: frontmatter.published,
     author: frontmatter.author,
     draft: frontmatter.draft,
