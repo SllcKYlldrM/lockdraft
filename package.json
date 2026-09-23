@@ -22,6 +22,7 @@
     "preinstall": "npx only-allow pnpm",
     "lqips": "npx tsx scripts/generate-lqips.ts",
     "github-cards": "npx tsx scripts/generate-github-card-data.ts",
+    "favicon": "node scripts/generate-favicon.mjs",
     "agent:dry-run": "pnpm --dir agent run dry-run",
     "agent:news": "pnpm --dir agent run news",
     "agent:guide": "pnpm --dir agent run guide",
