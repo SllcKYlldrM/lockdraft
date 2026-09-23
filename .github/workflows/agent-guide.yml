@@ -1,0 +1,85 @@
+name: Content agent — guide
+
+on:
+  schedule:
+    # Once a day, offset from the news cron and from Metarotation's guide
+    # run (same Gemini/OpenRouter API keys, shared quota).
+    - cron: "30 8 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: content-agent
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  guide:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.22.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run guide pipeline
+        working-directory: agent
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: pnpm run guide
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git status --porcelain | grep -q .; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build site (quality gate)
+        if: steps.changes.outputs.changed == 'true'
+        run: pnpm build
+
+      - name: Preserve unpublished output
+        if: failure()
+        run: |
+          mkdir -p agent/failure-artifact
+          git diff --binary HEAD -- src/content/posts public/images/posts agent/state > agent/failure-artifact/generated.diff || true
+          git ls-files --others --exclude-standard src/content/posts public/images/posts agent/state | tar -czf agent/failure-artifact/untracked-content.tgz -T - || true
+          cp agent/state/runs.jsonl agent/failure-artifact/runs.jsonl 2>/dev/null || true
+
+      - name: Upload unpublished output
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lockdraft-guide-${{ github.run_id }}-unpublished
+          path: agent/failure-artifact
+          retention-days: 14
+          if-no-files-found: warn
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "lockdraft-agent"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "chore(agent): publish guide $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push

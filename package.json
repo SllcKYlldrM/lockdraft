@@ -21,7 +21,10 @@
     "lint": "biome check --write ./src ./scripts",
     "preinstall": "npx only-allow pnpm",
     "lqips": "npx tsx scripts/generate-lqips.ts",
-    "github-cards": "npx tsx scripts/generate-github-card-data.ts"
+    "github-cards": "npx tsx scripts/generate-github-card-data.ts",
+    "agent:dry-run": "pnpm --dir agent run dry-run",
+    "agent:news": "pnpm --dir agent run news",
+    "agent:guide": "pnpm --dir agent run guide"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",

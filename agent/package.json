@@ -1,0 +1,32 @@
+{
+  "name": "lockdraft-agent",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "news": "tsx src/cli.ts news",
+    "guide": "tsx src/cli.ts guide",
+    "dry-run": "tsx src/cli.ts dry-run",
+    "test": "node --test --import tsx src/**/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@mozilla/readability": "^0.6.0",
+    "dayjs": "^1.11.23",
+    "gray-matter": "^4.0.3",
+    "jsdom": "^27.1.0",
+    "rss-parser": "^3.13.0",
+    "sharp": "^0.35.4",
+    "slugify": "^1.6.9",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^21.1.7",
+    "@types/node": "^24.10.1",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.3"
+  }
+}

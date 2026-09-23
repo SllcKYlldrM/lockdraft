@@ -90,6 +90,21 @@ LQIP data is generated into `src/constants/lqips.json` and committed — regener
 
 `prune-pio-assets.ts` deletes unused 看板娘 assets from `dist/` after the Astro build (Astro copies all of `public/` regardless of config). It drops `dist/pio/models/live2d` plus the orphaned `Live2DWidget` client chunk when `live2dWidgetConfig.enable` is false, `dist/pio/models/spine` and `dist/pio/static` when `spineModelConfig.enable` is false, and all of `dist/pio` when both are off (~15 MiB). It no-ops when both are enabled.
 
+## Content agent
+
+`agent/` is a standalone Node/TypeScript pnpm workspace package (its own
+`package.json`) that autonomously researches and writes posts into
+`src/content/posts/`: a news pipeline (RSS/GitHub Releases/Hacker
+News/Reddit/YouTube → scored candidates → written, edited, and
+overlap-checked article) and a daily long-form guide pipeline (finds an
+under-covered topic via `agent/topics.ts`, grounds the draft in a fetched
+official source, and runs it through the same editor pass). Both publish
+with `draft: false` after `pnpm build` passes in CI — see `agent/README.md`
+for the full pipeline, quality gates, and GitHub Actions workflows
+(`.github/workflows/agent-news.yml`, `agent-guide.yml`). It is a port of
+the same-shaped agent running on the Metarotation site and shares its
+Gemini/OpenRouter API keys, so quota is shared between the two.
+
 ## Deployment
 
 - **Vercel** (default, `vercel.json`)
