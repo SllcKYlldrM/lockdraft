@@ -3,6 +3,8 @@ import type { AnalyticsConfig } from "../types/analyticsConfig";
 export const analyticsConfig: AnalyticsConfig = {
 	// Google Analytics ID
 	googleAnalyticsId: "G-SD3W4DH78V",
+	// Google Search Console 站长验证码
+	googleSiteVerification: "fawQIXnGkr74W8joEyq6gKC0UQ7EwgG_-7nEAHLoan4",
 	// Microsoft Clarity ID
 	microsoftClarityId: "",
 	// Umami 统计配置

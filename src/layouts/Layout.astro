@@ -199,6 +199,9 @@ const ogImageAlt = propsOgImageAlt ?? pageTitle;
       )
     }
     <meta name="author" content={profileConfig.name} />
+    {analyticsConfig?.googleSiteVerification && (
+      <meta name="google-site-verification" content={analyticsConfig.googleSiteVerification} />
+    )}
 
     <link rel="canonical" href={canonicalUrl} />
     <meta property="og:site_name" content={siteConfig.title} />

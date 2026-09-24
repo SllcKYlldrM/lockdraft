@@ -1,5 +1,6 @@
 export type AnalyticsConfig = {
 	googleAnalyticsId?: string; // Google Analytics ID
+	googleSiteVerification?: string; // Google Search Console 站长验证码
 	microsoftClarityId?: string; // Microsoft Clarity ID
 	umamiAnalytics?: {
 		websiteId?: string; // Umami Website ID
