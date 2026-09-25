@@ -3,6 +3,7 @@
     "rss:OpenAI:https://openai.com/index/better-prompt-caching-for-gpt-6",
     "github-release:anthropics/claude-code:v2.1.281",
     "github-release:anthropics/claude-code:v2.1.282",
-    "github-release:anthropics/claude-code:v2.1.280"
+    "github-release:anthropics/claude-code:v2.1.280",
+    "rss:Hugging Face Blog:https://huggingface.co/blog/transformers-llama-cpp-quants"
   ]
 }
