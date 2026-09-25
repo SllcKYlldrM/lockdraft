@@ -101,6 +101,8 @@
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.10.11",
     "@biomejs/biome": "2.5.12",
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/svg-spinners": "^1.2.4",
     "@tailwindcss/vite": "^4.3.3",
