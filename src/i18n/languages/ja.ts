@@ -130,7 +130,6 @@ export const ja: Translation = {
 	[Key.publishedAt]: "公開日",
 	[Key.updatedAt]: "更新日",
 	[Key.readTime]: "読了時間",
-	[Key.license]: "ライセンス",
 	[Key.bangumi]: "Bangumi",
 
 	// バングミフィルターと状態文本
@@ -464,7 +463,6 @@ export const ja: Translation = {
 	[Key.siteInfoExpand]: "ビルド情報を展開",
 	[Key.siteInfoCollapse]: "ビルド情報を折畳む",
 	[Key.siteInfoDomain]: "ドメイン",
-	[Key.siteInfoLicense]: "ライセンス",
 
 	// カレンダーコンポーネント
 	[Key.calendarSunday]: "日",

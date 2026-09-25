@@ -128,7 +128,6 @@ export const zh_TW: Translation = {
 	[Key.publishedAt]: "發布於",
 	[Key.updatedAt]: "更新於",
 	[Key.readTime]: "閱讀時長",
-	[Key.license]: "許可協議",
 	[Key.bangumi]: "番組計劃",
 
 	// 番組計劃
@@ -458,7 +457,6 @@ export const zh_TW: Translation = {
 	[Key.siteInfoExpand]: "展開構建資訊",
 	[Key.siteInfoCollapse]: "收起構建資訊",
 	[Key.siteInfoDomain]: "站點域名",
-	[Key.siteInfoLicense]: "文章許可",
 
 	// 日曆組件
 	[Key.calendarSunday]: "日",

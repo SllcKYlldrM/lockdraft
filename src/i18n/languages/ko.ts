@@ -130,7 +130,6 @@ export const ko: Translation = {
 	[Key.publishedAt]: "게시일",
 	[Key.updatedAt]: "수정일",
 	[Key.readTime]: "읽는 시간",
-	[Key.license]: "라이선스",
 	[Key.bangumi]: "Bangumi",
 
 	// Bangumi Filter and Status Text
@@ -464,7 +463,6 @@ export const ko: Translation = {
 	[Key.siteInfoExpand]: "빌드 정보 표시",
 	[Key.siteInfoCollapse]: "빌드 정보 숨기기",
 	[Key.siteInfoDomain]: "도메인",
-	[Key.siteInfoLicense]: "라이선스",
 
 	// Calendar Component
 	[Key.calendarSunday]: "일",

@@ -107,7 +107,6 @@ enum I18nKey {
 	publishedAt = "publishedAt",
 	updatedAt = "updatedAt",
 	readTime = "readTime",
-	license = "license",
 	friends = "friends",
 	friendsDescription = "friendsDescription",
 	searchFriends = "searchFriends",
@@ -450,7 +449,6 @@ enum I18nKey {
 	siteInfoExpand = "siteInfoExpand",
 	siteInfoCollapse = "siteInfoCollapse",
 	siteInfoDomain = "siteInfoDomain",
-	siteInfoLicense = "siteInfoLicense",
 
 	// 日历组件
 	calendarSunday = "calendarSunday",

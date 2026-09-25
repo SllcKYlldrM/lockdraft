@@ -131,7 +131,6 @@ export const ru: Translation = {
 	[Key.publishedAt]: "Опубликовано",
 	[Key.updatedAt]: "Обновлено",
 	[Key.readTime]: "Время чтения",
-	[Key.license]: "Лицензия",
 	[Key.bangumi]: "Bangumi",
 
 	// Фильтр и статус Бангуми текст
@@ -468,7 +467,6 @@ export const ru: Translation = {
 	[Key.siteInfoExpand]: "Показать информацию о сборке",
 	[Key.siteInfoCollapse]: "Скрыть информацию о сборке",
 	[Key.siteInfoDomain]: "Домен",
-	[Key.siteInfoLicense]: "Лицензия",
 
 	// Компонент календаря
 	[Key.calendarSunday]: "Вс",

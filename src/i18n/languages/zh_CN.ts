@@ -128,7 +128,6 @@ export const zh_CN: Translation = {
 	[Key.publishedAt]: "发布于",
 	[Key.updatedAt]: "更新于",
 	[Key.readTime]: "阅读时长",
-	[Key.license]: "许可协议",
 	[Key.bangumi]: "番组计划",
 
 	// 番组计划筛选和状态文本
@@ -456,7 +455,6 @@ export const zh_CN: Translation = {
 	[Key.siteInfoExpand]: "展开构建信息",
 	[Key.siteInfoCollapse]: "收起构建信息",
 	[Key.siteInfoDomain]: "站点域名",
-	[Key.siteInfoLicense]: "文章许可",
 
 	// 日历组件
 	[Key.calendarSunday]: "日",

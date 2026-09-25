@@ -131,7 +131,6 @@ export const en: Translation = {
 	[Key.publishedAt]: "Published at",
 	[Key.updatedAt]: "Updated at",
 	[Key.readTime]: "Read time",
-	[Key.license]: "License",
 	[Key.bangumi]: "Bangumi",
 
 	// Bangumi Filter and Status Text
@@ -467,7 +466,6 @@ export const en: Translation = {
 	[Key.siteInfoExpand]: "Show build info",
 	[Key.siteInfoCollapse]: "Hide build info",
 	[Key.siteInfoDomain]: "Domain",
-	[Key.siteInfoLicense]: "License",
 
 	// Calendar Component
 	[Key.calendarSunday]: "Sun",
