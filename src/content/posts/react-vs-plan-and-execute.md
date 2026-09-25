@@ -1,7 +1,6 @@
 ---
 title: "ReAct vs. Plan-and-Execute: Two Patterns for AI Agents"
 published: 2026-09-16
-pinned: true
 description: "Two of the most common agent loop patterns, what each one is actually good at, and when picking the wrong one will hurt you."
 tags: [agents, react, planning, architecture]
 category: Agents

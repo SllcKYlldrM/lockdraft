@@ -45,9 +45,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		url: "#",
 		icon: "material-symbols:apps-rounded",
 		children: [
-			// 动态
-			LinkPresets.Dynamic,
-
 			// 项目
 			LinkPresets.Projects,
 

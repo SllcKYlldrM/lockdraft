@@ -10,14 +10,8 @@ async function getRawSortedPosts() {
 	});
 
 	const sorted = allBlogPosts.sort((a, b) => {
-		// 首先按置顶状态排序，置顶文章在前
-		if (a.data.pinned && !b.data.pinned) return -1;
-		if (!a.data.pinned && b.data.pinned) return 1;
-
-		// 如果置顶状态相同，则按发布日期排序
-		const dateA = new Date(a.data.published);
-		const dateB = new Date(b.data.published);
-		return dateA > dateB ? -1 : 1;
+		// 首页始终把最新发布的文章作为置顶内容，不再依赖 frontmatter pinned。
+		return b.data.published.getTime() - a.data.published.getTime();
 	});
 	return sorted;
 }
