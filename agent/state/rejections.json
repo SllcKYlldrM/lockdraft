@@ -1,17 +1,5 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.278": {
-      "retryAfter": "2026-09-26T08:17:12.922Z",
-      "reason": "editor: The specific version number 'v2.1.278' is cited repeatedly but does not appear in the provided source material. Exact version claims must be removed or qualified as unverified from the current source.; The phrase 'client-side classification' describes prior behavior, but the source material only explicitly references switching to a 'server-side classifier.' The source does not name the previous method; phrasing should align with the source or be marked as inferred.; The 'Why it matters' and 'What to do next' sections introduce unsupported extrapolations regarding billing impacts ('noticeable cost overhead', 'zero-cost') and procedural advice not contained in the release notes. Editorial analysis is acceptable when clearly framed as interpretation, but it should avoid introducing specific cost projections or step-by-step directives not grounded in the provided documentation."
-    },
-    "github-release:anthropics/claude-code:v2.1.277": {
-      "retryAfter": "2026-09-26T08:26:13.453Z",
-      "reason": "editor: In 'Why it matters', references to 'Anthropic's other coding assistants' and 'zero-trust networks' are unsupported specific facts not found in the source material.; In 'What to do next', advises auditing keys as 'deprecated or malformed', but the source only cites 'malformed' values causing crashes.; The description of the `headers:` map implies injecting tokens directly to the provider endpoint, whereas the source specifies sending static headers to a proxy running in front of the provider."
-    },
-    "github-release:openai/openai-python:v3.18.0": {
-      "retryAfter": "2026-09-26T08:30:56.236Z",
-      "reason": "editor: Body is 173 words, needs at least 300 (too thin/filler-heavy)."
-    },
     "rss:OpenAI:https://openai.com/index/introducing-gpt-6-sol-and-luna": {
       "retryAfter": "2026-09-27T05:39:27.980Z",
       "reason": "editor: Body is 192 words, needs at least 300 (too thin/filler-heavy)."

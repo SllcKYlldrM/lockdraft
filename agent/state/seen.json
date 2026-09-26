@@ -5,6 +5,7 @@
     "github-release:anthropics/claude-code:v2.1.282",
     "github-release:anthropics/claude-code:v2.1.280",
     "rss:Hugging Face Blog:https://huggingface.co/blog/transformers-llama-cpp-quants",
-    "github-release:anthropics/claude-code:v2.1.283"
+    "github-release:anthropics/claude-code:v2.1.283",
+    "rss:n8n Blog:6ab54c33f129f4000110d8dc"
   ]
 }
