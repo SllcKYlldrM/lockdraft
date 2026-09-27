@@ -1,8 +1,8 @@
 {
   "items": {
     "rss:OpenAI:https://openai.com/index/introducing-gpt-6-sol-and-luna": {
-      "retryAfter": "2026-09-27T05:39:27.980Z",
-      "reason": "editor: Body is 192 words, needs at least 300 (too thin/filler-heavy)."
+      "retryAfter": "2026-09-28T08:36:29.095Z",
+      "reason": "editor: Body is 151 words, needs at least 300 (too thin/filler-heavy)."
     }
   }
 }
