@@ -9,6 +9,7 @@
     "rss:n8n Blog:6ab54c33f129f4000110d8dc",
     "github-release:openai/openai-python:v3.18.0",
     "github-release:ollama/ollama:v0.34.4",
-    "rss:Hugging Face Blog:https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark"
+    "rss:Hugging Face Blog:https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark",
+    "github-release:openai/openai-python:v3.20.0"
   ]
 }
