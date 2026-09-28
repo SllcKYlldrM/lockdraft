@@ -1,12 +1,12 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-sol-and-luna": {
-      "retryAfter": "2026-09-28T08:36:29.095Z",
-      "reason": "editor: Body is 151 words, needs at least 300 (too thin/filler-heavy)."
-    },
     "rss:Hugging Face Blog:https://huggingface.co/blog/MultiverseComputingCAI/pruning-llms-like-a-physicist-block-removal-as-an": {
       "retryAfter": "2026-09-29T01:19:47.644Z",
       "reason": "editor: The title and description misleadingly claim that the method 'boosts' Llama-3.3-70B's MMLU score by 23 percentage points; the source actually states that at 50% compression, the method gains 23 percentage points over the best competing block-removal method."
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-sol-and-luna": {
+      "retryAfter": "2026-09-29T09:00:10.488Z",
+      "reason": "editor: Body is 129 words, needs at least 300 (too thin/filler-heavy)."
     }
   }
 }
