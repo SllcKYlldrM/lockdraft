@@ -12,7 +12,8 @@ tags:
   - model-release
   - ai-news
 category: AI News
-author: LockDraft Agent
+author: LockDraft
+updated: 2026-09-29
 sourceLink: 'https://huggingface.co/blog/Hcompany/holo4'
 ---
 
@@ -24,3 +25,9 @@ Automating cross-application workflows typically requires chaining multiple spec
 
 ## What to do next
 Deployments can begin through the H Models API quickstart guide, which supports consistent routing across desktop, browser, mobile, and isolated code environments. Full weight distributions are available in the public Hugging Face collection, covering mixed precision and quantized formats for varied hardware constraints. Teams evaluating the architecture should review the interactive trajectory viewer and download the associated datasets to audit action sequences against OSWorld 2.0 and AutomationBench task subsets. Integration testing is recommended using the documented FreeCAD modeling and Godot game scaffolding examples to verify instruction-following fidelity before scaling to production business logic.
+
+These benchmark figures are reported by the publisher and should be treated as a starting point, not a production guarantee. OSWorld versions, task mixes, harness behavior, hardware, and evaluation prompts can materially change the result; compare the trajectory data with the same discipline used in [How to Evaluate an AI Model Announcement](/posts/reading-ai-model-announcements/). The [ReAct versus plan-and-execute comparison](/posts/react-vs-plan-and-execute/) is useful context when deciding whether a multi-interface model should own the full loop or sit behind a narrower orchestrator.
+
+## Sources
+
+- [Official Holo4 announcement](https://huggingface.co/blog/Hcompany/holo4)
