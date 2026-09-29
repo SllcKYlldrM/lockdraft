@@ -13,7 +13,8 @@ tags:
   - API
   - model-release
 category: AI News
-author: LockDraft Agent
+author: LockDraft
+updated: 2026-09-29
 sourceLink: 'https://github.com/openai/openai-python/releases/tag/v3.18.0'
 ---
 
@@ -29,6 +30,8 @@ Updating the Python client to support GPT-6 Sol and GPT-6 Luna establishes the c
 
 Integrating the model identifiers directly into `openai-python` ensures that developer applications, automated agent frameworks, and SDK wrapper utilities can reference these strings without triggering client-side validation errors or requiring manual string overrides. The Sol and Luna naming convention points toward distinct sub-tier options within the GPT-6 family—typically indicating trade-offs between execution speed, reasoning capabilities, or operational costs. However, because the SDK release note focuses exclusively on API string registration, developers must wait for corresponding platform documentation to learn the explicit hardware, latency, or feature differences between the Sol and Luna models.
 
+The names alone do not establish a speed, reasoning, pricing, context-window, or availability difference between Sol and Luna. Treat those distinctions as unverified until OpenAI's platform documentation or account-level access confirms them.
+
 ## What to do next
 
 Developers using the official Python client can install the updated package directly from PyPI:
@@ -36,3 +39,9 @@ Developers using the official Python client can install the updated package dire
 `pip install --upgrade openai==3.18.0`
 
 After upgrading your environment, review any central model configuration files, custom wrappers, or environment variables in your codebase to ensure they accommodate the new identifier formats. If your systems validate model selection against internal enums or constants, update those definitions to reflect version 3.18.0. Keep in mind that calling these new identifiers successfully in production will depend on whether your OpenAI account has backend API access enabled for the GPT-6 Sol and Luna endpoints. Before changing model identifiers in production, use the [AI model announcement evaluation checklist](/posts/reading-ai-model-announcements/) to record availability and test conditions. The later [OpenAI Python SDK 3.20 update](/posts/openai-python-sdk-v3200-adds-agents-configuration-websocket-snapshots-and-transp/) shows how the same client evolves beyond model identifier support into agent configuration and transport reliability.
+
+This is a narrow SDK compatibility release. It is useful to maintainers whose client validation rejects unknown model IDs, but it is not evidence that the models are generally available or that an application will gain a performance improvement after upgrading.
+
+## Sources
+
+- [Official OpenAI Python SDK v3.18.0 release notes](https://github.com/openai/openai-python/releases/tag/v3.18.0)
