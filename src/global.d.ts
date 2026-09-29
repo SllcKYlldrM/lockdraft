@@ -9,6 +9,15 @@ declare global {
 	}
 
 	interface Window {
+		dataLayer: unknown[];
+		gtag?: (...args: unknown[]) => void;
+		lockdraftAnalytics?: {
+			trackEvent: (
+				name: string,
+				params?: Record<string, string | number | boolean | undefined>,
+			) => void;
+			openConsentSettings: () => void;
+		};
 		// biome-ignore lint/suspicious/noExplicitAny: External library
 		swup: any;
 		spineModelInitialized?: boolean;

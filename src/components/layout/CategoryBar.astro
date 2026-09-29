@@ -79,6 +79,7 @@ function initialActive(categoryName: string): {
             return (
             <a
               href={cat.url}
+              data-analytics-category={cat.name}
               class="category-pill focus-ring-inset text-sm px-4 py-1.5 whitespace-nowrap
                      transition-colors duration-150 ease-out flex items-center justify-center"
               data-category-name={cat.name}

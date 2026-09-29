@@ -1,5 +1,5 @@
 ---
-import GoogleAnalytics from "@components/analytics/GoogleAnalytics.astro";
+import AnalyticsManager from "@components/analytics/AnalyticsManager.astro";
 import La51Analytics from "@components/analytics/La51Analytics.astro";
 import MicrosoftClarity from "@components/analytics/MicrosoftClarity.astro";
 import UmamiAnalytics from "@components/analytics/UmamiAnalytics.astro";
@@ -172,9 +172,6 @@ const ogImageAlt = propsOgImageAlt ?? pageTitle;
     <style is:inline>
 			@layer properties, theme, base, components, utilities;
 		</style>
-    {analyticsConfig?.googleAnalyticsId && (
-            <GoogleAnalytics analyticsId={analyticsConfig.googleAnalyticsId} />
-    )}
     {analyticsConfig?.microsoftClarityId && (
             <MicrosoftClarity clarityId={analyticsConfig.microsoftClarityId} />
     )}
@@ -569,6 +566,9 @@ const ogImageAlt = propsOgImageAlt ?? pageTitle;
     <!-- 页面顶部渐变高光效果 - 只在full和semifull模式下显示 -->
     {shouldShowTopHighlight && <div class="top-gradient-highlight" />}
     <ConfigCarrier />
+    {analyticsConfig?.googleAnalyticsId && (
+      <AnalyticsManager analyticsId={analyticsConfig.googleAnalyticsId} />
+    )}
     <MusicManager />
     <slot />
 
