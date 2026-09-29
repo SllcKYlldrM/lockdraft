@@ -53,6 +53,27 @@ jobs:
             echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Check main race
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git fetch origin main
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/main)" ]; then
+            echo "origin/main advanced during generation; aborting stale publish"
+            exit 1
+          fi
+
+      - name: Biome quality gate
+        if: steps.changes.outputs.changed == 'true'
+        run: pnpm exec biome check ./src ./scripts
+
+      - name: TypeScript quality gate
+        if: steps.changes.outputs.changed == 'true'
+        run: pnpm type-check
+
+      - name: Astro quality gate
+        if: steps.changes.outputs.changed == 'true'
+        run: pnpm check
+
       - name: Build site (quality gate)
         if: steps.changes.outputs.changed == 'true'
         run: pnpm build

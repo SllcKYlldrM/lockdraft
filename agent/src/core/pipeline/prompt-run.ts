@@ -29,7 +29,9 @@ export async function runPromptPipeline(opts: PromptRunOptions = {}): Promise<Ru
     status: "active" | "done" | "waiting" | "error",
     label: string,
     detail?: string,
-  ) => emitAgentActivity({ runId, pipeline: "prompt", workerId, workerName, status, label, detail });
+  ) => {
+    if (!opts.dryRun) emitAgentActivity({ runId, pipeline: "prompt", workerId, workerName, status, label, detail });
+  };
 
   emit("prompt", "Prompt Agent", "active", "Prompt pipeline started");
   const published: string[] = [];

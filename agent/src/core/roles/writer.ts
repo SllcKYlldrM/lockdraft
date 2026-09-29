@@ -5,6 +5,13 @@ import { getSourceText } from "../article-fetcher.ts";
 import type { NewsCandidate, GuideBrief, GuideFactPack, Article } from "../types.ts";
 import type { TopicDefinition } from "../../adapters/site-context.ts";
 import { limits } from "../../../agent.config.ts";
+import {
+  ensureContextualInternalLink,
+  ensureSourcesSection,
+  normalizeTags,
+  SITE_AUTHOR,
+  type InternalLinkCandidate,
+} from "../quality/editorial.ts";
 
 const SYSTEM = `You are a technical writer for LockDraft, a site covering
 AI, automation, and AI agents — practical, no hype. Write in clear, direct
@@ -26,9 +33,7 @@ function toSlug(title: string): string {
 }
 
 function baseTags(topic: TopicDefinition | undefined, extra: string[]): string[] {
-  const tags = new Set(extra.slice(0, 5));
-  if (topic) tags.add(topic.id);
-  return [...tags].slice(0, 6);
+  return normalizeTags(topic ? [...extra, topic.id] : extra);
 }
 
 /** Writes a fully original news article from a scored candidate. */
@@ -36,6 +41,7 @@ export async function writeNewsArticle(
   candidate: NewsCandidate,
   topic: TopicDefinition | undefined,
   revisionIssues?: string[],
+  internalLinks: InternalLinkCandidate[] = [],
 ): Promise<Article> {
   const { item } = candidate;
   const fullText = await getSourceText(item);
@@ -77,6 +83,12 @@ fact-dense article is better than repeated context:
 ## What changed
 ## Why it matters
 ## What to do next
+Include a short limitations/caveats paragraph when the source supports one.
+Use 1-3 contextual links from the supplied LockDraft candidates when natural;
+do not invent URLs. End with a Sources section linking the official source.
+
+Contextual internal-link candidates:
+${internalLinks.map((link) => `- ${link.title}: /posts/${link.slug}/`).join("\n") || "- none"}
 
 Respond with ONLY this JSON shape:
 {"title": "...", "description": "...(<=155 chars, no quotes)", "tags": ["...", "..."], "body": "...(markdown, starting at ## What changed)"}`;
@@ -89,7 +101,10 @@ Respond with ONLY this JSON shape:
 
   return {
     kind: "news",
-    body: out.body.trim(),
+    body: ensureSourcesSection(
+      ensureContextualInternalLink(out.body, internalLinks),
+      item.sourceUrl,
+    ),
     frontmatter: {
       title: out.title.trim(),
       slug: toSlug(out.title),
@@ -98,7 +113,7 @@ Respond with ONLY this JSON shape:
       topic: topic?.id,
       tags: baseTags(topic, [...(out.tags ?? []), "ai-news"]),
       published: new Date().toISOString(),
-      author: "LockDraft Agent",
+      author: SITE_AUTHOR,
       draft: false,
       sourceUrl: item.sourceUrl,
       sourceName: item.sourceName,
@@ -114,6 +129,7 @@ export async function writeGuideArticle(
   relatedTitles: string[],
   factPack: GuideFactPack,
   revisionIssues?: string[],
+  internalLinks: InternalLinkCandidate[] = [],
 ): Promise<Article> {
   const prompt = `Write an original, in-depth ${brief.guideType} guide.
 
@@ -147,6 +163,11 @@ Requirements:
 - Do not invent specific version numbers, dates, benchmark numbers, API
   parameters, pricing, or limits. If a detail is uncertain, qualify it or
   omit it rather than guessing.
+- Use 1-3 contextual links from the supplied LockDraft candidates when natural.
+- End with a Sources section linking the official source.
+
+Contextual internal-link candidates:
+${internalLinks.map((link) => `- ${link.title}: /posts/${link.slug}/`).join("\n") || "- none"}
 
 Respond with ONLY this JSON shape:
 {"title": "...", "description": "...(<=155 chars)", "tags": ["...", "..."], "body": "...(markdown, starting at the first ## heading)"}`;
@@ -159,7 +180,10 @@ Respond with ONLY this JSON shape:
 
   return {
     kind: "guides",
-    body: out.body.trim(),
+    body: ensureSourcesSection(
+      ensureContextualInternalLink(out.body, internalLinks),
+      factPack.officialUrl,
+    ),
     frontmatter: {
       title: out.title.trim(),
       slug: toSlug(out.title),
@@ -168,7 +192,7 @@ Respond with ONLY this JSON shape:
       topic: topic?.id,
       tags: baseTags(topic, [...(out.tags ?? []), brief.guideType]),
       published: new Date().toISOString(),
-      author: "LockDraft Agent",
+      author: SITE_AUTHOR,
       draft: false,
       guideType: brief.guideType,
       relatedGuides: brief.relatedGuideSlugs,

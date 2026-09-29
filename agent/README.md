@@ -22,6 +22,18 @@ two sites currently share the same Gemini/OpenRouter API keys, so their
 free-tier quota is shared — see the cron offset in the GitHub Actions
 workflows and the lower `maxNewsPerDay` in `agent.config.ts`.
 
+## Editorial contract
+
+Generated posts use author `LockDraft`, preserve `published`, and use `updated`
+only for genuine edits. Post categories are closed to AI News, Agents,
+Automation, and Tutorials; tags are normalized against the existing vocabulary.
+News requires an official source URL and every article includes a Sources or
+References section. The pipeline adds contextual same-category links, rejects
+duplicate source/title coverage, and applies mechanical quality gates before
+publication. Workflows re-fetch `main` before publishing and abort if the
+checked-out commit is stale, preventing concurrent runs from publishing over
+newer content.
+
 ## Roles
 
 | Role | File | Job |

@@ -2,6 +2,7 @@ import { callLLM, type ModelRef } from "../llm/provider.ts";
 import { extractJson } from "../llm/json.ts";
 import { limits } from "../../../agent.config.ts";
 import type { Article, EditorVerdict, PromptArticle } from "../types.ts";
+import { hasSourcesSection } from "../quality/editorial.ts";
 
 function countTables(body: string): number {
   return (body.match(/^\|.*\|$/gm) ?? [])
@@ -30,6 +31,10 @@ export async function reviewArticle(
   modelOverride?: ModelRef,
 ): Promise<EditorVerdict> {
   const mechanicalIssues: string[] = [];
+
+  if (!hasSourcesSection(article.body)) {
+    mechanicalIssues.push("Article must include a Sources or References section.");
+  }
 
   if (article.kind === "guides") {
     const words = countWords(article.body);

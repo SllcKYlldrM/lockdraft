@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import type { Article, PromptArticle } from "../../core/types.ts";
 import { contentDirFor, promptsDir } from "../site-context.ts";
 import { categories } from "../../../topics.ts";
+import { normalizeTags } from "../../core/quality/editorial.ts";
 
 /**
  * Writes an article as a Markdown file with YAML frontmatter into the
@@ -23,7 +24,7 @@ export async function publishArticle(article: Article): Promise<string> {
   // have no home in the site's schema — they're folded into tags instead,
   // matching the human-written posts' convention of tagging by subject.
   const extraTags: string[] = [fm.newsType, fm.guideType].filter(Boolean) as string[];
-  const tags = [...new Set([...fm.tags, ...extraTags])];
+  const tags = normalizeTags([...fm.tags, ...extraTags]);
 
   // No `image` field — the site turned off cover images entirely
   // (coverImageConfig.enableInPost: false); see the removed
@@ -39,6 +40,7 @@ export async function publishArticle(article: Article): Promise<string> {
     category: categoryName,
     author: fm.author,
     sourceLink: fm.sourceUrl,
+    updated: fm.updated ? new Date(fm.updated) : undefined,
   };
   // Drop undefined optional fields so gray-matter doesn't emit `key: undefined`.
   for (const key of Object.keys(frontmatter)) {

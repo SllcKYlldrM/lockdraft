@@ -1,5 +1,6 @@
 import { z } from "zod";
 import type { ArticleFrontmatter, PromptFrontmatter } from "../types.ts";
+import { isKnownCategory, SITE_AUTHOR } from "./editorial.ts";
 
 // Mirrors lockdraft/src/content.config.ts `postsCollection` schema. Keep in
 // sync manually — this is the pre-write gate that stops a malformed file
@@ -18,6 +19,7 @@ const baseFields = {
   category: z.string().min(1),
   tags: z.array(z.string()).default([]),
   published: z.string().min(1),
+  updated: z.string().min(1).optional(),
   author: z.string().min(1),
   draft: z.boolean(),
   sourceLink: z.string().url().optional(),
@@ -43,6 +45,7 @@ export function validateFrontmatter(
     category: frontmatter.category,
     tags: frontmatter.tags,
     published: frontmatter.published,
+    updated: frontmatter.updated,
     author: frontmatter.author,
     draft: frontmatter.draft,
     sourceLink: frontmatter.sourceUrl,
@@ -56,6 +59,15 @@ export function validateFrontmatter(
 
   if (frontmatter.topic && !knownTopicIds.includes(frontmatter.topic)) {
     errors.push(`topic "${frontmatter.topic}" is not in topics.ts`);
+  }
+  if (!isKnownCategory(frontmatter.category)) {
+    errors.push(`category "${frontmatter.category}" is not in the closed post taxonomy`);
+  }
+  if (frontmatter.author !== SITE_AUTHOR) {
+    errors.push(`author must be "${SITE_AUTHOR}"`);
+  }
+  if (kind === "news" && !frontmatter.sourceUrl?.trim()) {
+    errors.push("news articles require an official source URL");
   }
 
   return { valid: errors.length === 0, errors };

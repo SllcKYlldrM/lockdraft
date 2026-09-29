@@ -7,7 +7,7 @@ import { validateFrontmatter } from "../quality/frontmatter.ts";
 import { getSourceText } from "../article-fetcher.ts";
 import { loadSeen, saveSeen } from "../../adapters/seen-store.ts";
 import { loadRejections, saveRejections } from "../../adapters/rejection-store.ts";
-import { loadTopics, loadExistingPosts } from "../../adapters/site-context.ts";
+import { findPostOverlap, loadTopics, loadExistingPosts } from "../../adapters/site-context.ts";
 import { publishArticle } from "../../adapters/publisher/markdown-git.ts";
 import {
   appendRun,
@@ -31,7 +31,9 @@ export async function runNewsPipeline(opts: NewsRunOptions = {}): Promise<RunSum
     status: "active" | "done" | "waiting" | "error",
     label: string,
     detail?: string,
-  ) => emitAgentActivity({ runId, pipeline: "news", workerId, workerName, status, label, detail });
+  ) => {
+    if (!opts.dryRun) emitAgentActivity({ runId, pipeline: "news", workerId, workerName, status, label, detail });
+  };
 
   emit("news", "News Agent", "active", "News pipeline started");
   const published: string[] = [];
@@ -141,6 +143,22 @@ export async function runNewsPipeline(opts: NewsRunOptions = {}): Promise<RunSum
         const topic = candidate.item.topic ? topicById.get(candidate.item.topic) : undefined;
         const sourceText = await getSourceText(candidate.item);
 
+        if (!candidate.item.sourceUrl?.trim()) {
+          rejected.push({ id: candidate.item.id, reason: "official source URL is required" });
+          continue;
+        }
+
+        const overlapPost = findPostOverlap(candidate.item.title, candidate.item.sourceUrl, existingPosts);
+        if (overlapPost) {
+          rejected.push({ id: candidate.item.id, reason: `existing post overlap: ${overlapPost.slug}` });
+          continue;
+        }
+
+        const internalLinks = existingPosts
+          .filter((post) => post.category === topic?.category)
+          .slice(0, 3)
+          .map((post) => ({ slug: post.slug, title: post.title, category: post.category }));
+
         if (
           candidate.item.kind === "youtube" &&
           sourceText.trim().length < limits.minYoutubeSourceChars
@@ -163,7 +181,7 @@ export async function runNewsPipeline(opts: NewsRunOptions = {}): Promise<RunSum
         }
 
         emit("news-writer", "News Writer", "active", `Writing ${candidate.item.title}`);
-        let article = await writeNewsArticle(candidate, topic);
+        let article = await writeNewsArticle(candidate, topic, undefined, internalLinks);
         emit("news-writer", "News Writer", "done", `Drafted ${candidate.item.title}`);
         emit("news-editor", "News Editor", "active", `Reviewing ${candidate.item.title}`);
         let verdict = await reviewArticle(article, sourceText);
@@ -180,7 +198,7 @@ export async function runNewsPipeline(opts: NewsRunOptions = {}): Promise<RunSum
             issues.push("Body text overlaps too closely with the source — rewrite fully in your own words.");
           }
           emit("news-writer", "News Writer", "active", `Revision ${attempts + 1}/${limits.maxRevisions}`);
-          article = await writeNewsArticle(candidate, topic, issues);
+          article = await writeNewsArticle(candidate, topic, issues, internalLinks);
           emit("news-writer", "News Writer", "done", `Revision ${attempts + 1} drafted`);
           emit("news-editor", "News Editor", "active", "Reviewing revision");
           verdict = await reviewArticle(article, sourceText);
