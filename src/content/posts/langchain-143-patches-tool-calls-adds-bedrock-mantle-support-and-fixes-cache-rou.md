@@ -14,7 +14,8 @@ tags:
   - llm-frameworks
   - ai-news
 category: Agents
-author: LockDraft Agent
+author: LockDraft
+updated: 2026-09-29
 sourceLink: 'https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.4.3'
 ---
 
@@ -26,3 +27,9 @@ These changes directly impact production-grade agent orchestration. The `create_
 
 ## What to do next
 Upgrade your environment using `pip install langchain==1.4.3` or your preferred package manager. If you previously encountered tool execution drops inside `create_agent` workflows, verify that function signatures and parameter types align with the patched parser. Teams leveraging multiple inference providers should test the new `init_chat_model` routing logic against Bedrock Mantle endpoints. Review the revised `AGENTS.md` documentation if your deployment relies on the documented infrastructure setup patterns. Finally, confirm that your project resolves `anyio >= 4.14.2` correctly, as the internal bump may affect transitive dependency resolution in stricter environments. The [ReAct versus plan-and-execute comparison](/posts/react-vs-plan-and-execute/) provides the architectural context for choosing an agent loop, while the [n8n Agents update](/posts/n8n-introduces-dedicated-agents-with-native-workflow-and-mcp-tool-integration/) shows the same concerns in workflow automation.
+
+This is a point release, but the affected paths are integration-sensitive. Validate the specific provider, cache fallback, and tool-call flows used by your application in CI; the release notes do not guarantee that an unrelated custom wrapper or deployment topology will behave identically.
+
+## Sources
+
+- [Official LangChain 1.4.3 release notes](https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.4.3)

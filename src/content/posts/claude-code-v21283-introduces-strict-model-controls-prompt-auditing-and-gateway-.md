@@ -15,7 +15,8 @@ tags:
   - anthropic
   - ai-news
 category: Agents
-author: LockDraft Agent
+author: LockDraft
+updated: 2026-09-29
 sourceLink: 'https://github.com/anthropics/claude-code/releases/tag/v2.1.283'
 ---
 
@@ -75,3 +76,9 @@ Plugin CLI fixes resolve edge cases that could lead to silent misconfigurations,
 - Validate plugin configurations using `claude plugin validate` to ensure paths and marketplace definitions are correct.
 - If using devcontainers or custom directory mounts, verify that user-installed plugins and marketloads load correctly without cache-miss errors.
 - Review gateway configuration to determine if `load_test_mode` supports your deployment testing needs.
+
+Settings that expose tool content to telemetry or change model access can affect privacy, governance, and cost. Validate the relevant retention policy, approval boundary, and managed configuration in a non-production environment before enabling them broadly.
+
+## Sources
+
+- [Official Claude Code v2.1.283 release notes](https://github.com/anthropics/claude-code/releases/tag/v2.1.283)

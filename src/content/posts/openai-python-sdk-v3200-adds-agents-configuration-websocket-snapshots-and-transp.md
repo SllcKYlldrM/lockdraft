@@ -15,7 +15,8 @@ tags:
   - ai-news
   - tool-update
 category: AI News
-author: LockDraft Agent
+author: LockDraft
+updated: 2026-09-29
 sourceLink: 'https://github.com/openai/openai-python/releases/tag/v3.20.0'
 ---
 
@@ -30,3 +31,9 @@ These changes target three pain points in production AI workflows. First, explic
 ## What to do next
 
 Update your dependency to openai==3.20.0. If you are routing calls through Agents, pass the new credential and session options to align authentication and context scopes. For streaming workloads, enable the incremental WebSocket snapshot opt-in to reduce memory overhead and improve state tracking. Review the newly documented error response schemas for batch, file, and fine-tuning endpoints to streamline exception handling. Run integration tests against the patched TLS retry logic and queue retention behavior before deploying to production. For a broader method for checking version, availability, and benchmark claims, see [How to Evaluate an AI Model Announcement](/posts/reading-ai-model-announcements/). The preceding [OpenAI Python SDK 3.18 update](/posts/openai-python-sdk-v3180-adds-identifiers-for-gpt-6-sol-and-luna/) provides the earlier model-identifier context.
+
+The credential hooks, snapshot opt-ins, and transport fixes still need application-level integration tests. A corrected retry or queue path does not by itself prove that an application's idempotency, authentication scope, or stream reconstruction logic is safe.
+
+## Sources
+
+- [Official OpenAI Python SDK v3.20.0 release notes](https://github.com/openai/openai-python/releases/tag/v3.20.0)
