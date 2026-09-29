@@ -54,6 +54,7 @@ export interface GuideCandidate {
   category: string;
   guideType: GuideType;
   relatedGuideSlugs: string[];
+  priorityScore?: number;
   gap?: {
     title: string;
     priority: "P1" | "P2" | "P3";

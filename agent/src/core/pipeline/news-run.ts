@@ -5,9 +5,10 @@ import { reviewArticle } from "../roles/editor.ts";
 import { overlapRatio } from "../quality/overlap.ts";
 import { validateFrontmatter } from "../quality/frontmatter.ts";
 import { getSourceText } from "../article-fetcher.ts";
+import { decideNewsCandidate, evaluatePublishGate } from "../quality/growth.ts";
 import { loadSeen, saveSeen } from "../../adapters/seen-store.ts";
 import { loadRejections, saveRejections } from "../../adapters/rejection-store.ts";
-import { findPostOverlap, loadTopics, loadExistingPosts } from "../../adapters/site-context.ts";
+import { loadTopics, loadExistingPosts } from "../../adapters/site-context.ts";
 import { publishArticle } from "../../adapters/publisher/markdown-git.ts";
 import {
   appendRun,
@@ -143,14 +144,13 @@ export async function runNewsPipeline(opts: NewsRunOptions = {}): Promise<RunSum
         const topic = candidate.item.topic ? topicById.get(candidate.item.topic) : undefined;
         const sourceText = await getSourceText(candidate.item);
 
-        if (!candidate.item.sourceUrl?.trim()) {
-          rejected.push({ id: candidate.item.id, reason: "official source URL is required" });
-          continue;
-        }
-
-        const overlapPost = findPostOverlap(candidate.item.title, candidate.item.sourceUrl, existingPosts);
-        if (overlapPost) {
-          rejected.push({ id: candidate.item.id, reason: `existing post overlap: ${overlapPost.slug}` });
+        const growthDecision = decideNewsCandidate(candidate.item, existingPosts);
+        if (growthDecision.decision !== "CREATE") {
+          const detail = growthDecision.existingSlug
+            ? `${growthDecision.reason} (${growthDecision.existingSlug})`
+            : growthDecision.reason;
+          rejected.push({ id: candidate.item.id, reason: `${growthDecision.decision}: ${detail}` });
+          notes.push(`${candidate.item.title}: ${growthDecision.decision}`);
           continue;
         }
 
@@ -242,6 +242,12 @@ export async function runNewsPipeline(opts: NewsRunOptions = {}): Promise<RunSum
             reason: `frontmatter: ${validation.errors.join("; ")}`,
           });
           rejected.push({ id: candidate.item.id, reason: `frontmatter: ${validation.errors.join("; ")}` });
+          continue;
+        }
+
+        const publishGate = evaluatePublishGate(article, sourceText, overlap, internalLinks.length);
+        if (!publishGate.valid) {
+          rejected.push({ id: candidate.item.id, reason: `publish gate: ${publishGate.errors.join("; ")}` });
           continue;
         }
 

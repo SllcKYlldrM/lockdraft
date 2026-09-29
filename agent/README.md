@@ -150,6 +150,26 @@ agent:dry-run` / `pnpm agent:news` / `pnpm agent:guide` / `pnpm agent:prompt`.
 Anything that fails review at any stage is skipped, not published, and
 logged to `state/runs.jsonl` with the reason.
 
+## Organic growth controls
+
+`growth.config.ts` defines empty, data-ready Search Console and GA4 signal
+inputs. Real exports may be added later; synthetic traffic data is never
+used. `src/core/quality/growth.ts` applies the deterministic gap score and
+returns `CREATE`, `UPDATE EXISTING`, or `SKIP` before Writer or Publisher.
+
+The score weighs cluster gap, pillar support, evergreen value, user
+usefulness, source availability, freshness, and overlap risk. The current
+backlog is capped at 12 active candidates. Routine release-note patterns,
+missing primary sources, duplicate intent, missing Sources/References, and
+failed overlap or frontmatter checks are rejected. A freshness queue marks
+source-linked or version-sensitive posts as `fresh`, `monitor`, or
+`update_candidate`; it never deletes content automatically.
+
+Autonomous output does not generate or attach article images. The agent may
+create a post only after an approved backlog gap, primary-source evidence,
+taxonomy, source references, and internal-link review are present. `SKIP` is
+an expected outcome when those conditions are not met.
+
 ## State
 
 - `state/seen.json` — source item ids already considered, so the same

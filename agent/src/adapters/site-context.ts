@@ -15,6 +15,7 @@ export interface ExistingPost {
   category?: string;
   guideType?: string;
   published: string;
+  updated?: string;
   sourceLink?: string;
   tags: string[];
 }
@@ -70,6 +71,7 @@ export async function loadExistingPosts(): Promise<ExistingPost[]> {
         ["tutorial", "explainer", "comparison", "workflow-recipe", "troubleshooting"].includes(t),
       ),
       published: data.published ? new Date(data.published).toISOString() : "",
+      updated: data.updated ? new Date(data.updated).toISOString() : undefined,
       sourceLink: data.sourceLink ?? undefined,
       tags,
     });

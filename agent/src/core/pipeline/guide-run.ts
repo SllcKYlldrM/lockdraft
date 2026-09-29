@@ -2,6 +2,7 @@ import { createGuideBrief, planGuideCandidates } from "../roles/planner.ts";
 import { writeGuideArticle } from "../roles/writer.ts";
 import { reviewArticle } from "../roles/editor.ts";
 import { buildGuideFactPack } from "../../adapters/guide-fact-pack.ts";
+import { buildFreshnessQueue, decideGuideCandidate, evaluatePublishGate } from "../quality/growth.ts";
 import { validateFrontmatter } from "../quality/frontmatter.ts";
 import {
   loadTopics,
@@ -45,6 +46,10 @@ export async function runGuidePipeline(opts: GuideRunOptions = {}): Promise<RunS
   const topicById = new Map(topicsList.map((t) => [t.id, t]));
   const knownTopicIds = topicsList.map((t) => t.id);
   const usedSlugs = new Set(existingPosts.map((p) => p.slug));
+  const freshnessQueue = buildFreshnessQueue(existingPosts);
+  console.log(
+    `[growth] freshness queue: fresh=${freshnessQueue.filter((item) => item.status === "fresh").length}, monitor=${freshnessQueue.filter((item) => item.status === "monitor").length}, update_candidate=${freshnessQueue.filter((item) => item.status === "update_candidate").length}`,
+  );
 
   try {
     emit("guide-planner", "Guide Planner", "active", "Finding the next topic and guide type gap");
@@ -63,6 +68,22 @@ export async function runGuidePipeline(opts: GuideRunOptions = {}): Promise<RunS
       };
       if (!opts.dryRun) await appendRun(summary);
       emit("guide", "Guide Agent", "waiting", "No content gap found", summary.errors[0]);
+      return summary;
+    }
+
+    const growthDecision = decideGuideCandidate(candidates[0]!);
+    if (growthDecision.decision !== "CREATE") {
+      const summary: RunSummary = {
+        runId,
+        pipeline: "guide",
+        startedAt,
+        finishedAt: new Date().toISOString(),
+        published,
+        rejected: [{ id: candidates[0]!.topic ?? "guide-gap", reason: `${growthDecision.decision}: ${growthDecision.reason}` }],
+        errors,
+        notes,
+      };
+      if (!opts.dryRun) await appendRun(summary);
       return summary;
     }
 
@@ -164,12 +185,17 @@ export async function runGuidePipeline(opts: GuideRunOptions = {}): Promise<RunS
       if (!validation.valid) {
         rejected.push({ id: brief.workingTitle, reason: `frontmatter: ${validation.errors.join("; ")}` });
       } else {
-        if (!opts.dryRun) {
-          emit("guide-publisher", "Guide Publisher", "active", `Publishing ${article.frontmatter.slug}`);
-          await publishArticle(article);
-          emit("guide-publisher", "Guide Publisher", "done", `Published ${article.frontmatter.slug}`);
+        const publishGate = evaluatePublishGate(article, factPack.verifiedText, 0, internalLinks.length);
+        if (!publishGate.valid) {
+          rejected.push({ id: brief.workingTitle, reason: `publish gate: ${publishGate.errors.join("; ")}` });
+        } else {
+          if (!opts.dryRun) {
+            emit("guide-publisher", "Guide Publisher", "active", `Publishing ${article.frontmatter.slug}`);
+            await publishArticle(article);
+            emit("guide-publisher", "Guide Publisher", "done", `Published ${article.frontmatter.slug}`);
+          }
+          published.push(article.frontmatter.slug);
         }
-        published.push(article.frontmatter.slug);
       }
     }
   } catch (err) {

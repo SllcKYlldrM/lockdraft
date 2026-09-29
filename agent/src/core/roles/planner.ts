@@ -14,7 +14,8 @@ import type {
   CategoryDefinition,
   ExistingPost,
 } from "../../adapters/site-context.ts";
-import { compareGapPriority, gapFor } from "../../../content-gaps.ts";
+import { gapFor } from "../../../content-gaps.ts";
+import { scoreContentGap } from "../quality/growth.ts";
 
 const NEWS_TYPES: NewsType[] = [
   "model-release",
@@ -210,6 +211,7 @@ export function planGuideCandidates(
       if (missing) {
         const gap = gapFor(topic.id, missing);
         if (!gap) continue;
+        const priorityScore = scoreContentGap(gap).total;
         candidates.push({
           topic: topic.id,
           category: category.id,
@@ -220,6 +222,7 @@ export function planGuideCandidates(
             intent: gap.intent,
             rationale: gap.rationale,
           },
+          priorityScore,
           relatedGuideSlugs: guidePosts
             .filter((p) => p.topic === topic.id)
             .map((p) => p.slug)
@@ -233,11 +236,8 @@ export function planGuideCandidates(
     .slice(0, 6);
   const evergreenMissing = recentPosts.every((post) => post.kind !== "guides");
   return candidates.sort((a, b) => {
-    const priority = compareGapPriority(
-      a.gap ? { ...a.gap, cluster: "", status: "planned", type: a.guideType, topic: a.topic ?? "", intent: a.gap.intent, rationale: a.gap.rationale } : undefined,
-      b.gap ? { ...b.gap, cluster: "", status: "planned", type: b.guideType, topic: b.topic ?? "", intent: b.gap.intent, rationale: b.gap.rationale } : undefined,
-    );
-    if (priority !== 0) return priority;
+    const scoreDelta = (b.priorityScore ?? 0) - (a.priorityScore ?? 0);
+    if (scoreDelta !== 0) return scoreDelta;
     return evergreenMissing ? 0 : (categoryCounts.get(a.category) ?? 0) - (categoryCounts.get(b.category) ?? 0);
   });
 }
