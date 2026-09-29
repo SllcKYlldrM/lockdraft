@@ -14,6 +14,7 @@ import type {
   CategoryDefinition,
   ExistingPost,
 } from "../../adapters/site-context.ts";
+import { compareGapPriority, gapFor } from "../../../content-gaps.ts";
 
 const NEWS_TYPES: NewsType[] = [
   "model-release",
@@ -30,10 +31,14 @@ const NEWS_TYPES: NewsType[] = [
  */
 export async function planNews(
   items: SourceItem[],
+  existingPosts: ExistingPost[] = [],
 ): Promise<NewsCandidate[]> {
   if (items.length === 0) return [];
 
-  const listing = items
+  const eligibleItems = items.filter((item) => !shouldSkipRoutineRelease(item, existingPosts));
+  if (eligibleItems.length === 0) return [];
+
+  const listing = eligibleItems
     .map(
       (item, i) =>
         `${i}. [${item.kind}] "${item.title}" (topic: ${item.topic ?? "none"}, source: ${item.sourceName}, published: ${item.publishedAt})\n   ${item.summary.slice(0, 300)}`,
@@ -83,7 +88,7 @@ Respond with ONLY a JSON array, one object per item, in the same order:
 
     const candidates: NewsCandidate[] = [];
     for (const entry of parsed) {
-      const item = items[entry.index];
+      const item = eligibleItems[entry.index];
       if (!item) continue;
       const newsType = NEWS_TYPES.includes(entry.newsType as NewsType)
         ? (entry.newsType as NewsType)
@@ -101,6 +106,25 @@ Respond with ONLY a JSON array, one object per item, in the same order:
   } catch {
     return heuristicScore(items);
   }
+}
+
+/**
+ * A release-chain guard for routine minor updates. Meaningful feature,
+ * security, model, pricing, or breaking changes remain eligible; a second
+ * low-value patch for a repository already covered recently is skipped.
+ */
+export function shouldSkipRoutineRelease(item: SourceItem, existingPosts: ExistingPost[]): boolean {
+  if (item.kind !== "github-release") return false;
+  const match = item.sourceUrl.match(/github\.com\/([^/]+\/[^/]+)\/releases\/tag\//i);
+  const repository = match?.[1];
+  if (!repository) return false;
+  const sameRepository = existingPosts.some((post) =>
+    post.sourceLink?.toLowerCase().includes(`/${repository.toLowerCase()}/releases/tag/`),
+  );
+  if (!sameRepository) return false;
+  const routine = /\b(patch|bugfix|maintenance|release notes|minor)\b/i.test(item.title);
+  const meaningful = /\b(add|added|introduc|support|security|pricing|model|gateway|guardrail|breaking|vulnerab)/i.test(item.title);
+  return routine && !meaningful;
 }
 
 /**
@@ -182,12 +206,20 @@ export function planGuideCandidates(
       const covered = new Set(
         guidePosts.filter((p) => p.topic === topic.id).map((p) => p.guideType),
       );
-      const missing = GUIDE_TYPES.find((t) => !covered.has(t));
+      const missing = GUIDE_TYPES.find((t) => !covered.has(t) && gapFor(topic.id, t));
       if (missing) {
+        const gap = gapFor(topic.id, missing);
+        if (!gap) continue;
         candidates.push({
           topic: topic.id,
           category: category.id,
           guideType: missing,
+          gap: {
+            title: gap.title,
+            priority: gap.priority,
+            intent: gap.intent,
+            rationale: gap.rationale,
+          },
           relatedGuideSlugs: guidePosts
             .filter((p) => p.topic === topic.id)
             .map((p) => p.slug)
@@ -196,7 +228,18 @@ export function planGuideCandidates(
       }
     }
   }
-  return candidates;
+  const recentPosts = [...existingPosts]
+    .sort((a, b) => new Date(b.published).getTime() - new Date(a.published).getTime())
+    .slice(0, 6);
+  const evergreenMissing = recentPosts.every((post) => post.kind !== "guides");
+  return candidates.sort((a, b) => {
+    const priority = compareGapPriority(
+      a.gap ? { ...a.gap, cluster: "", status: "planned", type: a.guideType, topic: a.topic ?? "", intent: a.gap.intent, rationale: a.gap.rationale } : undefined,
+      b.gap ? { ...b.gap, cluster: "", status: "planned", type: b.guideType, topic: b.topic ?? "", intent: b.gap.intent, rationale: b.gap.rationale } : undefined,
+    );
+    if (priority !== 0) return priority;
+    return evergreenMissing ? 0 : (categoryCounts.get(a.category) ?? 0) - (categoryCounts.get(b.category) ?? 0);
+  });
 }
 
 /** Creates the brief only after the pipeline has approved the source. */
@@ -209,8 +252,10 @@ export function createGuideBrief(
   const categoryName = category?.name ?? candidate.category;
   return {
     ...candidate,
-    workingTitle: `${topicName}: ${candidate.guideType} guide`,
-    angle: `A ${candidate.guideType} guide for ${topicName}, filling a gap in current ${categoryName} coverage.`,
+    workingTitle: candidate.gap?.title ?? `${topicName}: ${candidate.guideType} guide`,
+    angle: candidate.gap
+      ? `${candidate.gap.intent} coverage for ${topicName}: ${candidate.gap.rationale}`
+      : `A ${candidate.guideType} guide for ${topicName}, filling a gap in current ${categoryName} coverage.`,
   };
 }
 

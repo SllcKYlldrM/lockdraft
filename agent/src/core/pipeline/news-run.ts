@@ -99,7 +99,7 @@ export async function runNewsPipeline(opts: NewsRunOptions = {}): Promise<RunSum
     );
 
     emit("news-planner", "News Planner", "active", "Scoring and filtering news candidates");
-    const candidates = await planNews(items);
+    const candidates = await planNews(items, existingPosts);
     emit("news-planner", "News Planner", "done", `Kept ${candidates.length} candidate(s)`);
     console.log(
       `[news] planner kept ${candidates.length} candidate(s) above score threshold ${limits.newsScoreThreshold}: ${

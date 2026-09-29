@@ -54,6 +54,12 @@ export interface GuideCandidate {
   category: string;
   guideType: GuideType;
   relatedGuideSlugs: string[];
+  gap?: {
+    title: string;
+    priority: "P1" | "P2" | "P3";
+    intent: string;
+    rationale: string;
+  };
 }
 
 export interface GuideBrief extends GuideCandidate {
