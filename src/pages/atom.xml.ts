@@ -21,9 +21,6 @@ export async function GET(context: APIContext): Promise<Response> {
 		includeContent,
 	});
 	return new Response(xml, {
-		headers: {
-			"Content-Type": "application/atom+xml; charset=utf-8",
-			"X-Robots-Tag": "noindex, follow",
-		},
+		headers: { "Content-Type": "application/atom+xml; charset=utf-8" },
 	});
 }

@@ -19,7 +19,7 @@ export async function GET(context: APIContext): Promise<Response> {
 		link: entry.link,
 		...(includeContent ? { content: entry.content } : {}),
 	}));
-	const response = await rss({
+	return rss({
 		title: siteConfig.title,
 		description: siteConfig.subtitle || "No description",
 		site: context.site ?? "https://firefly.cuteleaf.cn",
@@ -29,6 +29,4 @@ export async function GET(context: APIContext): Promise<Response> {
 		<lastBuildDate>${formatDateI18nWithTime(new Date())}</lastBuildDate>`,
 		items: feedItems,
 	});
-	response.headers.set("X-Robots-Tag", "noindex, follow");
-	return response;
 }
