@@ -12,7 +12,8 @@ tags:
   - aws-bedrock
   - ai-news
 category: Agents
-author: LockDraft Agent
+author: LockDraft
+updated: 2026-09-29
 sourceLink: 'https://github.com/anthropics/claude-code/releases/tag/v2.1.281'
 ---
 
@@ -49,3 +50,9 @@ On the client side, the session and streaming repairs directly address the prima
 - Review `/insights` output to quantify potential auto-mode adoption and adjust your default permission strategy accordingly.
 - Verify that proxy or gateway configurations no longer drop trailing frames or duplicate stream events; the client now handles partial responses and edge-case retry headers more gracefully.
 - For the surrounding routing and infrastructure model, see [Mastering Claude: Models, Tools, and Infrastructure](/posts/mastering-claude-a-developers-guide-to-models-tools-and-infrastructure/). For the preceding auto-mode and caching changes, see the [Claude Code v2.1.280 update](/posts/claude-code-v21280-introduces-opus-55-tightens-auto-mode-and-fixes-agent-caching/).
+
+This release is most relevant to gateway operators, Bedrock users, and teams running Claude Code through the Agent SDK or non-interactive sessions. The fixes reduce specific failure modes but do not replace end-to-end replay tests: proxy behavior, IAM policy, guardrail configuration, and stream handling still need validation in the deployment that will consume them.
+
+## Sources
+
+- [Official Claude Code v2.1.281 release notes](https://github.com/anthropics/claude-code/releases/tag/v2.1.281)
