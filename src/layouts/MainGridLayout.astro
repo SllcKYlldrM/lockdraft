@@ -38,6 +38,7 @@ interface Props {
 	postCategory?: string;
 	headings?: MarkdownHeading[];
 	encrypted?: boolean;
+	showCategoryBar?: boolean;
 	bannerPostMeta?: {
 		title: string;
 		description?: string;
@@ -66,11 +67,12 @@ const {
 	encrypted = false,
 	bannerPostMeta,
 	heading,
+	showCategoryBar = true,
 } = Astro.props;
 
 const isHomePageCheck = isHomePage(Astro.url.pathname);
 const isPostPage = !!postSlug;
-const shouldRenderCategoryBar = !!siteConfig.categoryBar;
+const shouldRenderCategoryBar = showCategoryBar && !!siteConfig.categoryBar;
 const navbarWidthFull = siteConfig.navbar.widthFull ?? false;
 
 const banner = getBannerVisibilityState({
