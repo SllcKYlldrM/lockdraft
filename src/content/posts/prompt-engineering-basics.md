@@ -1,45 +1,101 @@
 ---
 title: "Prompt Engineering Basics: Structure Beats Cleverness"
 published: 2026-09-18
-description: "The handful of structural habits that improve prompt output more reliably than any 'magic phrase.'"
+updated: 2026-09-29
+description: "A practical prompt engineering framework for clearer instructions, useful context, constraints, examples, output formats, and repeatable evaluation."
 tags: [prompt-engineering, basics]
 category: Tutorials
+sourceLink: 'https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview'
 ---
 
-Most prompt advice you'll find online is either a "magic phrase" ("act as an expert...") or vague ("be specific"). Neither tells you what to actually do. Here's what reliably moves the needle, in order of impact.
+Prompt quality usually improves when the task is easier to understand, not when the prompt contains a clever phrase. A useful prompt gives the model a clear job, the context it needs, the constraints that matter, and a definition of a successful result.
 
-## 1. Say what "done" looks like
+The same structure works across providers. Exact syntax and model behavior vary, so treat the framework below as a starting point and verify it with representative examples.
 
-Models are much better at hitting a target you've described than at guessing one. Instead of "summarize this," say "summarize this in 3 bullet points, each under 20 words, focused on decisions made rather than discussion." The output format is part of the task, not an afterthought.
+## 1. Start with the task and success criteria
 
-## 2. Give it the constraints you'd give a person
+State what the model should produce and what “done” means. “Summarize this” leaves too many decisions open. “Summarize the decisions in three bullets, each under 20 words, and omit background discussion” gives the model a target it can check.
 
-If a colleague would need to know a constraint to do the task right — a deadline, an audience, a length limit, a thing to avoid — the model needs it too. "Don't use marketing language" is a more useful instruction than "make it good."
+If quality depends on a measurable condition, include it. Useful criteria include required fields, acceptable length, audience, tone, source boundaries, and whether the model should ask a question when information is missing.
 
-## 3. Show, don't just tell, when the format matters
+## 2. Add the context the task actually needs
 
-If you want a specific output shape (a particular JSON structure, a specific tone), one example is often worth several sentences of description. This is few-shot prompting, and it's the single highest-leverage technique for format-sensitive tasks.
+Context is not a request to paste everything into the prompt. Provide the facts, definitions, audience, and constraints that change the answer. Remove unrelated material when it makes the task harder to interpret.
 
-## 4. Separate instructions from content clearly
+For long or mixed inputs, label the sections clearly so the model can distinguish instructions from source material. This is especially important when the input comes from a user, document, or external system.
 
-Use headers, delimiters, or XML-ish tags to mark where your instructions end and the content to work on begins:
+## 3. State constraints explicitly
 
+Give the model the limitations a careful colleague would need to know:
+
+- Which sources may be used
+- What must not be invented
+- Required length or format
+- Security or privacy boundaries
+- Whether uncertainty should be reported
+- What to do when required information is missing
+
+“Be good” is not a constraint. “Use only the supplied documentation and mark unsupported claims as uncertain” is.
+
+## 4. Specify the output format
+
+The output format is part of the task. If the result will be parsed by software, name the fields and show the expected shape. If a person will read it, describe the structure and level of detail.
+
+For example:
+
+```text
+Return exactly:
+- decision: one sentence
+- risks: three bullets
+- next_step: one actionable sentence
 ```
-Summarize the text between the tags below.
 
-<text>
+Do not demand JSON unless the consumer needs JSON. A simpler format is easier to inspect when a human is the next reader.
+
+## 5. Use examples when the format is hard to describe
+
+An example can communicate a tone, transformation, or edge case more precisely than a paragraph of instructions. Use examples that resemble the real task, and include a negative or boundary example when the distinction matters.
+
+Examples should demonstrate the behavior you want, not just provide extra content. If the model copies the wrong detail from an example, reduce the example or label its parts explicitly.
+
+## 6. Separate instructions from input
+
+Use headings or delimiters to make the boundary visible:
+
+```text
+Task: Extract the three decisions.
+Rules: Do not infer decisions that are not stated.
+
+<document>
 {{content}}
-</text>
+</document>
 ```
 
-This prevents the model from confusing instructions in the content with instructions from you — especially important once your prompts get long or the content is user-supplied.
+This does not make untrusted input safe by itself. It makes the intended structure clearer and gives you a place to apply validation, filtering, and permission checks in the surrounding application.
 
-## 5. Ask for the harder thing directly
+## 7. Iterate and evaluate on real tasks
 
-"List the 3 most important risks" beats "tell me about risks" — models default to the safe, generic answer unless you ask for the specific, opinionated one. If you want judgment, ask for judgment explicitly.
+Prompt engineering is an evaluation loop, not a one-time wording exercise. Keep a small set of representative inputs, define what a good answer looks like, change one important variable at a time, and compare the results.
 
-## What doesn't matter as much as people think
+Check factual accuracy, instruction following, format compliance, latency, cost, and failure behavior. A prompt that looks better on one example may be worse across the cases that matter to your users.
 
-Politeness ("please", "thank you") has negligible effect on output quality. Elaborate role-play personas ("You are a world-renowned expert with 30 years of experience...") help less than a clear task description with real constraints. Spend your effort on structure, not framing.
+## A reusable prompt skeleton
 
-Every prompt in the [Prompts library](/prompts/) on this site follows these five habits — worth a look for concrete examples of the structure in practice.
+```text
+Task:
+  [what the model must do]
+
+Context:
+  [facts, audience, and relevant source material]
+
+Constraints:
+  [limits, exclusions, and uncertainty rules]
+
+Output:
+  [format, fields, length, and tone]
+
+Quality check:
+  [how the result should be verified]
+```
+
+Start with the smallest prompt that expresses these decisions. Add examples or provider-specific instructions only when evaluation shows that they solve a real failure mode. The [LockDraft Prompts library](/prompts/) contains concrete prompts to test against this structure, and the [model announcement evaluation guide](/posts/reading-ai-model-announcements/) covers how to evaluate provider claims before changing models.
