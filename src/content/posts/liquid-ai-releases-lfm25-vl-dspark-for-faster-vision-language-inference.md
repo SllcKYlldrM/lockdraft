@@ -40,7 +40,7 @@ Speculative decoding speeds up model generation by using a lightweight draft mod
 
 However, vision-language workloads introduce specific bottleneck constraints governed by Amdahl's law. Before token decoding begins, VLMs must execute vision encoding and process hundreds of visual tokens alongside the prompt during the prefill stage. 
 
-On compute-constrained edge hardware like Apple Silicon, vision encoding and prefill account for a large portion of total wall-clock time. Because speculative decoding accelerates only the auto-regressive generation phase, overall end-to-end gains are constrained by unaccelerated prompt-processing tasks. Despite this boundary, adding less than 9% additional VRAM yields substantial latency cuts without requiring architectural changes or model fine-tuning.
+On compute-constrained edge hardware like Apple Silicon, vision encoding and prefill account for a large portion of total wall-clock time. Because speculative decoding accelerates only the auto-regressive generation phase, overall end-to-end gains are constrained by unaccelerated prompt-processing tasks. Despite this boundary, adding less than 9% additional VRAM yields substantial latency cuts without requiring architectural changes or model fine-tuning. Those benchmark claims should still be read through the [AI model announcement evaluation checklist](/posts/reading-ai-model-announcements/) before they are generalized to another workload.
 
 ## What to do next
 

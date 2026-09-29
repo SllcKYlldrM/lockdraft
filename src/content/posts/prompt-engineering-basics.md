@@ -98,4 +98,4 @@ Quality check:
   [how the result should be verified]
 ```
 
-Start with the smallest prompt that expresses these decisions. Add examples or provider-specific instructions only when evaluation shows that they solve a real failure mode. The [LockDraft Prompts library](/prompts/) contains concrete prompts to test against this structure, and the [model announcement evaluation guide](/posts/reading-ai-model-announcements/) covers how to evaluate provider claims before changing models.
+Start with the smallest prompt that expresses these decisions. Add examples or provider-specific instructions only when evaluation shows that they solve a real failure mode. The [LockDraft Prompts library](/prompts/) contains concrete prompts to test against this structure, and the [model announcement evaluation guide](/posts/reading-ai-model-announcements/) covers how to evaluate provider claims before changing models. For agent workflows, the [ReAct versus plan-and-execute comparison](/posts/react-vs-plan-and-execute/) shows how prompt structure connects to control-loop design.
