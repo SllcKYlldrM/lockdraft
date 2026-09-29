@@ -11,6 +11,7 @@
     "github-release:ollama/ollama:v0.34.4",
     "rss:Hugging Face Blog:https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark",
     "github-release:openai/openai-python:v3.20.0",
-    "github-release:langchain-ai/langchain:langchain==1.4.3"
+    "github-release:langchain-ai/langchain:langchain==1.4.3",
+    "rss:Hugging Face Blog:https://huggingface.co/blog/Hcompany/holo4"
   ]
 }
