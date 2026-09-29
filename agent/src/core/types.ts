@@ -80,6 +80,7 @@ export interface ArticleFrontmatter {
   topic?: string;
   tags: string[];
   published: string; // ISO 8601
+  updated?: string; // ISO 8601; only for genuine edits
   author: string;
   draft: boolean;
   // news-only

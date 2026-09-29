@@ -36,8 +36,22 @@ export const categories: CategoryDefinition[] = [
   { id: "ai-news", name: "AI News", slug: "ai-news" },
   { id: "agents", name: "Agents", slug: "agents" },
   { id: "automation", name: "Automation", slug: "automation" },
-  { id: "prompt-engineering", name: "Prompt Engineering", slug: "prompt-engineering" },
+  { id: "tutorials", name: "Tutorials", slug: "tutorials" },
 ];
+
+// Closed vocabulary: a model run may reuse these tags, but may not invent
+// new case variants or near-duplicate taxonomy entries on its own.
+export const postTagInventory = [
+  "agent-frameworks", "AI", "AI Agents", "AI Development", "ai-agents",
+  "ai-models", "ai-news", "anthropic", "API", "api-integration",
+  "api-updates", "Apple Silicon", "automation", "aws-bedrock", "claude",
+  "claude-code", "Developer Tools", "developer-guide", "developer-tools",
+  "GPT-6", "huggingface", "langchain", "LLM", "llm-api", "llm-frameworks",
+  "local-inference", "MCP", "model-release", "n8n", "Ollama", "Open Source",
+  "Open Source LLMs", "open-source-llms", "OpenAI", "prompt-caching", "Python",
+  "python-sdk", "realtime-api", "research", "SDK", "Speculative Decoding",
+  "tool-update", "tutorial", "Vision Language Models", "Workflow Automation",
+] as const;
 
 // Categories for the separate `prompts` collection (src/content/prompts/,
 // reusable fill-in-the-blank prompt templates — not blog posts). This uses
@@ -137,7 +151,7 @@ export const topics: TopicDefinition[] = [
   {
     id: "prompt-engineering",
     name: "Prompt engineering",
-    category: "prompt-engineering",
+    category: "tutorials",
     officialUrl: "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
     shortDescription: "Structuring prompts and system messages for reliable output.",
   },

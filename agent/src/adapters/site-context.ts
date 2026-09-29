@@ -15,6 +15,8 @@ export interface ExistingPost {
   category?: string;
   guideType?: string;
   published: string;
+  sourceLink?: string;
+  tags: string[];
 }
 
 // LockDraft's Firefly theme has a single `posts` content collection (see
@@ -66,9 +68,37 @@ export async function loadExistingPosts(): Promise<ExistingPost[]> {
         ["tutorial", "explainer", "comparison", "workflow-recipe", "troubleshooting"].includes(t),
       ),
       published: data.published ? new Date(data.published).toISOString() : "",
+      sourceLink: data.sourceLink ?? undefined,
+      tags,
     });
   }
   return posts;
+}
+
+export function findPostOverlap(
+  title: string,
+  sourceLink: string,
+  posts: ExistingPost[],
+): ExistingPost | undefined {
+  const bySource = posts.find((post) => post.sourceLink && post.sourceLink === sourceLink);
+  if (bySource) return bySource;
+
+  const tokenize = (value: string) =>
+    new Set(
+      value
+        .toLowerCase()
+        .replace(/[^\p{L}\p{N}]+/gu, " ")
+        .split(/\s+/)
+        .filter((token) => token.length > 2),
+    );
+  const incoming = tokenize(title);
+  return posts.find((post) => {
+    const existing = tokenize(post.title);
+    if (incoming.size < 3 || existing.size < 3) return false;
+    let intersection = 0;
+    for (const token of incoming) if (existing.has(token)) intersection++;
+    return intersection / Math.min(incoming.size, existing.size) >= 0.75;
+  });
 }
 
 export function contentDirFor(_kind: "news" | "guides"): string {

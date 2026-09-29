@@ -27,7 +27,9 @@ export async function runGuidePipeline(opts: GuideRunOptions = {}): Promise<RunS
     status: "active" | "done" | "waiting" | "error",
     label: string,
     detail?: string,
-  ) => emitAgentActivity({ runId, pipeline: "guide", workerId, workerName, status, label, detail });
+  ) => {
+    if (!opts.dryRun) emitAgentActivity({ runId, pipeline: "guide", workerId, workerName, status, label, detail });
+  };
 
   emit("guide", "Guide Agent", "active", "Guide pipeline started");
   const published: string[] = [];
@@ -104,9 +106,13 @@ export async function runGuidePipeline(opts: GuideRunOptions = {}): Promise<RunS
     const relatedTitles = existingPosts
       .filter((p) => brief.relatedGuideSlugs.includes(p.slug))
       .map((p) => p.title);
+    const internalLinks = existingPosts
+      .filter((p) => p.category === topic?.category)
+      .slice(0, 3)
+      .map((p) => ({ slug: p.slug, title: p.title, category: p.category }));
 
     emit("guide-writer", "Guide Writer", "active", `Writing ${brief.workingTitle}`);
-    let article = await writeGuideArticle(brief, topic, relatedTitles, factPack);
+    let article = await writeGuideArticle(brief, topic, relatedTitles, factPack, undefined, internalLinks);
     emit("guide-writer", "Guide Writer", "done", `Drafted ${brief.workingTitle}`);
     emit("guide-editor", "Guide Editor", "active", `Reviewing ${brief.workingTitle}`);
     let verdict = await reviewArticle(article, factPack.verifiedText);
@@ -121,6 +127,7 @@ export async function runGuidePipeline(opts: GuideRunOptions = {}): Promise<RunS
         relatedTitles,
         factPack,
         verdict.issues,
+        internalLinks,
       );
       emit("guide-writer", "Guide Writer", "done", `Revision ${attempts + 1} drafted`);
       emit("guide-editor", "Guide Editor", "active", "Reviewing revision");
