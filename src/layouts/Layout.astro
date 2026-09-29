@@ -132,6 +132,7 @@ const siteLogo = await getSiteLogo();
 const canonicalUrl = getCanonicalUrl(Astro.url);
 const noindexPathnames = new Set([
 	"/atom/",
+	"/archive/",
 	"/booknav/",
 	"/dynamic/comments/",
 	"/guestbook/",
@@ -139,10 +140,7 @@ const noindexPathnames = new Set([
 	"/rss/",
 	"/search/",
 ]);
-const hasFilteredArchiveQuery =
-	Astro.url.pathname === "/archive/" && Astro.url.searchParams.size > 0;
-const shouldNoindex =
-	noindexPathnames.has(Astro.url.pathname) || hasFilteredArchiveQuery;
+const shouldNoindex = noindexPathnames.has(Astro.url.pathname);
 
 // OG 图片：文章走生成图/封面，非文章页回退到站点 logo
 let ogImageUrl: string | undefined;

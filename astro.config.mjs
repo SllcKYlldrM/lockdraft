@@ -57,6 +57,7 @@ import { collectUsedFontCssVars } from "./src/utils/fontHelper";
 
 const excludedSitemapPaths = new Set([
 	"/atom/",
+	"/archive/",
 	"/booknav/",
 	"/dynamic/comments/",
 	"/guestbook/",
