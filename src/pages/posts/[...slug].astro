@@ -66,6 +66,19 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content, headings } = await render(entry);
 const normalizedTags = normalizeTagList(entry.data.tags);
+const resolvedAuthor = entry.data.author.trim() || profileConfig.name;
+const sourceLink = entry.data.sourceLink.trim();
+const sourceHost = (() => {
+	if (!sourceLink) return null;
+	try {
+		return new URL(sourceLink).hostname;
+	} catch {
+		return null;
+	}
+})();
+const hasManualSources = /(^|\n)#{2,3}\s+(Sources|References)\s*$/im.test(
+	entry.body ?? "",
+);
 
 const { remarkPluginFrontmatter } = await render(entry);
 
@@ -163,7 +176,7 @@ const jsonLd = {
 			headline: entry.data.title,
 			description: entry.data.description || entry.data.title,
 			keywords: normalizedTags.length ? normalizedTags.join(", ") : undefined,
-			author: { "@id": authorPerson["@id"] },
+			author: { "@type": "Person", name: resolvedAuthor },
 			publisher: { "@id": publisher["@id"] },
 			...(coverImage
 				? {
@@ -223,7 +236,7 @@ const seriesData = await getSeriesPosts(entry);
   {entry.data.updated && (
     <meta slot="head" property="article:modified_time" content={entry.data.updated.toISOString()} />
   )}
-  <meta slot="head" property="article:author" content={entry.data.author || profileConfig.name} />
+	<meta slot="head" property="article:author" content={resolvedAuthor} />
   {entry.data.category && (
     <meta slot="head" property="article:section" content={entry.data.category} />
   )}
@@ -299,6 +312,7 @@ const seriesData = await getSeriesPosts(entry);
                 className="gap-x-4 gap-y-1"
                 published={entry.data.published}
                 updated={entry.data.updated}
+				author={resolvedAuthor}
                 category={entry.data.category || undefined}
                 tags={entry.data.tags}
                 id={entry.id}
@@ -387,6 +401,7 @@ const seriesData = await getSeriesPosts(entry);
               className="mb-5"
               published={entry.data.published}
               updated={entry.data.updated}
+				author={resolvedAuthor}
               tags={entry.data.tags}
               category={entry.data.category || undefined}
               id={entry.id}
@@ -472,7 +487,7 @@ const seriesData = await getSeriesPosts(entry);
                           <SharePoster
                             client:load
                             title={entry.data.title}
-                            author={entry.data.author || profileConfig.name}
+                            author={resolvedAuthor}
                             description={entry.data.description || entry.data.title}
                             pubDate={formatDateToYYYYMMDD(entry.data.published)}
                             coverImage={posterCoverUrl}
@@ -548,7 +563,7 @@ const seriesData = await getSeriesPosts(entry);
                           <SharePoster
                             client:load
                             title={entry.data.title}
-                            author={entry.data.author || profileConfig.name}
+                            author={resolvedAuthor}
                             description={entry.data.description || entry.data.title}
                             pubDate={formatDateToYYYYMMDD(entry.data.published)}
                             coverImage={posterCoverUrl}
@@ -579,6 +594,24 @@ const seriesData = await getSeriesPosts(entry);
           }
 
         </>
+      )}
+
+      {sourceHost && !hasManualSources && (
+        <section class="mb-6 rounded-xl border border-(--line-divider) p-5">
+          <h2 class="mb-3 text-lg font-semibold">Sources</h2>
+          <ul class="list-disc pl-5">
+            <li>
+              <a
+                href={sourceLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="link-lg transition hover:text-(--primary)"
+              >
+                {sourceHost}
+              </a>
+            </li>
+          </ul>
+        </section>
       )}
     </div>
   </div>

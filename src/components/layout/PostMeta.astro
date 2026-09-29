@@ -9,6 +9,7 @@ import { getCategoryUrl, getTagUrl } from "@/utils/url-utils";
 export interface Props {
 	published: Date;
 	updated?: Date;
+	author?: string;
 	category?: string;
 	tags?: string[];
 	hideUpdateDate?: boolean;
@@ -34,6 +35,7 @@ export interface Props {
 const {
 	published,
 	updated,
+	author,
 	category,
 	tags,
 	hideUpdateDate,
@@ -90,8 +92,19 @@ const visibleTags =
           />
         </div>
         <span class="text-50 text-sm font-medium">
-          {formatDateToYYYYMMDD(published)}
+					Published: {formatDateToYYYYMMDD(published)}
         </span>
+      </div>
+    )
+  }
+
+  {
+    author && (
+      <div class="flex items-center">
+        <div class="meta-icon">
+          <Icon name="material-symbols:person-outline-rounded" class="text-xl" />
+        </div>
+        <span class="text-50 text-sm font-medium">By {author}</span>
       </div>
     )
   }
@@ -99,8 +112,7 @@ const visibleTags =
   {
     showPublished &&
       !hideUpdateDate &&
-      updated &&
-      updated.getTime() !== published.getTime() && (
+      updated && (
         <div class="flex items-center">
           <div class="meta-icon">
             <Icon
@@ -109,7 +121,7 @@ const visibleTags =
             />
           </div>
           <span class="text-50 text-sm font-medium">
-            {formatDateToYYYYMMDD(updated)}
+					Updated: {formatDateToYYYYMMDD(updated)}
           </span>
         </div>
       )
