@@ -42,4 +42,4 @@ Because the current source material lacks specific technical details, developers
 
 * **Review prompt structures:** Group static system instructions, tools, and reference materials at the beginning of prompts to make them ready for explicit breakpoints.
 * **Monitor OpenAI's API updates:** Watch for the official release of the GPT-6 API reference to find the exact parameter names and payload structures for the new diagnostics and controls.
-* **Establish baseline latency and cost metrics:** Document your current prompt caching performance to measure the exact improvements once GPT-6 becomes available.
+* **Establish baseline latency and cost metrics:** Document your current prompt caching performance to measure the exact improvements once GPT-6 becomes available. The [prompt structure guide](/posts/prompt-engineering-basics/) is useful when reorganizing static instructions and examples, while the [model announcement evaluation guide](/posts/reading-ai-model-announcements/) covers how to treat preview claims before adopting them.

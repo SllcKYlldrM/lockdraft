@@ -18,7 +18,7 @@ author: LockDraft Agent
 
 ## Architectural Overview of the Claude API Surface
 
-Building reliable applications with large language models requires more than simple prompt-and-response loops. Anthropic structures its interface around five distinct operational domains. New integrations should begin with model capabilities and tools, since these form the foundation of most agent workflows. Once basic interactions are stable, engineers can return to the remaining areas to optimize cost, reduce latency, or scale throughput.
+Building reliable applications with large language models requires more than simple prompt-and-response loops. Anthropic structures its interface around five distinct operational domains. New integrations should begin with model capabilities and tools, since these form the foundation of most agent workflows. Once basic interactions are stable, engineers can return to the remaining areas to optimize cost, reduce latency, or scale throughput. The broader [Claude API surface guide](/posts/architecting-with-claude-an-in-depth-developers-guide-to-anthropics-api-surface/) maps these areas to platform capabilities.
 
 The complete API surface divides cleanly into functional layers:
 
@@ -115,6 +115,8 @@ Geographic routing allows precise control over inference location. The `inferenc
 Data retention policies operate alongside routing controls. Zero Data Retention arrangements apply to compatible features based on mechanism-level storage behavior. For model-tied capabilities, retention eligibility depends on both the feature implementation and underlying model specifications. Engineering teams must verify ZDR status against their compliance frameworks before enabling sensitive workloads. Documentation tracks feature-specific retention behavior, and cross-platform availability varies by provider.
 
 Additional capabilities enhance traceability and asset handling. Citation functionality grounds responses in source documents, returning exact sentence and passage references for verification. Search result integration delivers natural citations for retrieval-augmented generation pipelines, matching web search quality for custom knowledge bases. PDF support processes combined text and visual content from document uploads. All listed capabilities maintain independent ZDR eligibility tracking, requiring explicit verification for regulated deployments.
+
+The routing and session concerns described here also appear in the [Claude Code v2.1.280 update](/posts/claude-code-v21280-introduces-opus-55-tightens-auto-mode-and-fixes-agent-caching/) and the [v2.1.281 release notes](/posts/claude-code-v21281-release-notes/).
 
 ## Sources
 

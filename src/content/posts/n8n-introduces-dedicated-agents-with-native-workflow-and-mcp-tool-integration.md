@@ -19,7 +19,7 @@ sourceLink: 'https://blog.n8n.io/introducing-n8n-agents/'
 
 ## What changed
 
-n8n has launched dedicated **Agents**, adding standalone autonomous agents alongside its traditional workflow builder. While users previously assembled agentic setups manually by wiring Chat Triggers, Memory nodes, and AI Agent nodes on the canvas, the new platform feature provides pre-configured session handling, execution logging, memory management, and versioning out of the box.
+n8n has launched dedicated **Agents**, adding standalone autonomous agents alongside its traditional workflow builder. While users previously assembled agentic setups manually by wiring Chat Triggers, Memory nodes, and AI Agent nodes on the canvas, the new platform feature provides pre-configured session handling, execution logging, memory management, and versioning out of the box. Teams starting with deterministic event flows can first follow the [first n8n webhook workflow](/posts/first-n8n-workflow/) before adding agent tools.
 
 Key additions and technical capabilities include:
 

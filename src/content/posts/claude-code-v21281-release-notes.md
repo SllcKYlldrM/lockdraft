@@ -48,3 +48,4 @@ On the client side, the session and streaming repairs directly address the prima
 - Run `claude plugin validate` against existing `.mcp.json` files to catch deprecated entries, unresolved `${user_config.*}` variables, and insecure endpoints before deployment.
 - Review `/insights` output to quantify potential auto-mode adoption and adjust your default permission strategy accordingly.
 - Verify that proxy or gateway configurations no longer drop trailing frames or duplicate stream events; the client now handles partial responses and edge-case retry headers more gracefully.
+- For the surrounding routing and infrastructure model, see [Mastering Claude: Models, Tools, and Infrastructure](/posts/mastering-claude-a-developers-guide-to-models-tools-and-infrastructure/).

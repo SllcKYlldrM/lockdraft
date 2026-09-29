@@ -20,7 +20,7 @@ sourceLink: 'https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark'
 
 ## What changed
 
-Liquid AI has released `LFM2.5-VL-DSpark`, an experimental speculative decoding draft model for its 3-billion-parameter vision-language model, `LFM2.5-VL-3B`. 
+Liquid AI has released `LFM2.5-VL-DSpark`, an experimental speculative decoding draft model for its 3-billion-parameter vision-language model, `LFM2.5-VL-3B`. The local inference trade-offs are related to the [GGUF support now available in Transformers](/posts/hugging-face-transformers-now-supports-gguf-quantizations-locally/).
 
 The draft model adds 279.5 million parameters—an 8.9% increase over the base model's footprint—while delivering accelerated output generation on both edge hardware and datacenter GPUs. The drafter consists of a 4-layer decoder stack (193.0M parameters), a hidden-state projection layer (21.0M), a Markov head (65.5M), and norm/confidence heads (6.4k).
 

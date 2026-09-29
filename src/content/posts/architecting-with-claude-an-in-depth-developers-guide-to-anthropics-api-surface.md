@@ -19,7 +19,7 @@ author: LockDraft Agent
 
 ## Introduction to the Claude Developer Ecosystem
 
-Anthropic's Claude model family provides developers with a highly capable, versatile API designed to power sophisticated applications. Rather than treating an LLM as a simple text-in, text-out interface, the Claude developer ecosystem is organized into distinct, modular functional areas. This design allows engineering teams to start with core capabilities and progressively introduce advanced cost-optimization, reliability, and security layers as their systems scale.
+Anthropic's Claude model family provides developers with a highly capable, versatile API designed to power sophisticated applications. Rather than treating an LLM as a simple text-in, text-out interface, the Claude developer ecosystem is organized into distinct, modular functional areas. This design allows engineering teams to start with core capabilities and progressively introduce advanced cost-optimization, reliability, and security layers as their systems scale. For a companion implementation view of the same surface, see [Mastering Claude: Models, Tools, and Infrastructure](/posts/mastering-claude-a-developers-guide-to-models-tools-and-infrastructure/).
 
 The Claude API surface is structured into five core functional areas:
 
@@ -166,6 +166,8 @@ Below is a concrete, runnable JSON payload demonstrating how to construct an API
 *   **`fallbacks`**: A list of alternative models. If the primary model fails or is refused, the API platform automatically falls back to `claude-3-5-sonnet`, and subsequently to `claude-3-5-haiku` if necessary, minimizing client-side error handling.
 
 ---
+
+For concrete examples of these controls in the CLI, see the [Claude Code v2.1.283 release](/posts/claude-code-v21283-introduces-strict-model-controls-prompt-auditing-and-gateway-/) and the [latest Claude Code update](/posts/claude-code-update-terminal-layout-controls-telemetry-diagnostics-and-session-st/).
 
 ## Sources
 

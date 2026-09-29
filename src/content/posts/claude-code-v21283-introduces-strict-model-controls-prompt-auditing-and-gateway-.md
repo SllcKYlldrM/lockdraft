@@ -70,6 +70,7 @@ Plugin CLI fixes resolve edge cases that could lead to silent misconfigurations,
 - Set `CLAUDE_CODE_GATEWAY_HINT_HEADERS=1` to enable request grouping in LLM gateways.
 - Configure `availableModelsMatch` with `"exact"` and define `deniedModels` in managed settings to enforce strict model selection policies.
 - Run `/doctor prompt-audit` to review `CLAUDE.md`, skills, agents, and commands for legacy prompting patterns.
+- For provider-agnostic prompt structure and evaluation, see [Prompt Engineering Basics](/posts/prompt-engineering-basics/).
 - Enable `OTEL_LOG_TOOL_CONTENT=1` to capture MCP, WebFetch, and WebSearch outputs in OpenTelemetry spans.
 - Validate plugin configurations using `claude plugin validate` to ensure paths and marketplace definitions are correct.
 - If using devcontainers or custom directory mounts, verify that user-installed plugins and marketloads load correctly without cache-miss errors.

@@ -47,4 +47,4 @@ These updates shift focus from feature expansion to workflow stability. The sess
 3. Validate managed policy enforcement by intentionally introducing mistyped boolean lock keys (e.g., `disableClaudeAiConnectors`) to confirm granular rejection behavior.
 4. Verify Fable integration in SDK-hosted setups to ensure usage-credit prompts terminate cleanly without triggering unexpected model switches.
 5. If operating on macOS, review `CLAUDE.md` and rule file paths for legacy symlink references pointing to `/Network`, `/.vol`, or `/home`.
-6. Update to this release to capture the gateway readiness grace period, improved Vertex AI model recognition, and the consolidated permission parsing logic.
+6. Update to this release to capture the gateway readiness grace period, improved Vertex AI model recognition, and the consolidated permission parsing logic. For the wider API and infrastructure context, see [Architecting with Claude](/posts/architecting-with-claude-an-in-depth-developers-guide-to-anthropics-api-surface/).

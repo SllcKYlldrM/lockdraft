@@ -13,7 +13,7 @@ Model announcements are useful starting points, but they are also marketing docu
 
 First determine whether the model or feature is a preview, beta, limited release, or generally available product. Availability affects stability, support, rate limits, pricing, and whether the API contract can change.
 
-Do not treat a research announcement, a hosted model, an API model identifier, and a product feature as interchangeable. Record the exact model name, endpoint, region, access requirements, and the date you checked them.
+Do not treat a research announcement, a hosted model, an API model identifier, and a product feature as interchangeable. Record the exact model name, endpoint, region, access requirements, and the date you checked them. The [GPT-6 prompt caching preview](/posts/openai-previews-advanced-prompt-caching-for-gpt-6/) is a useful example of why preview status matters.
 
 ## 2. Check what the benchmark measures
 
@@ -42,13 +42,13 @@ These differences may be legitimate, but the announcement should disclose them b
 
 Check the actual context window, maximum output, supported modalities, file limits, and tool limits in the current API documentation. A larger advertised context window does not automatically mean better retrieval, lower cost, or reliable performance at that size.
 
-Test the workload at the input sizes you actually use. Measure truncation, latency, output quality, and failure behavior instead of copying a headline limit into your architecture.
+Test the workload at the input sizes you actually use. Measure truncation, latency, output quality, and failure behavior instead of copying a headline limit into your architecture. For local inference, compare the runtime and hardware conditions in the [Ollama v0.34.4 update](/posts/ollama-v0344-speeds-up-structured-outputs-and-enhances-apple-silicon-performance/) and the [Liquid AI DSpark release](/posts/liquid-ai-releases-lfm25-vl-dspark-for-faster-vision-language-inference/).
 
 ## 6. Verify pricing and availability
 
 Pricing may differ by input and output tokens, cached input, batch processing, region, tier, or tool usage. Confirm the current pricing page and API model catalog rather than relying on a launch post.
 
-Also check access requirements, rate limits, geographic availability, deprecation policy, and whether the model name in the announcement is the same identifier accepted by the endpoint you use.
+Also check access requirements, rate limits, geographic availability, deprecation policy, and whether the model name in the announcement is the same identifier accepted by the endpoint you use. The [OpenAI Python SDK 3.18 update](/posts/openai-python-sdk-v3180-adds-identifiers-for-gpt-6-sol-and-luna/) shows why an SDK identifier should not be treated as proof of endpoint access.
 
 ## 7. Read the safety claims precisely
 
