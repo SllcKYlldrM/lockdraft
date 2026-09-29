@@ -37,4 +37,4 @@ The shift to Opus 5.5 as the default Opus model gives automation pipelines immed
 - If your MCP servers exceed the previous description limit, export `CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH` with your preferred ceiling before launching the session.
 - Review any custom keybindings in `keybindings.json` if you relied on the previous `y`/`n` modal shortcuts; the default behavior now uses Enter and Esc.
 - Test resumed fork subagents in your automation chains to confirm prompt cache hit rates have stabilized.
-- Verify that symlinked write routes in your projects still behave as expected under auto mode and `acceptEdits` rules. For the control-loop trade-offs behind tool-driven agents, compare [ReAct and plan-and-execute patterns](/posts/react-vs-plan-and-execute/).
+- Verify that symlinked write routes in your projects still behave as expected under auto mode and `acceptEdits` rules. For the control-loop trade-offs behind tool-driven agents, compare [ReAct and plan-and-execute patterns](/posts/react-vs-plan-and-execute/). The follow-up [Claude Code v2.1.281 release notes](/posts/claude-code-v21281-release-notes/) cover the next round of session and streaming fixes.

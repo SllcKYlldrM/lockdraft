@@ -32,7 +32,7 @@ Key additions and technical capabilities include:
 
 ## Why it matters
 
-Fixed workflows work best for predictable, structured automation (such as lead enrichment or data pipeline routing), but struggle with unstructured, iterative tasks where input context varies—such as answering complex support inquiries or investigating metric drops. The new setup lets developers delegate open-ended multi-step problem solving to an agent while bounding its actions with deterministic workflows.
+Fixed workflows work best for predictable, structured automation (such as lead enrichment or data pipeline routing), but struggle with unstructured, iterative tasks where input context varies—such as answering complex support inquiries or investigating metric drops. The new setup lets developers delegate open-ended multi-step problem solving to an agent while bounding its actions with deterministic workflows. That boundary is also central to the [ReAct versus plan-and-execute comparison](/posts/react-vs-plan-and-execute/).
 
 Using workflows as agent tools creates a security boundary. For instance, rather than giving an agent broad write access to a CRM, developers can expose a targeted workflow that only appends a note to a given record ID. The agent never directly handles high-privilege system credentials. Furthermore, updating an agent's instructions automatically updates its logic across every integrated trigger and channel simultaneously.
 
