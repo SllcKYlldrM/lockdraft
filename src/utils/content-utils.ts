@@ -3,6 +3,40 @@ import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import { getCategoryUrl } from "@utils/url-utils";
 
+const TAG_CANONICAL_LABELS: Record<string, string> = {
+	openai: "OpenAI",
+	"gpt-6": "GPT-6",
+};
+
+export function getTagKey(tag: string): string {
+	return tag.trim().normalize("NFKC").toLowerCase().replace(/\s+/g, " ");
+}
+
+export function getTagLabel(tag: string): string {
+	const trimmed = tag.trim().normalize("NFKC");
+	return TAG_CANONICAL_LABELS[getTagKey(trimmed)] ?? trimmed;
+}
+
+export function getTagSlug(tag: string): string {
+	return getTagKey(tag)
+		.replace(/[^\p{L}\p{N}]+/gu, "-")
+		.replace(/^-+|-+$/g, "");
+}
+
+export function normalizeTagList(tags: string[]): string[] {
+	const seen = new Set<string>();
+	const normalized: string[] = [];
+
+	for (const tag of tags) {
+		const key = getTagKey(tag);
+		if (!key || seen.has(key)) continue;
+		seen.add(key);
+		normalized.push(getTagLabel(tag));
+	}
+
+	return normalized;
+}
+
 // // Retrieve posts and sort them by publication date
 async function getRawSortedPosts() {
 	const allBlogPosts = await getCollection("posts", ({ data }) => {
@@ -162,6 +196,8 @@ export async function getSeriesList(): Promise<Series[]> {
 }
 export type Tag = {
 	name: string;
+	key: string;
+	slug: string;
 	count: number;
 };
 
@@ -170,20 +206,29 @@ export async function getTagList(): Promise<Tag[]> {
 		return import.meta.env.PROD ? data.draft !== true : true;
 	});
 
-	const countMap: { [key: string]: number } = {};
+	const countMap = new Map<string, { count: number; labels: Set<string> }>();
 	allBlogPosts.forEach((post: { data: { tags: string[] } }) => {
 		post.data.tags.forEach((tag: string) => {
-			if (!countMap[tag]) countMap[tag] = 0;
-			countMap[tag]++;
+			const key = getTagKey(tag);
+			if (!key) return;
+			const entry = countMap.get(key) ?? { count: 0, labels: new Set() };
+			entry.count++;
+			entry.labels.add(getTagLabel(tag));
+			countMap.set(key, entry);
 		});
 	});
 
 	// sort tags
-	const keys: string[] = Object.keys(countMap).sort((a, b) => {
+	const keys = [...countMap.keys()].sort((a, b) => {
 		return a.toLowerCase().localeCompare(b.toLowerCase());
 	});
 
-	return keys.map((key) => ({ name: key, count: countMap[key] }));
+	return keys.map((key) => {
+		const entry = countMap.get(key);
+		if (!entry) throw new Error(`Missing tag entry for ${key}`);
+		const name = [...entry.labels].sort((a, b) => a.localeCompare(b))[0] ?? key;
+		return { name, key, slug: getTagSlug(name), count: entry.count };
+	});
 }
 
 export type Category = {
@@ -278,13 +323,17 @@ export async function getRelatedPosts(
 		(p) => p.id !== currentPost.id && !p.data.password,
 	);
 
-	const currentTags = new Set(currentPost.data.tags || []);
+	const currentTags = new Set(
+		(currentPost.data.tags || []).map((tag) => getTagKey(tag)),
+	);
 	const currentTokens = tokenizeTitle(currentPost.data.title);
 	const currentCategory = currentPost.data.category || "";
 	const now = Date.now();
 
 	const scored = candidates.map((post) => {
-		const postTags = new Set(post.data.tags || []);
+		const postTags = new Set(
+			(post.data.tags || []).map((tag) => getTagKey(tag)),
+		);
 
 		// tagMatchScore (0-100)
 		const tagMatchScore = jaccardSimilarity(currentTags, postTags) * 100;

@@ -12,6 +12,7 @@ import {
 	getRelatedPosts,
 	getSeriesPosts,
 	getSortedPosts,
+	normalizeTagList,
 } from "@utils/content-utils";
 import {
 	getCategoryUrl,
@@ -64,6 +65,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content, headings } = await render(entry);
+const normalizedTags = normalizeTagList(entry.data.tags);
 
 const { remarkPluginFrontmatter } = await render(entry);
 
@@ -160,7 +162,7 @@ const jsonLd = {
 			"@type": "BlogPosting",
 			headline: entry.data.title,
 			description: entry.data.description || entry.data.title,
-			keywords: entry.data.tags.length ? entry.data.tags.join(", ") : undefined,
+			keywords: normalizedTags.length ? normalizedTags.join(", ") : undefined,
 			author: { "@id": authorPerson["@id"] },
 			publisher: { "@id": publisher["@id"] },
 			...(coverImage
@@ -225,7 +227,7 @@ const seriesData = await getSeriesPosts(entry);
   {entry.data.category && (
     <meta slot="head" property="article:section" content={entry.data.category} />
   )}
-  {entry.data.tags.map((tag) => (
+  {normalizedTags.map((tag) => (
     <meta slot="head" property="article:tag" content={tag.trim()} />
   ))}
   {/* 加密/密码保护文章：内容不可被爬取，标注 noindex, noarchive */}

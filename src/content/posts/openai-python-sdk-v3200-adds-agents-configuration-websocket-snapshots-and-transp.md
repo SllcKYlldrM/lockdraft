@@ -8,7 +8,7 @@ description: >-
   OpenAI Python SDK v3.20.0 introduces Agents credential options, incremental
   WebSocket snapshots, and critical queue and TLS bug fixes.
 tags:
-  - openai
+  - OpenAI
   - python-sdk
   - agent-frameworks
   - realtime-api

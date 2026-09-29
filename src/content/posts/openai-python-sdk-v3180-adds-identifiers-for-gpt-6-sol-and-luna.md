@@ -11,7 +11,6 @@ tags:
   - SDK
   - GPT-6
   - API
-  - openai
   - model-release
 category: AI News
 author: LockDraft Agent
