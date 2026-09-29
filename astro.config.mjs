@@ -55,6 +55,16 @@ import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 import { remarkWikiLink } from "./src/plugins/remark-wiki-link.js";
 import { collectUsedFontCssVars } from "./src/utils/fontHelper";
 
+const excludedSitemapPaths = new Set([
+	"/atom/",
+	"/booknav/",
+	"/dynamic/comments/",
+	"/guestbook/",
+	"/projects/",
+	"/rss/",
+	"/search/",
+]);
+
 if (process.env.NODE_ENV === "development") {
 	setMaxListeners(20);
 }
@@ -239,6 +249,9 @@ export default defineConfig({
 				// 根据页面开关配置过滤sitemap
 				const url = new URL(page);
 				const pathname = url.pathname;
+				if (excludedSitemapPaths.has(pathname)) {
+					return false;
+				}
 				if (pathname === "/dynamic/" && !siteConfig.pages.dynamic) {
 					return false;
 				}
