@@ -5,7 +5,8 @@ export const announcementConfig: AnnouncementConfig = {
 	title: "",
 
 	// 公告内容
-	content: "Welcome to LockDraft — practical AI news, agent patterns, automation workflows, and ready-to-use prompts.",
+	content:
+		"Welcome to LockDraft — practical AI news, agent patterns, automation workflows, and ready-to-use prompts.",
 
 	// 是否允许用户关闭公告
 	closable: true,

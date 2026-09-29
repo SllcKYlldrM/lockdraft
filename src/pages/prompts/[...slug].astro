@@ -19,8 +19,16 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content, headings } = await render(entry);
 
-const { title, description, published, category, models, tags, difficulty, prompt } =
-	entry.data;
+const {
+	title,
+	description,
+	published,
+	category,
+	models,
+	tags,
+	difficulty,
+	prompt,
+} = entry.data;
 ---
 
 <MainGridLayout

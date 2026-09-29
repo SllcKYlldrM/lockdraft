@@ -4,10 +4,10 @@
 // `node scripts/generate-favicon.mjs` whenever avatar.svg changes — this
 // is not part of the build pipeline (favicons don't need to regenerate on
 // every build, only when the source art changes).
-import sharp from "sharp";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import sharp from "sharp";
 
 const siteRoot = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const svgPath = path.join(siteRoot, "public/assets/images/avatar.svg");
