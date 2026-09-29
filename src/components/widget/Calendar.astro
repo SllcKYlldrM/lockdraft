@@ -351,7 +351,7 @@ const postUrlPrefix = url("/posts/");
     }
     
     // 渲染日历格子
-    calendarGrid.innerHTML = calendarDays.map(({day, hasPost, count, dateKey}) => {
+    calendarGrid.innerHTML = calendarDays.map(({day, hasPost, dateKey}) => {
       const isToday = day === currentDate && isCurrentMonth;
       const classes = [
         "calendar-day aspect-square flex items-center justify-center rounded-sm text-sm relative cursor-pointer"
@@ -377,7 +377,6 @@ const postUrlPrefix = url("/posts/");
         >
           ${day || ''}
           ${hasPost ? '<span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-(--primary)"></span>' : ''}
-          ${hasPost && count > 1 ? `<span class="absolute top-0 right-0 text-[10px] text-(--primary) font-bold">${count}</span>` : ''}
         </div>
       `;
     }).join('');
