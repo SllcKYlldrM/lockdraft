@@ -7,7 +7,11 @@ import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
 import "@/styles/banner-home.css";
-import { getSortedPosts } from "@/utils/content-utils";
+import HomeEditorialSections from "@/components/pages/HomeEditorialSections.astro";
+import { getSortedPosts, getSortedPrompts } from "@/utils/content-utils";
+
+const FEATURED_SLUG = "prompt-engineering-basics";
+
 export const getStaticPaths = (async ({ paginate }) => {
 	const allBlogPosts = await getSortedPosts();
 	// 使用配置中的文章数量
@@ -19,6 +23,11 @@ export const getStaticPaths = (async ({ paginate }) => {
 const { page } = Astro.props;
 
 const len = page.data.length;
+const isFirstPage = page.currentPage === 1;
+const featuredPost = isFirstPage
+	? (await getSortedPosts()).find((post) => post.id === FEATURED_SLUG)
+	: undefined;
+const promptCount = isFirstPage ? (await getSortedPrompts()).length : 0;
 
 // 列表页隐藏的 h1：首屏用站点标题，后续页用「首页 · 页码」，避免空 h1
 const heading =
@@ -27,8 +36,21 @@ const heading =
 		: `${i18n(I18nKey.home)} · ${page.currentPage}`;
 ---
 
-<MainGridLayout heading={heading}>
-  <PostPage page={page} />
+<MainGridLayout heading={heading} showCategoryBar={false}>
+  {
+    isFirstPage && featuredPost && (
+      <HomeEditorialSections featuredPost={featuredPost} promptCount={promptCount} />
+    )
+  }
+
+  <section aria-labelledby={isFirstPage ? "latest-articles-heading" : undefined}>
+    {isFirstPage && (
+      <h2 id="latest-articles-heading" class="mb-3 text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+        Latest Articles
+      </h2>
+    )}
+    <PostPage page={page} />
+  </section>
   {
     page.total > page.size && (
       <Pagination

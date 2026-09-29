@@ -1,0 +1,93 @@
+---
+import type { CollectionEntry } from "astro:content";
+import PostCard from "@/components/layout/PostCard.astro";
+import { getCategoryList } from "@/utils/content-utils";
+import { getPostUrlBySlug, url } from "@/utils/url-utils";
+
+interface Props {
+	featuredPost: CollectionEntry<"posts">;
+	promptCount: number;
+}
+
+const { featuredPost, promptCount } = Astro.props;
+const categories = await getCategoryList();
+const categoryNames = ["AI News", "Agents", "Automation", "Tutorials"];
+const categoryMap = new Map(
+	categories.map((category) => [category.name, category]),
+);
+const featuredCategories = categoryNames
+	.map((name) => categoryMap.get(name))
+	.filter((category): category is NonNullable<typeof category> =>
+		Boolean(category),
+	);
+---
+
+<div class="home-editorial-sections flex flex-col gap-8">
+	<section class="card-base p-5 md:p-6" aria-labelledby="editorial-intro-heading">
+		<h2 id="editorial-intro-heading" class="text-xl font-bold text-neutral-900 dark:text-neutral-100">
+			Practical AI publishing
+		</h2>
+		<p class="mt-2 max-w-3xl leading-relaxed text-neutral-600 dark:text-neutral-300">
+			LockDraft covers AI news, agent systems, automation workflows, and practical guides for building and evaluating useful tools.
+		</p>
+	</section>
+
+	<section aria-labelledby="featured-heading">
+		<div class="mb-3 flex items-center justify-between gap-4">
+			<h2 id="featured-heading" class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+				Featured Evergreen
+			</h2>
+			<span class="shrink-0 text-sm font-semibold text-(--primary)">Featured Guide</span>
+		</div>
+		<PostCard
+			entry={featuredPost}
+			title={featuredPost.data.title}
+			tags={featuredPost.data.tags}
+			category={featuredPost.data.category}
+			published={featuredPost.data.published}
+			updated={featuredPost.data.updated}
+			url={getPostUrlBySlug(featuredPost.id)}
+			image={featuredPost.data.image}
+			description={featuredPost.data.description}
+			draft={featuredPost.data.draft}
+			password={Boolean(featuredPost.data.password)}
+			style=""
+			loading="eager"
+			class="home-featured-card"
+		/>
+	</section>
+
+	<section aria-labelledby="topics-heading">
+		<h2 id="topics-heading" class="mb-3 text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+			Explore by Topic
+		</h2>
+		<div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+			{featuredCategories.map((category) => (
+				<a
+					href={category.url}
+					class="card-base focus-ring-inset flex min-h-20 items-center justify-between gap-3 p-4 transition hover:-translate-y-0.5"
+				>
+					<span class="font-semibold text-neutral-800 dark:text-neutral-100">{category.name}</span>
+					<span class="rounded-full bg-(--primary)/10 px-2.5 py-1 text-sm font-bold text-(--primary)">
+						{category.count}
+					</span>
+				</a>
+			))}
+		</div>
+	</section>
+
+	<section class="card-base flex flex-col gap-3 p-5 sm:flex-row sm:items-center sm:justify-between md:p-6" aria-labelledby="prompts-heading">
+		<div>
+			<h2 id="prompts-heading" class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Prompts</h2>
+			<p class="mt-1 text-neutral-600 dark:text-neutral-300">
+				Browse {promptCount} ready-to-use prompts for AI models, agents, and automation workflows.
+			</p>
+		</div>
+		<a
+			href={url("/prompts/")}
+			class="btn-regular focus-ring-inset inline-flex min-h-11 items-center justify-center rounded-lg px-4 font-semibold"
+		>
+			Explore prompts
+		</a>
+	</section>
+</div>
