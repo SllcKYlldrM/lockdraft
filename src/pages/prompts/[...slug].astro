@@ -38,7 +38,16 @@ const {
   headings={headings}
 >
   <div class="flex w-full rounded-(--radius-large) overflow-hidden relative mb-4">
-    <div id="post-container" class="card-base z-10 px-6 md:px-9 pt-6 pb-4 relative w-full">
+    <div
+      id="post-container"
+      class="card-base z-10 px-6 md:px-9 pt-6 pb-4 relative w-full"
+      data-analytics-prompt
+      data-prompt-slug={entry.id}
+      data-prompt-title={title}
+      data-prompt-category={category}
+      data-prompt-difficulty={difficulty}
+      data-prompt-models={models.join(", ")}
+    >
       <a
         href={url("/prompts/")}
         class="inline-flex items-center gap-1.5 text-sm text-(--primary) hover:underline mb-4"
@@ -111,7 +120,14 @@ const {
           <span class="text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
             Prompt
           </span>
-          <CopyPromptButton text={prompt} />
+          <div
+            data-analytics-prompt-copy
+            data-prompt-slug={entry.id}
+            data-prompt-category={category}
+            data-prompt-difficulty={difficulty}
+          >
+            <CopyPromptButton text={prompt} />
+          </div>
         </div>
         <pre class="prompt-text px-4 py-4 text-sm leading-relaxed whitespace-pre-wrap break-words overflow-x-auto"><code>{prompt}</code></pre>
       </div>

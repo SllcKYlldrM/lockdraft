@@ -4,6 +4,7 @@ import { i18n } from "@i18n/translation";
 import { onMount } from "svelte";
 import Icon from "@/components/common/Icon.svelte";
 import type { SearchResult } from "@/global";
+import { trackEvent } from "@/utils/analytics";
 import { url as formatUrl } from "@/utils/url-utils";
 
 // --- Props ---
@@ -15,6 +16,7 @@ let keyword = "";
 let results: SearchResult[] = [];
 let isSearching = false;
 let initialized = false;
+let lastTrackedSearch = "";
 
 // 在客户端获取 URL 参数
 const getInitialKeyword = (): string => {
@@ -54,6 +56,13 @@ const search = async () => {
 				response.results.map((item) => item.data()),
 			);
 			results = rawResults;
+			if (keyword.trim() !== lastTrackedSearch) {
+				lastTrackedSearch = keyword.trim();
+				trackEvent("site_search", {
+					search_term: lastTrackedSearch,
+					result_count: results.length,
+				});
+			}
 		} else if (import.meta.env.DEV) {
 			// 开发模式下的模拟结果
 			results = fakeResult.filter(
@@ -61,6 +70,13 @@ const search = async () => {
 					item.excerpt.toLowerCase().includes(keyword.toLowerCase()) ||
 					item.meta.title.toLowerCase().includes(keyword.toLowerCase()),
 			);
+			if (keyword.trim() !== lastTrackedSearch) {
+				lastTrackedSearch = keyword.trim();
+				trackEvent("site_search", {
+					search_term: lastTrackedSearch,
+					result_count: results.length,
+				});
+			}
 		}
 	} catch (error) {
 		console.error("Search error:", error);

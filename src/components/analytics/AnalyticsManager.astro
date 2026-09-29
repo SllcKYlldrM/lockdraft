@@ -1,0 +1,274 @@
+---
+interface Props {
+	analyticsId: string;
+}
+
+const { analyticsId } = Astro.props;
+---
+
+<div
+	id="analytics-consent-banner"
+	class="fixed inset-x-4 bottom-4 z-[100] mx-auto max-w-xl rounded-xl border border-black/10 bg-white p-4 shadow-xl dark:border-white/10 dark:bg-neutral-900"
+	hidden
+	role="dialog"
+	aria-labelledby="analytics-consent-title"
+	aria-describedby="analytics-consent-description"
+>
+	<div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+		<div>
+			<h2 id="analytics-consent-title" class="font-semibold text-neutral-900 dark:text-neutral-100">
+				Optional analytics
+			</h2>
+			<p id="analytics-consent-description" class="mt-1 text-sm text-neutral-600 dark:text-neutral-300">
+				We use optional analytics to understand how LockDraft is used.
+				<a class="underline" href="/cookie-policy/">Cookie Policy</a>
+			</p>
+		</div>
+		<div class="flex shrink-0 gap-2">
+			<button type="button" data-analytics-decline class="min-h-11 rounded-lg border border-black/15 px-3 py-2 text-sm font-medium text-neutral-800 dark:border-white/20 dark:text-neutral-100">
+				Decline
+			</button>
+			<button type="button" data-analytics-accept class="min-h-11 rounded-lg border border-black/15 px-3 py-2 text-sm font-medium text-neutral-800 dark:border-white/20 dark:text-neutral-100">
+				Accept analytics
+			</button>
+		</div>
+	</div>
+</div>
+
+<script is:inline define:vars={{ analyticsId, isProduction: import.meta.env.PROD }}>
+	(() => {
+		const CONSENT_KEY = "lockdraft_analytics_consent";
+		const banner = document.getElementById("analytics-consent-banner");
+		const accepted = document.querySelector("[data-analytics-accept]");
+		const declined = document.querySelector("[data-analytics-decline]");
+		let gaLoaded = false;
+		let currentArticle = null;
+		let currentPrompt = null;
+		let articleCleanup = null;
+		let articleViewSent = false;
+		let promptViewSent = false;
+		let pageViewTimer;
+		let lastPageViewUrl = "";
+		let lastPageViewAt = 0;
+
+		const getConsent = () => localStorage.getItem(CONSENT_KEY);
+		const hasConsent = () => isProduction && getConsent() === "granted";
+
+		function updateBanner() {
+			if (banner) banner.hidden = getConsent() !== null;
+		}
+
+		function loadGoogleAnalytics() {
+			if (!isProduction || !analyticsId || gaLoaded) return;
+			if (!document.querySelector("script[data-lockdraft-google-analytics]")) {
+				const script = document.createElement("script");
+				script.async = true;
+				script.src = "https://www.googletagmanager.com/gtag/js?id=" + analyticsId;
+				script.dataset.lockdraftGoogleAnalytics = "true";
+				document.head.appendChild(script);
+			}
+			window.dataLayer = window.dataLayer || [];
+			window.gtag = window.gtag || function gtag() {
+				window.dataLayer.push(arguments);
+			};
+			window.gtag("js", new Date());
+			window.gtag("config", analyticsId, { send_page_view: false });
+			gaLoaded = true;
+		}
+
+		function trackEvent(name, params = {}) {
+			if (!hasConsent()) return;
+			loadGoogleAnalytics();
+			if (typeof window.gtag !== "function") return;
+			window.gtag("event", name, params);
+		}
+
+		function getArticle() {
+			return document.querySelector("[data-analytics-article]");
+		}
+
+		function getPrompt() {
+			return document.querySelector("[data-analytics-prompt]");
+		}
+
+		function trackPageView() {
+			const pageUrl = window.location.href;
+			const now = Date.now();
+			if (pageUrl === lastPageViewUrl && now - lastPageViewAt < 1000) return;
+			lastPageViewUrl = pageUrl;
+			lastPageViewAt = now;
+			trackEvent("page_view", {
+				page_location: pageUrl,
+				page_path: window.location.pathname,
+				page_title: document.title,
+			});
+		}
+
+		function schedulePageView() {
+			window.clearTimeout(pageViewTimer);
+			pageViewTimer = window.setTimeout(() => {
+				trackPageView();
+				setupPageTracking();
+			}, 0);
+		}
+
+		function setupArticleTracking(article) {
+			if (article !== currentArticle) {
+				articleCleanup?.();
+				currentArticle = article;
+				articleViewSent = false;
+				article.dataset.analytics50Sent = "";
+				article.dataset.analytics90Sent = "";
+				const onScroll = () => {
+					const content = article.querySelector(".markdown-content");
+					if (!content || content.scrollHeight < window.innerHeight * 1.25) return;
+					const start = content.getBoundingClientRect().top + window.scrollY;
+					const progress = (window.scrollY + window.innerHeight - start) / content.scrollHeight;
+					if (progress >= 0.5 && hasConsent() && !article.dataset.analytics50Sent) {
+						article.dataset.analytics50Sent = "true";
+						trackEvent("article_50_percent", { article_slug: article.dataset.articleSlug });
+					}
+					if (progress >= 0.9 && hasConsent() && !article.dataset.analytics90Sent) {
+						article.dataset.analytics90Sent = "true";
+						trackEvent("article_90_percent", { article_slug: article.dataset.articleSlug });
+					}
+				};
+				window.addEventListener("scroll", onScroll, { passive: true });
+				articleCleanup = () => window.removeEventListener("scroll", onScroll);
+			}
+
+			if (!articleViewSent && hasConsent()) {
+				articleViewSent = true;
+				trackEvent("article_view", {
+					article_slug: article.dataset.articleSlug,
+					article_title: article.dataset.articleTitle,
+					article_category: article.dataset.articleCategory,
+					article_author: article.dataset.articleAuthor,
+					word_count: article.dataset.wordCount ? Number(article.dataset.wordCount) : undefined,
+				});
+			}
+		}
+
+		function setupPromptTracking(prompt) {
+			if (prompt === currentPrompt && promptViewSent) return;
+			currentPrompt = prompt;
+			if (!hasConsent()) return;
+			promptViewSent = true;
+			trackEvent("prompt_view", {
+				prompt_slug: prompt.dataset.promptSlug,
+				prompt_title: prompt.dataset.promptTitle,
+				prompt_category: prompt.dataset.promptCategory,
+				difficulty: prompt.dataset.promptDifficulty,
+				models: prompt.dataset.promptModels,
+			});
+		}
+
+		function setupPageTracking() {
+			const article = getArticle();
+			if (article) setupArticleTracking(article);
+			else {
+				articleCleanup?.();
+				currentArticle = null;
+				articleViewSent = false;
+			}
+			const prompt = getPrompt();
+			if (prompt) setupPromptTracking(prompt);
+			else {
+				currentPrompt = null;
+				promptViewSent = false;
+			}
+		}
+
+		function sourceSectionLink(link, article) {
+			if (link.hasAttribute("data-analytics-source")) return true;
+			const content = article.querySelector(".markdown-content");
+			if (!content || !content.contains(link)) return false;
+			let latestHeading = "";
+			for (const node of content.querySelectorAll("h2, h3")) {
+				if (node.compareDocumentPosition(link) & Node.DOCUMENT_POSITION_FOLLOWING) {
+					latestHeading = node.textContent?.trim() || latestHeading;
+				}
+			}
+			return /^(sources|references)$/i.test(latestHeading);
+		}
+
+		function handleClick(event) {
+			const target = event.target instanceof Element ? event.target : null;
+			if (!target) return;
+			if (target.closest("[data-analytics-settings]")) {
+				localStorage.removeItem(CONSENT_KEY);
+				updateBanner();
+				return;
+			}
+			const copy = target.closest("[data-analytics-prompt-copy]");
+			if (copy) {
+				trackEvent("prompt_copy", {
+					prompt_slug: copy.dataset.promptSlug,
+					prompt_category: copy.dataset.promptCategory,
+					difficulty: copy.dataset.promptDifficulty,
+				});
+				return;
+			}
+			const article = getArticle();
+			const link = target.closest("a");
+			if (article && link && sourceSectionLink(link, article)) {
+				try {
+					const sourceUrl = new URL(link.href, window.location.href);
+					trackEvent("source_click", {
+						article_slug: article.dataset.articleSlug,
+						source_hostname: sourceUrl.hostname,
+						source_url: sourceUrl.href,
+					});
+				} catch {}
+				return;
+			}
+			if (link?.hasAttribute("data-analytics-related")) {
+				trackEvent("related_article_click", {
+					source_article_slug: link.dataset.sourceArticleSlug,
+					target_article_slug: link.dataset.targetArticleSlug,
+					position: Number(link.dataset.relatedPosition),
+				});
+				return;
+			}
+			if (link?.matches(".category-pill") || link?.closest("#categories") || link?.hasAttribute("data-analytics-category")) {
+				const categoryName = link.dataset.analyticsCategory || link.textContent?.trim();
+				if (categoryName && !categoryName.startsWith("__")) {
+					const sourceLocation = link.closest("#category-bar")
+						? "category_bar"
+						: link.closest("#categories")
+							? "sidebar"
+							: "homepage";
+					trackEvent("category_click", { category_name: categoryName, source_location: sourceLocation });
+				}
+			}
+		}
+
+		window.lockdraftAnalytics = {
+			trackEvent,
+			openConsentSettings: () => {
+				localStorage.removeItem(CONSENT_KEY);
+				updateBanner();
+			},
+		};
+		window.addEventListener("lockdraft:analytics", (event) => {
+			const detail = event.detail;
+			if (detail?.name) trackEvent(detail.name, detail.params || {});
+		});
+		document.addEventListener("click", handleClick);
+		document.addEventListener("swup:contentReplaced", schedulePageView);
+		document.addEventListener("astro:page-load", schedulePageView);
+		accepted?.addEventListener("click", () => {
+			localStorage.setItem(CONSENT_KEY, "granted");
+			updateBanner();
+			loadGoogleAnalytics();
+			schedulePageView();
+		});
+		declined?.addEventListener("click", () => {
+			localStorage.setItem(CONSENT_KEY, "denied");
+			updateBanner();
+		});
+		updateBanner();
+		if (getConsent() === "granted") loadGoogleAnalytics();
+		schedulePageView();
+	})();
+</script>
