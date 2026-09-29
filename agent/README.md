@@ -34,6 +34,12 @@ publication. Workflows re-fetch `main` before publishing and abort if the
 checked-out commit is stale, preventing concurrent runs from publishing over
 newer content.
 
+The small `content-gaps.ts` backlog is the agent's editorial priority input.
+Guide generation is limited to planned P1-P3 gaps with a known cluster and
+intent; routine release-chain items are skipped when they add no meaningful
+user-facing change. This keeps evergreen coverage from being crowded out by
+minor patch notes without introducing a scheduler or programmatic topic farm.
+
 ## Roles
 
 | Role | File | Job |

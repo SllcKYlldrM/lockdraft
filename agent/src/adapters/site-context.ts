@@ -62,7 +62,9 @@ export async function loadExistingPosts(): Promise<ExistingPost[]> {
       file,
       kind: tags.includes(NEWS_TAG) ? "news" : "guides",
       title: data.title ?? "",
-      topic: tags.find((t) => topics.some((topic) => topic.id === t)),
+      topic: tags.find((t) =>
+        topics.some((topic) => topic.id.toLowerCase() === t.toLowerCase()),
+      )?.toLowerCase(),
       category: categoryId,
       guideType: tags.find((t) =>
         ["tutorial", "explainer", "comparison", "workflow-recipe", "troubleshooting"].includes(t),
