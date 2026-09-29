@@ -16,45 +16,20 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 	// 主页
 	links.push(LinkPresets.Home);
 
-	// 文章及其子菜单
+	// 文章入口
 	links.push({
 		name: "Articles",
-		url: "#",
+		url: "/archive/",
 		icon: "material-symbols:article",
-		children: [
-			// 归档
-			LinkPresets.Archive,
-
-			// 分类
-			LinkPresets.Categories,
-
-			// 标签
-			LinkPresets.Tags,
-
-			// 系列
-			LinkPresets.Series,
-		],
 	});
+
+	links.push(LinkPresets.AINews);
+	links.push(LinkPresets.Agents);
+	links.push(LinkPresets.Automation);
+	links.push(LinkPresets.Tutorials);
 
 	// 提示词库
 	links.push(LinkPresets.Prompts);
-
-	// 更多及其子菜单
-	links.push({
-		name: "More",
-		url: "#",
-		icon: "material-symbols:apps-rounded",
-		children: [
-			// 项目
-			LinkPresets.Projects,
-
-			// 书签导航
-			LinkPresets.Booknav,
-
-			// 留言
-			LinkPresets.Guestbook,
-		],
-	});
 
 	// 关于页面
 	links.push(LinkPresets.About);
@@ -81,6 +56,26 @@ export const LinkPresets: Record<string, NavBarLink> = {
 		name: "Archive",
 		url: "/archive/",
 		icon: "material-symbols:archive",
+	},
+	AINews: {
+		name: "AI News",
+		url: "/archive/?category=AI%20News",
+		icon: "material-symbols:newspaper",
+	},
+	Agents: {
+		name: "Agents",
+		url: "/archive/?category=Agents",
+		icon: "material-symbols:smart-toy",
+	},
+	Automation: {
+		name: "Automation",
+		url: "/archive/?category=Automation",
+		icon: "material-symbols:account-tree",
+	},
+	Tutorials: {
+		name: "Tutorials",
+		url: "/archive/?category=Tutorials",
+		icon: "material-symbols:school",
 	},
 	Categories: {
 		name: "Categories",
