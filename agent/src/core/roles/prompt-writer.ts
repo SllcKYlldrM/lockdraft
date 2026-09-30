@@ -2,6 +2,7 @@ import slugify from "slugify";
 import { callLLM } from "../llm/provider.ts";
 import { extractJson } from "../llm/json.ts";
 import type { PromptArticle, PromptCandidate, PromptDifficulty } from "../types.ts";
+import { normalizePromptTags } from "../quality/editorial.ts";
 
 const VALID_DIFFICULTIES: PromptDifficulty[] = ["beginner", "intermediate", "advanced"];
 
@@ -98,7 +99,7 @@ Respond with ONLY this JSON shape:
       description: out.description.trim().slice(0, 160),
       category: candidate.category,
       models: (out.models ?? []).filter((m) => ["Claude", "GPT", "Gemini"].includes(m)).slice(0, 3),
-      tags: (out.tags ?? []).slice(0, 6),
+      tags: normalizePromptTags(out.tags ?? []),
       difficulty,
       published: new Date().toISOString(),
       draft: false,

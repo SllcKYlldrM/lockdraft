@@ -58,6 +58,8 @@ export const limits = {
   rejectionRetryHours: 24,
   /** Body/source 8-gram overlap ratio above which we force a revision. */
   maxOverlapRatio: 0.15,
+  /** Guides use a stricter source-overlap ceiling than short news coverage. */
+  maxGuideOverlapRatio: 0.12,
   /** News body word count floor — catches thin filler the LLM editor
    * sometimes lets through. */
   minNewsWords: 300,
@@ -86,6 +88,8 @@ export const limits = {
    * the writer LLM nothing to work from except invented specifics. Below
    * this, skip writing entirely rather than risk that. */
   minYoutubeSourceChars: 200,
+  /** Minimum source body depth before a news writer call is worthwhile. */
+  minNewsSourceWords: 80,
 } as const;
 
 // Every URL below verified reachable (HTTP 200, RSS/XML content-type) on

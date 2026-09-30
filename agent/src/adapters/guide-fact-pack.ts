@@ -1,27 +1,10 @@
 import { fetchArticleText } from "../core/article-fetcher.ts";
+import { assessSourceReadiness } from "../core/quality/source.ts";
 import type { TopicDefinition } from "./site-context.ts";
 import type { GuideFactPack } from "../core/types.ts";
 
 const MAX_OFFICIAL_TEXT = 6000;
 const MIN_GUIDE_SOURCE_WORDS = 250;
-
-function assessGuideSource(text: string | undefined): {
-  ready: boolean;
-  reason?: string;
-} {
-  const normalized = text?.replace(/\s+/g, " ").trim() ?? "";
-  const words = normalized.split(/\s+/).filter(Boolean).length;
-  if (!normalized) {
-    return { ready: false, reason: "official source could not be extracted" };
-  }
-  if (words < MIN_GUIDE_SOURCE_WORDS) {
-    return {
-      ready: false,
-      reason: `official source has only ${words} usable words; needs at least ${MIN_GUIDE_SOURCE_WORDS}`,
-    };
-  }
-  return { ready: true };
-}
 
 /**
  * Builds a small grounding pack for guide generation. The pack is deliberately
@@ -45,7 +28,7 @@ export async function buildGuideFactPack(
   }
 
   const officialText = await fetchArticleText(topic.officialUrl);
-  const sourceAssessment = assessGuideSource(officialText);
+  const sourceAssessment = assessSourceReadiness(officialText, MIN_GUIDE_SOURCE_WORDS);
   const limitations: string[] = [];
   if (!officialText) {
     limitations.push(

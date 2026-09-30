@@ -4,6 +4,7 @@ import { reviewArticle } from "../roles/editor.ts";
 import { buildGuideFactPack } from "../../adapters/guide-fact-pack.ts";
 import { buildFreshnessQueue, decideGuideCandidate, evaluatePublishGate } from "../quality/growth.ts";
 import { validateFrontmatter } from "../quality/frontmatter.ts";
+import { overlapRatio } from "../quality/overlap.ts";
 import {
   loadTopics,
   loadCategories,
@@ -138,22 +139,31 @@ export async function runGuidePipeline(opts: GuideRunOptions = {}): Promise<RunS
     emit("guide-editor", "Guide Editor", "active", `Reviewing ${brief.workingTitle}`);
     let verdict = await reviewArticle(article, factPack.verifiedText);
     emit("guide-editor", "Guide Editor", "done", "Initial review completed");
+    let overlap = overlapRatio(article.body, factPack.verifiedText);
 
     let attempts = 0;
-    while (verdict.status === "revise" && attempts < limits.maxRevisions) {
+    while (
+      (verdict.status === "revise" || overlap > limits.maxGuideOverlapRatio) &&
+      attempts < limits.maxRevisions
+    ) {
+      const issues = [...verdict.issues];
+      if (overlap > limits.maxGuideOverlapRatio) {
+        issues.push("Guide body overlaps too closely with the official source — rewrite in original language.");
+      }
       emit("guide-writer", "Guide Writer", "active", `Revision ${attempts + 1}/${limits.maxRevisions}`);
       article = await writeGuideArticle(
         brief,
         topic,
         relatedTitles,
         factPack,
-        verdict.issues,
+        issues,
         internalLinks,
       );
       emit("guide-writer", "Guide Writer", "done", `Revision ${attempts + 1} drafted`);
       emit("guide-editor", "Guide Editor", "active", "Reviewing revision");
       verdict = await reviewArticle(article, factPack.verifiedText);
       emit("guide-editor", "Guide Editor", "done", "Revision reviewed");
+      overlap = overlapRatio(article.body, factPack.verifiedText);
       attempts++;
     }
 
@@ -171,10 +181,12 @@ export async function runGuidePipeline(opts: GuideRunOptions = {}): Promise<RunS
       emit("guide-reviewer", "Guide Deep Reviewer", "done", "Deep review completed");
     }
 
-    if (verdict.status !== "pass") {
+    if (verdict.status !== "pass" || overlap > limits.maxGuideOverlapRatio) {
       rejected.push({
         id: brief.workingTitle,
-        reason: `editor: ${verdict.issues.join("; ")}`,
+        reason: overlap > limits.maxGuideOverlapRatio
+          ? `source overlap ${overlap.toFixed(2)} exceeds limit`
+          : `editor: ${verdict.issues.join("; ")}`,
       });
     } else {
       if (usedSlugs.has(article.frontmatter.slug)) {
@@ -185,7 +197,13 @@ export async function runGuidePipeline(opts: GuideRunOptions = {}): Promise<RunS
       if (!validation.valid) {
         rejected.push({ id: brief.workingTitle, reason: `frontmatter: ${validation.errors.join("; ")}` });
       } else {
-        const publishGate = evaluatePublishGate(article, factPack.verifiedText, 0, internalLinks.length);
+        const publishGate = evaluatePublishGate(
+          article,
+          factPack.verifiedText,
+          overlap,
+          internalLinks.length,
+          limits.maxGuideOverlapRatio,
+        );
         if (!publishGate.valid) {
           rejected.push({ id: brief.workingTitle, reason: `publish gate: ${publishGate.errors.join("; ")}` });
         } else {

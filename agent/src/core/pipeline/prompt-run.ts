@@ -2,6 +2,7 @@ import { planPromptCandidate } from "../roles/prompt-planner.ts";
 import { writePrompt } from "../roles/prompt-writer.ts";
 import { reviewPrompt } from "../roles/editor.ts";
 import { validatePromptFrontmatter } from "../quality/frontmatter.ts";
+import { decidePromptArticle } from "../quality/growth.ts";
 import { loadExistingPrompts } from "../../adapters/site-context.ts";
 import { publishPrompt } from "../../adapters/publisher/markdown-git.ts";
 import { appendRun } from "../../adapters/run-log.ts";
@@ -41,7 +42,6 @@ export async function runPromptPipeline(opts: PromptRunOptions = {}): Promise<Ru
 
   try {
     const existingPrompts = await loadExistingPrompts();
-    const usedSlugs = new Set(existingPrompts.map((p) => p.slug));
 
     emit("prompt-planner", "Prompt Planner", "active", "Finding the least-covered prompt category");
     const candidate = planPromptCandidate(existingPrompts);
@@ -50,44 +50,55 @@ export async function runPromptPipeline(opts: PromptRunOptions = {}): Promise<Ru
     emit("prompt-writer", "Prompt Writer", "active", `Writing a new "${candidate.category}" prompt`);
     let article = await writePrompt(candidate);
     emit("prompt-writer", "Prompt Writer", "done", `Drafted "${article.frontmatter.title}"`);
-    emit("prompt-editor", "Prompt Editor", "active", `Reviewing "${article.frontmatter.title}"`);
-    let verdict = await reviewPrompt(article, candidate.existingTitles);
-    emit("prompt-editor", "Prompt Editor", "done", "Initial review completed");
-
-    let attempts = 0;
-    while (verdict.status === "revise" && attempts < limits.maxRevisions) {
-      emit("prompt-writer", "Prompt Writer", "active", `Revision ${attempts + 1}/${limits.maxRevisions}`);
-      article = await writePrompt(candidate, verdict.issues);
-      emit("prompt-writer", "Prompt Writer", "done", `Revision ${attempts + 1} drafted`);
-      emit("prompt-editor", "Prompt Editor", "active", "Reviewing revision");
-      verdict = await reviewPrompt(article, candidate.existingTitles);
-      emit("prompt-editor", "Prompt Editor", "done", "Revision reviewed");
-      attempts++;
-    }
-
-    if (verdict.status !== "pass") {
+    const growthDecision = decidePromptArticle(article, candidate.existingPrompts);
+    notes.push(`${article.frontmatter.title}: ${growthDecision.decision}`);
+    if (growthDecision.decision !== "CREATE") {
       rejected.push({
         id: article.frontmatter.title,
-        reason: `editor: ${verdict.issues.join("; ")}`,
+        reason: `${growthDecision.decision}: ${growthDecision.reason}`,
       });
     } else {
-      if (usedSlugs.has(article.frontmatter.slug)) {
-        article.frontmatter.slug = `${article.frontmatter.slug}-${Date.now().toString(36)}`;
+      emit("prompt-editor", "Prompt Editor", "active", `Reviewing "${article.frontmatter.title}"`);
+      let verdict = await reviewPrompt(article, candidate.existingTitles);
+      emit("prompt-editor", "Prompt Editor", "done", "Initial review completed");
+
+      let attempts = 0;
+      while (verdict.status === "revise" && attempts < limits.maxRevisions) {
+        emit("prompt-writer", "Prompt Writer", "active", `Revision ${attempts + 1}/${limits.maxRevisions}`);
+        article = await writePrompt(candidate, verdict.issues);
+        emit("prompt-writer", "Prompt Writer", "done", `Revision ${attempts + 1} drafted`);
+        emit("prompt-editor", "Prompt Editor", "active", "Reviewing revision");
+        verdict = await reviewPrompt(article, candidate.existingTitles);
+        emit("prompt-editor", "Prompt Editor", "done", "Revision reviewed");
+        attempts++;
       }
 
-      const validation = validatePromptFrontmatter(article.frontmatter, article.promptTemplate);
-      if (!validation.valid) {
+      const finalDecision = decidePromptArticle(article, candidate.existingPrompts);
+      if (finalDecision.decision !== "CREATE") {
         rejected.push({
           id: article.frontmatter.title,
-          reason: `frontmatter: ${validation.errors.join("; ")}`,
+          reason: `${finalDecision.decision}: ${finalDecision.reason}`,
+        });
+      } else if (verdict.status !== "pass") {
+        rejected.push({
+          id: article.frontmatter.title,
+          reason: `editor: ${verdict.issues.join("; ")}`,
         });
       } else {
-        if (!opts.dryRun) {
-          emit("prompt-publisher", "Prompt Publisher", "active", `Publishing ${article.frontmatter.slug}`);
-          await publishPrompt(article);
-          emit("prompt-publisher", "Prompt Publisher", "done", `Published ${article.frontmatter.slug}`);
+        const validation = validatePromptFrontmatter(article.frontmatter, article.promptTemplate);
+        if (!validation.valid) {
+          rejected.push({
+            id: article.frontmatter.title,
+            reason: `frontmatter: ${validation.errors.join("; ")}`,
+          });
+        } else {
+          if (!opts.dryRun) {
+            emit("prompt-publisher", "Prompt Publisher", "active", `Publishing ${article.frontmatter.slug}`);
+            await publishPrompt(article);
+            emit("prompt-publisher", "Prompt Publisher", "done", `Published ${article.frontmatter.slug}`);
+          }
+          published.push(article.frontmatter.slug);
         }
-        published.push(article.frontmatter.slug);
       }
     }
   } catch (err) {

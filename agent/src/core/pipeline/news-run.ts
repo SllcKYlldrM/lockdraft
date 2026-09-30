@@ -5,6 +5,7 @@ import { reviewArticle } from "../roles/editor.ts";
 import { overlapRatio } from "../quality/overlap.ts";
 import { validateFrontmatter } from "../quality/frontmatter.ts";
 import { getSourceText } from "../article-fetcher.ts";
+import { assessSourceReadiness, isValidSourceUrl } from "../quality/source.ts";
 import { decideNewsCandidate, evaluatePublishGate } from "../quality/growth.ts";
 import { loadSeen, saveSeen } from "../../adapters/seen-store.ts";
 import { loadRejections, saveRejections } from "../../adapters/rejection-store.ts";
@@ -142,7 +143,21 @@ export async function runNewsPipeline(opts: NewsRunOptions = {}): Promise<RunSum
 
       try {
         const topic = candidate.item.topic ? topicById.get(candidate.item.topic) : undefined;
+        if (!isValidSourceUrl(candidate.item.sourceUrl)) {
+          rejected.push({ id: candidate.item.id, reason: "source URL is missing or invalid — skipped before writing" });
+          continue;
+        }
         const sourceText = await getSourceText(candidate.item);
+        const sourceAssessment = assessSourceReadiness(sourceText, limits.minNewsSourceWords);
+        if (!sourceAssessment.ready) {
+          const reason = `${sourceAssessment.reason ?? "source is not ready"} — skipped before writing`;
+          rejections.set(candidate.item.id, {
+            retryAfter: new Date(Date.now() + limits.rejectionRetryHours * 60 * 60 * 1000).toISOString(),
+            reason,
+          });
+          rejected.push({ id: candidate.item.id, reason });
+          continue;
+        }
 
         const growthDecision = decideNewsCandidate(candidate.item, existingPosts);
         if (growthDecision.decision !== "CREATE") {
