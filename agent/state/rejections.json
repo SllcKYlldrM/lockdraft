@@ -1,12 +1,12 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.284": {
-      "retryAfter": "2026-09-29T18:22:06.694Z",
-      "reason": "editor: Version number 'v2.1.284' is not present in the source material; requires qualification or removal to comply with strict grounding rules."
+    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-1-sol": {
+      "retryAfter": "2026-10-01T13:46:37.603Z",
+      "reason": "editor: Body is 253 words, needs at least 300 (too thin/filler-heavy)."
     },
-    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-sol-and-luna": {
-      "retryAfter": "2026-09-30T13:27:28.911Z",
-      "reason": "editor: Body is 160 words, needs at least 300 (too thin/filler-heavy)."
+    "rss:OpenAI:https://openai.com/index/devday-2026-recap": {
+      "retryAfter": "2026-10-01T13:49:35.827Z",
+      "reason": "editor: Body is 275 words, needs at least 300 (too thin/filler-heavy)."
     }
   }
 }
