@@ -5,7 +5,7 @@ on:
     # Every 2 hours, offset from :17 to avoid colliding with the
     # Metarotation agent's cron (same Gemini/OpenRouter API keys, shared
     # quota) and GitHub's busy :00 slot.
-    - cron: "47 */2 * * *"
+    - cron: "47 */4 * * *"
   workflow_dispatch: {}
 
 concurrency:
