@@ -69,6 +69,20 @@ export const promptCategories: string[] = [
   "prompt-engineering",
 ];
 
+// Closed vocabulary for prompt tags. Prompt tags describe reusable task
+// shapes, not vendors; unknown or case-variant tags are rejected before write.
+export const promptTagInventory = [
+  "agents", "architecture", "automation", "bug-reports", "clarity",
+  "code-review", "decision-making", "debugging", "diagnostics", "editing",
+  "error-handling", "errors", "explanation", "function-calling", "incident-response",
+  "json-parsing", "learning", "mcp", "meetings", "n8n", "onboarding",
+  "planning", "postmortem", "productivity", "prompt-engineering", "prompt-injection",
+  "pull-requests", "qa", "quality", "rag", "reliability", "research",
+  "retrieval", "root-cause-analysis", "security", "stack-trace", "structured-output",
+  "system-prompt", "testing", "tool-use", "trade-offs", "troubleshooting",
+  "workflow-audit", "workflow-design", "writing", "zapier", "make",
+] as const;
+
 export const topics: TopicDefinition[] = [
   {
     id: "claude",

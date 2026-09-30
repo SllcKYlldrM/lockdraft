@@ -3,6 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { categories, topics, type TopicDefinition, type CategoryDefinition } from "../../topics.ts";
 import { sitePath } from "../../agent.config.ts";
+import type { PromptReference } from "../core/types.ts";
 
 export type { TopicDefinition, CategoryDefinition };
 
@@ -109,11 +110,7 @@ export function contentDirFor(_kind: "news" | "guides"): string {
   return POSTS_DIR;
 }
 
-export interface ExistingPrompt {
-  slug: string;
-  title: string;
-  category: string;
-}
+export type ExistingPrompt = PromptReference;
 
 const PROMPTS_DIR = path.join(sitePath, "src/content/prompts");
 
@@ -135,6 +132,9 @@ export async function loadExistingPrompts(): Promise<ExistingPrompt[]> {
       slug: file.replace(/\.mdx?$/, ""),
       title: data.title ?? "",
       category: data.category ?? "",
+      description: data.description ?? "",
+      promptTemplate: data.prompt ?? "",
+      tags: Array.isArray(data.tags) ? data.tags : [],
     });
   }
   return prompts;

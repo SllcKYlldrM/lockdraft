@@ -1,4 +1,4 @@
-import { categories, postTagInventory } from "../../../topics.ts";
+import { categories, postTagInventory, promptCategories, promptTagInventory } from "../../../topics.ts";
 
 export const SITE_AUTHOR = "LockDraft";
 export const MAX_POST_TAGS = 6;
@@ -22,6 +22,38 @@ export function normalizeTags(tags: string[]): string[] {
 
 export function isKnownCategory(category: string): boolean {
   return categories.some((item) => item.id === category);
+}
+
+export function isKnownPromptCategory(category: string): boolean {
+  return promptCategories.includes(category);
+}
+
+export function normalizePromptTags(tags: string[]): string[] {
+  const normalized = tags
+    .map((tag) => tag.trim())
+    .map((tag) =>
+      promptTagInventory.find((canonical) => canonical.toLowerCase() === tag.toLowerCase()),
+    )
+    .filter((tag): tag is (typeof promptTagInventory)[number] => Boolean(tag));
+
+  return [...new Set(normalized)].slice(0, MAX_POST_TAGS);
+}
+
+export function validatePromptTags(tags: string[]): string[] {
+  const errors: string[] = [];
+  const seen = new Set<string>();
+  for (const tag of tags) {
+    const canonical = promptTagInventory.find((item) => item.toLowerCase() === tag.toLowerCase());
+    if (!canonical) {
+      errors.push(`tag "${tag}" is not in the closed prompt tag inventory`);
+      continue;
+    }
+    const folded = canonical.toLowerCase();
+    if (seen.has(folded)) errors.push(`tag "${tag}" duplicates a case-insensitive prompt tag`);
+    seen.add(folded);
+    if (tag !== canonical) errors.push(`tag "${tag}" must use canonical spelling "${canonical}"`);
+  }
+  return errors;
 }
 
 export function hasSourcesSection(body: string): boolean {

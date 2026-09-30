@@ -1,6 +1,11 @@
 import { z } from "zod";
 import type { ArticleFrontmatter, PromptFrontmatter } from "../types.ts";
-import { isKnownCategory, SITE_AUTHOR } from "./editorial.ts";
+import {
+  isKnownCategory,
+  isKnownPromptCategory,
+  SITE_AUTHOR,
+  validatePromptTags,
+} from "./editorial.ts";
 
 // Mirrors lockdraft/src/content.config.ts `postsCollection` schema. Keep in
 // sync manually — this is the pre-write gate that stops a malformed file
@@ -95,5 +100,12 @@ export function validatePromptFrontmatter(
   const errors = result.success
     ? []
     : result.error.issues.map((i) => `${i.path.join(".")}: ${i.message}`);
+  if (!isKnownPromptCategory(frontmatter.category)) {
+    errors.push(`category "${frontmatter.category}" is not in the closed prompt taxonomy`);
+  }
+  if (frontmatter.tags.length === 0) {
+    errors.push("prompt tags must contain at least one canonical tag");
+  }
+  errors.push(...validatePromptTags(frontmatter.tags));
   return { valid: errors.length === 0, errors };
 }

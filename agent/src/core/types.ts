@@ -113,6 +113,16 @@ export interface PromptCandidate {
   /** Existing prompt titles in this category, passed to the writer so it
    * doesn't propose a near-duplicate. */
   existingTitles: string[];
+  existingPrompts: PromptReference[];
+}
+
+export interface PromptReference {
+  slug: string;
+  title: string;
+  category: string;
+  description: string;
+  promptTemplate: string;
+  tags: string[];
 }
 
 export interface PromptFrontmatter {

@@ -1,6 +1,7 @@
 import type { ContentGap } from "../../../content-gaps.ts";
 import { growthSignals, growthWeights, type GrowthSignals } from "../../../growth.config.ts";
-import type { Article, GuideCandidate, SourceItem } from "../types.ts";
+import { limits } from "../../../agent.config.ts";
+import type { Article, GuideCandidate, PromptArticle, PromptReference, SourceItem } from "../types.ts";
 import type { ExistingPost } from "../../adapters/site-context.ts";
 import { findPostOverlap } from "../../adapters/site-context.ts";
 import { hasSourcesSection } from "./editorial.ts";
@@ -101,11 +102,73 @@ export function decideGuideCandidate(
   return { decision: "CREATE", reason: `approved ${candidate.gap.priority} evergreen gap: ${candidate.gap.title}` };
 }
 
+function purposeTokens(value: string): Set<string> {
+  return new Set(
+    value
+      .toLowerCase()
+      .replace(/\{\{[^}]+\}\}/g, " ")
+      .replace(/[^a-z0-9]+/g, " ")
+      .split(/\s+/)
+      .filter((token) =>
+        token.length > 2 &&
+        !["the", "and", "for", "with", "this", "that", "analyze", "create", "explain", "find", "help", "identify", "review", "use"].includes(token)
+      ),
+  );
+}
+
+function tokenOverlap(left: string, right: string): number {
+  const a = purposeTokens(left);
+  const b = purposeTokens(right);
+  if (a.size === 0 || b.size === 0) return 0;
+  let intersection = 0;
+  for (const token of a) if (b.has(token)) intersection++;
+  return intersection / Math.min(a.size, b.size);
+}
+
+export function decidePromptArticle(
+  article: PromptArticle,
+  existingPrompts: PromptReference[],
+): GrowthDecisionResult {
+  const exact = existingPrompts.find(
+    (prompt) => prompt.slug === article.frontmatter.slug ||
+      prompt.title.trim().toLowerCase() === article.frontmatter.title.trim().toLowerCase(),
+  );
+  if (exact) {
+    return {
+      decision: "SKIP",
+      reason: `prompt purpose or slug already exists (${exact.slug})`,
+      existingSlug: exact.slug,
+    };
+  }
+
+  for (const prompt of existingPrompts) {
+    const titleOverlap = tokenOverlap(article.frontmatter.title, prompt.title);
+    const purposeOverlap = tokenOverlap(article.promptTemplate, prompt.promptTemplate);
+    if (titleOverlap >= 0.8 || purposeOverlap >= 0.8) {
+      return {
+        decision: "SKIP",
+        reason: `prompt purpose is too close to existing prompt (${prompt.slug})`,
+        existingSlug: prompt.slug,
+      };
+    }
+    if (titleOverlap >= 0.55 || purposeOverlap >= 0.65) {
+      return {
+        decision: "UPDATE EXISTING",
+        reason: `existing prompt may be meaningfully improvable (${prompt.slug}); manual review required`,
+        existingSlug: prompt.slug,
+      };
+    }
+  }
+
+  return { decision: "CREATE", reason: "unique reusable prompt intent" };
+}
+
 export function evaluatePublishGate(
   article: Article,
   sourceText: string,
   overlapRatio: number,
   internalLinkCount: number,
+  maxOverlapRatio: number = limits.maxOverlapRatio,
 ): { valid: boolean; errors: string[] } {
   const errors: string[] = [];
   if (article.frontmatter.draft) errors.push("draft frontmatter cannot be published");
@@ -114,10 +177,10 @@ export function evaluatePublishGate(
   if (article.kind === "news" && !article.frontmatter.sourceUrl) errors.push("news source is missing");
   if (!sourceText.trim()) errors.push("source text is empty");
   if (!hasSourcesSection(article.body)) errors.push("Sources or References section is missing");
-  if (overlapRatio > 0.15) errors.push(`source overlap ${overlapRatio.toFixed(2)} exceeds limit`);
-  // Zero candidates is acceptable when the cluster has no natural neighbour;
-  // it is still evaluated explicitly rather than silently ignored.
-  if (internalLinkCount < 0) errors.push("internal-link evaluation failed");
+  if (overlapRatio > maxOverlapRatio) errors.push(`source overlap ${overlapRatio.toFixed(2)} exceeds limit`);
+  if (!Number.isInteger(internalLinkCount) || internalLinkCount < 0) {
+    errors.push("internal-link evaluation failed");
+  }
   return { valid: errors.length === 0, errors };
 }
 

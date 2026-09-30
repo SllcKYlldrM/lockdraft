@@ -25,5 +25,6 @@ export function planPromptCandidate(existingPrompts: ExistingPrompt[]): PromptCa
     existingTitles: existingPrompts
       .filter((p) => p.category === category)
       .map((p) => p.title),
+    existingPrompts: existingPrompts.filter((p) => p.category === category),
   };
 }
