@@ -15,6 +15,7 @@
     "rss:Hugging Face Blog:https://huggingface.co/blog/Hcompany/holo4",
     "github-release:anthropics/claude-code:v2.1.284",
     "github-release:anthropics/claude-code:v2.1.285",
-    "github-release:ollama/ollama:v0.35.0"
+    "github-release:ollama/ollama:v0.35.0",
+    "github-release:anthropics/claude-code:v2.1.287"
   ]
 }

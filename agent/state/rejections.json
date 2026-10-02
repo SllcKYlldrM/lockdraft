@@ -1,16 +1,12 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-1-sol": {
-      "retryAfter": "2026-10-01T13:46:37.603Z",
-      "reason": "editor: Body is 253 words, needs at least 300 (too thin/filler-heavy)."
-    },
-    "rss:OpenAI:https://openai.com/index/devday-2026-recap": {
-      "retryAfter": "2026-10-01T13:49:35.827Z",
-      "reason": "editor: Body is 275 words, needs at least 300 (too thin/filler-heavy)."
-    },
     "rss:OpenAI:https://openai.com/index/introducing-dots": {
       "retryAfter": "2026-10-02T06:36:20.453Z",
       "reason": "source has only 28 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-1-sol": {
+      "retryAfter": "2026-10-03T06:18:14.092Z",
+      "reason": "source has only 23 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
