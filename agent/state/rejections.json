@@ -1,12 +1,28 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/introducing-dots": {
-      "retryAfter": "2026-10-02T06:36:20.453Z",
-      "reason": "source has only 28 usable words; needs at least 80 — skipped before writing"
-    },
     "rss:OpenAI:https://openai.com/index/introducing-gpt-6-1-sol": {
       "retryAfter": "2026-10-03T06:18:14.092Z",
       "reason": "source has only 23 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/devday-2026-recap": {
+      "retryAfter": "2026-10-03T15:04:34.586Z",
+      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.286": {
+      "retryAfter": "2026-10-03T15:07:58.145Z",
+      "reason": "editor: The version number 'v2.1.286' (in the title, description, body, and sources) is not mentioned in the source material.; The reference to 'v2.1.280', 'Opus 5.5', and the linked internal posts are not supported by the source material.; The specific installation command 'npm install -g @anthropic-ai/claude-code' does not appear in the source material."
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-dots": {
+      "retryAfter": "2026-10-03T15:07:58.177Z",
+      "reason": "source has only 28 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.21.0": {
+      "retryAfter": "2026-10-03T15:07:58.177Z",
+      "reason": "source has only 14 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.22.0": {
+      "retryAfter": "2026-10-03T15:07:58.177Z",
+      "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
