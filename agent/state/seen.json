@@ -18,6 +18,7 @@
     "github-release:ollama/ollama:v0.35.0",
     "github-release:anthropics/claude-code:v2.1.287",
     "rss:Hugging Face Blog:https://huggingface.co/blog/allenai/olmocore3",
-    "rss:Hugging Face Blog:https://huggingface.co/blog/nvidia/kumo-tabular"
+    "rss:Hugging Face Blog:https://huggingface.co/blog/nvidia/kumo-tabular",
+    "github-release:ollama/ollama:v0.35.1"
   ]
 }
