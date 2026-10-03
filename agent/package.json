@@ -21,11 +21,11 @@
     "jsdom": "^27.1.0",
     "rss-parser": "^3.13.0",
     "slugify": "^1.6.9",
-    "zod": "^4.1.13"
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@types/jsdom": "^21.1.7",
-    "@types/node": "^24.10.1",
+    "@types/node": "^24.19.0",
     "tsx": "^4.20.3",
     "typescript": "^5.9.3"
   }
