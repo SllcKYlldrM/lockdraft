@@ -23,6 +23,30 @@
     "github-release:openai/openai-python:v3.22.0": {
       "retryAfter": "2026-10-03T15:07:58.177Z",
       "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/practical-guide-building-gpt-6": {
+      "retryAfter": "2026-10-04T05:49:50.600Z",
+      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.288": {
+      "retryAfter": "2026-10-04T05:54:07.392Z",
+      "reason": "editor: The final paragraph of 'What to do next' directly contradicts the source material regarding heredocs: the release notes state that sandboxed heredocs with plain text/variables asking for approval was fixed, whereas the article incorrectly claims it 'will continue to prompt for approval'.; The same paragraph mischaracterizes fixed issues (git-subdir plugin installs on Git < 2.39 and cloud session model selection behavior after server refusal) as ongoing limitations or speculative fallback rules rather than resolved bug fixes."
+    },
+    "rss:OpenAI:https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign": {
+      "retryAfter": "2026-10-04T05:54:07.411Z",
+      "reason": "source has only 18 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/basis-tax-workbook-with-astra": {
+      "retryAfter": "2026-10-04T05:54:07.430Z",
+      "reason": "source has only 27 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/towards-safety-cases-for-frontier-ai-training": {
+      "retryAfter": "2026-10-04T05:54:07.443Z",
+      "reason": "source has only 19 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:Hugging Face Blog:https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source": {
+      "retryAfter": "2026-10-04T05:58:27.358Z",
+      "reason": "editor: The specific URL 'https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source' is not present in the source material.; The mention of 'LockDraft' and the internal link to 'Architecting with Claude: An In-Depth Developer's Guide to Anthropic's API Surface' are not supported by or present in the source material."
     }
   }
 }
