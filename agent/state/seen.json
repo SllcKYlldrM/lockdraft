@@ -20,6 +20,7 @@
     "rss:Hugging Face Blog:https://huggingface.co/blog/allenai/olmocore3",
     "rss:Hugging Face Blog:https://huggingface.co/blog/nvidia/kumo-tabular",
     "github-release:ollama/ollama:v0.35.1",
-    "rss:Hugging Face Blog:https://huggingface.co/blog/allenai/astabrief"
+    "rss:Hugging Face Blog:https://huggingface.co/blog/allenai/astabrief",
+    "github-release:anthropics/claude-code:v2.1.288"
   ]
 }

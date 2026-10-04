@@ -1,9 +1,5 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-1-sol": {
-      "retryAfter": "2026-10-04T13:57:19.132Z",
-      "reason": "source has only 23 usable words; needs at least 80 — skipped before writing"
-    },
     "rss:OpenAI:https://openai.com/index/devday-2026-recap": {
       "retryAfter": "2026-10-05T06:25:14.251Z",
       "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
@@ -27,6 +23,22 @@
     "rss:OpenAI:https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign": {
       "retryAfter": "2026-10-05T06:25:14.339Z",
       "reason": "source has only 18 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-1-sol": {
+      "retryAfter": "2026-10-05T14:25:45.197Z",
+      "reason": "source has only 23 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.289": {
+      "retryAfter": "2026-10-05T14:26:17.547Z",
+      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
+    },
+    "rss:OpenAI:https://openai.com/index/practical-guide-building-gpt-6": {
+      "retryAfter": "2026-10-05T14:26:17.610Z",
+      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/basis-tax-workbook-with-astra": {
+      "retryAfter": "2026-10-05T14:26:17.639Z",
+      "reason": "source has only 27 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
