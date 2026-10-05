@@ -39,6 +39,22 @@
     "rss:OpenAI:https://openai.com/index/basis-tax-workbook-with-astra": {
       "retryAfter": "2026-10-05T14:26:17.639Z",
       "reason": "source has only 27 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:Hugging Face Blog:https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source": {
+      "retryAfter": "2026-10-06T06:24:44.451Z",
+      "reason": "editor: The description is cut off at the end: '...beyond simple fait' (likely meant 'faithfulness').; Typographical error: 'ProvenageGuard' is misspelled multiple times throughout the article (should be 'ProvenanceGuard').; The article states the workflow involves 'four steps', but the source material explicitly states it does 'five things in sequence'.; The affiliation 'Center for AI' is not explicitly mentioned in the source material (it appears to be extrapolated from 'CAI' in the URL 'MultiverseComputingCAI').; The sentence mentioning 'Ai2 Open-Sources AstaBrief 8B for Fast Scientific Report Generation' introduces an external product/post not present or supported by the source material."
+    },
+    "rss:Hugging Face Blog:https://huggingface.co/blog/microsoft/thinkingbox": {
+      "retryAfter": "2026-10-06T06:30:01.953Z",
+      "reason": "editor: Inverted/unclear ablation statistic: The source states that 67.24% of actual failures appeared successful (clean termination, correct tool use, no errors), but the article incorrectly frames this as '>60% of executions that appeared successful still triggered validation failures,' reversing the conditional relationship.; Ungrounded internal links: Two unrelated internal post URLs are included without appearing in or following from the source material; they appear to be leftover template artifacts.; Conflated hosting details: Claims the suite is 'accessible through OpenEnv on Hugging Face,' whereas the source separately mentions availability 'through Hugging Face' and running the benchmark 'through OpenEnv' without explicitly combining them."
+    },
+    "rss:Hugging Face Blog:https://huggingface.co/blog/ServiceNow-AI/autosynthdata": {
+      "retryAfter": "2026-10-06T06:34:17.864Z",
+      "reason": "editor: Unrelated internal link in the Limitations section references 'Ai2 Open-Sources AstaBrief 8B,' which has no connection to AutoSynthData or ServiceNow. Remove or replace with a relevant resource.; Claim that the pipeline 'may require custom adapter development for systems lacking native state validators' extrapolates beyond the source material, which only describes the adapter's functional role. Qualify or remove to avoid presenting an unverified implementation assumption.; Opening sentence states AutoSynthData has been 'released,' but the source only notes 'we built AutoSynthData.' Frame as a newly published framework or pipeline to maintain strict grounding on the provided text."
+    },
+    "rss:Hugging Face Blog:https://huggingface.co/blog/open-tts-leaderboard": {
+      "retryAfter": "2026-10-06T06:38:58.513Z",
+      "reason": "editor: Factual contradiction: Article claims the leaderboard 'replaces reliance on... arena-based voting,' but the source explicitly states it 'does not replace human preference ranking.'; Meta description is truncated/cut off mid-word ('similarity t').; Phrasing 'corrects this skew' slightly overstates the source, which frames the effort as 'putting forward' neglected models rather than fully correcting the bias."
     }
   }
 }
