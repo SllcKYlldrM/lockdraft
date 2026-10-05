@@ -1,45 +1,5 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/devday-2026-recap": {
-      "retryAfter": "2026-10-05T06:25:14.251Z",
-      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/introducing-dots": {
-      "retryAfter": "2026-10-05T06:25:14.290Z",
-      "reason": "source has only 28 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.24.0": {
-      "retryAfter": "2026-10-05T06:25:14.290Z",
-      "reason": "source has only 39 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.22.0": {
-      "retryAfter": "2026-10-05T06:25:14.290Z",
-      "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.21.0": {
-      "retryAfter": "2026-10-05T06:25:14.290Z",
-      "reason": "source has only 14 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign": {
-      "retryAfter": "2026-10-05T06:25:14.339Z",
-      "reason": "source has only 18 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-1-sol": {
-      "retryAfter": "2026-10-05T14:25:45.197Z",
-      "reason": "source has only 23 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:anthropics/claude-code:v2.1.289": {
-      "retryAfter": "2026-10-05T14:26:17.547Z",
-      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
-    },
-    "rss:OpenAI:https://openai.com/index/practical-guide-building-gpt-6": {
-      "retryAfter": "2026-10-05T14:26:17.610Z",
-      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/basis-tax-workbook-with-astra": {
-      "retryAfter": "2026-10-05T14:26:17.639Z",
-      "reason": "source has only 27 usable words; needs at least 80 — skipped before writing"
-    },
     "rss:Hugging Face Blog:https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source": {
       "retryAfter": "2026-10-06T06:24:44.451Z",
       "reason": "editor: The description is cut off at the end: '...beyond simple fait' (likely meant 'faithfulness').; Typographical error: 'ProvenageGuard' is misspelled multiple times throughout the article (should be 'ProvenanceGuard').; The article states the workflow involves 'four steps', but the source material explicitly states it does 'five things in sequence'.; The affiliation 'Center for AI' is not explicitly mentioned in the source material (it appears to be extrapolated from 'CAI' in the URL 'MultiverseComputingCAI').; The sentence mentioning 'Ai2 Open-Sources AstaBrief 8B for Fast Scientific Report Generation' introduces an external product/post not present or supported by the source material."
@@ -55,6 +15,38 @@
     "rss:Hugging Face Blog:https://huggingface.co/blog/open-tts-leaderboard": {
       "retryAfter": "2026-10-06T06:38:58.513Z",
       "reason": "editor: Factual contradiction: Article claims the leaderboard 'replaces reliance on... arena-based voting,' but the source explicitly states it 'does not replace human preference ranking.'; Meta description is truncated/cut off mid-word ('similarity t').; Phrasing 'corrects this skew' slightly overstates the source, which frames the effort as 'putting forward' neglected models rather than fully correcting the bias."
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-1-sol": {
+      "retryAfter": "2026-10-06T17:27:45.271Z",
+      "reason": "source has only 23 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/devday-2026-recap": {
+      "retryAfter": "2026-10-06T17:27:45.330Z",
+      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-dots": {
+      "retryAfter": "2026-10-06T17:27:45.418Z",
+      "reason": "source has only 28 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.24.0": {
+      "retryAfter": "2026-10-06T17:27:45.418Z",
+      "reason": "source has only 39 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.22.0": {
+      "retryAfter": "2026-10-06T17:27:45.418Z",
+      "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.289": {
+      "retryAfter": "2026-10-06T17:33:26.790Z",
+      "reason": "editor: 'formatting tricks' in 'Why it matters' mischaracterizes the source's concrete examples of environment variable expansion and bare variable assignments.; Attributing the `claude auth status` sign-out regression specifically to the VSCode extension is an inference; the source only tags the fix with `[VSCode]` without specifying the root cause lies solely within the extension.; 'multi-agent workflow' in the description slightly overstates the source's narrower scope of 'teammates' and a single shared agent ID across hook events."
+    },
+    "github-release:anthropics/claude-code:v2.1.286": {
+      "retryAfter": "2026-10-06T17:38:36.568Z",
+      "reason": "editor: Intro mentions 'inter-process communication' as a patch category, but the source material does not reference IPC.; Step 2 suggests verifying 'cross-platform syncing between macOS terminals', which is not supported by the source.; Caveats section speculates that 'on-premise or enterprise billing configurations may require separate reconciliation', introducing ungrounded specifics not found in the release notes.; The caveat advising users to 'validate that non-string return types no longer trigger API 400 errors' slightly contradicts the source, which definitively states the API 400 error for non-text tool/hook outputs is fixed."
+    },
+    "github-release:openai/openai-python:v3.21.0": {
+      "retryAfter": "2026-10-06T17:38:36.568Z",
+      "reason": "source has only 14 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
