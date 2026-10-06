@@ -47,6 +47,10 @@
     "github-release:openai/openai-python:v3.21.0": {
       "retryAfter": "2026-10-06T17:38:36.568Z",
       "reason": "source has only 14 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/practical-guide-building-gpt-6": {
+      "retryAfter": "2026-10-07T01:32:28.213Z",
+      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
