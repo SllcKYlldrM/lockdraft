@@ -221,6 +221,7 @@ export function planGuideCandidates(
             priority: gap.priority,
             intent: gap.intent,
             rationale: gap.rationale,
+            action: gap.action,
           },
           priorityScore,
           relatedGuideSlugs: guidePosts

@@ -60,6 +60,7 @@ export interface GuideCandidate {
     priority: "P1" | "P2" | "P3";
     intent: string;
     rationale: string;
+    action?: "CREATE" | "UPDATE EXISTING" | "SKIP";
   };
 }
 

@@ -99,6 +99,12 @@ export function decideGuideCandidate(
   if (!candidate.gap) {
     return { decision: "SKIP", reason: "candidate is not backed by the approved content-gap backlog" };
   }
+  if (candidate.gap.action === "SKIP") {
+    return { decision: "SKIP", reason: "backlog explicitly skips this low-value or overlapping intent" };
+  }
+  if (candidate.gap.action === "UPDATE EXISTING") {
+    return { decision: "UPDATE EXISTING", reason: "backlog maps this intent to an existing article; no new URL should be created" };
+  }
   return { decision: "CREATE", reason: `approved ${candidate.gap.priority} evergreen gap: ${candidate.gap.title}` };
 }
 
