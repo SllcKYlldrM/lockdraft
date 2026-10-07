@@ -1,9 +1,5 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/practical-guide-building-gpt-6": {
-      "retryAfter": "2026-10-07T01:32:28.213Z",
-      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:anthropics/claude-code:v2.1.291": {
       "retryAfter": "2026-10-07T11:34:07.159Z",
       "reason": "source has only 36 usable words; needs at least 80 — skipped before writing"
@@ -47,6 +43,10 @@
     "github-release:langchain-ai/langchain:langchain-openai==1.6.7": {
       "retryAfter": "2026-10-08T00:24:39.181Z",
       "reason": "source has only 31 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/practical-guide-building-gpt-6": {
+      "retryAfter": "2026-10-08T06:34:26.890Z",
+      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
