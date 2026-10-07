@@ -1,13 +1,5 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.291": {
-      "retryAfter": "2026-10-07T11:34:07.159Z",
-      "reason": "source has only 36 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign": {
-      "retryAfter": "2026-10-07T11:34:07.204Z",
-      "reason": "source has only 18 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:anthropics/claude-code:v2.1.292": {
       "retryAfter": "2026-10-08T00:16:06.380Z",
       "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
@@ -47,6 +39,18 @@
     "rss:OpenAI:https://openai.com/index/practical-guide-building-gpt-6": {
       "retryAfter": "2026-10-08T06:34:26.890Z",
       "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:Hugging Face Blog:https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026": {
+      "retryAfter": "2026-10-08T16:03:46.683Z",
+      "reason": "editor: Repository conflation: The article states the SFT/RL checkpoints, training datasets, and Nemotron-IMO-Bench are in the NeMo-Skills repository. Per the source, these assets belong to the 'Nemotron Labs IMO 2026 collection,' while NeMo-Skills specifically hosts the inference pipelines, prompts, and submitted proofs.; Vague architectural reference: 'applying a standardized four-step recipe to existing architectures' should specify 'Nemotron base models' to accurately reflect the source's focus on specializing within the Nemotron family.; Resource location ambiguity in 'What to do next': The quickstart mentioned corresponds to the IMO pipeline in NeMo-Skills. Clarify that the IOI methodology and pipeline are documented in the dedicated IOI paper and HF collection to prevent readers from searching NeMo-Skills for IOI-specific artifacts."
+    },
+    "rss:Hugging Face Blog:https://huggingface.co/blog/microsoft/thinkingbox": {
+      "retryAfter": "2026-10-08T16:08:12.737Z",
+      "reason": "editor: Limitations section introduces unsupported claims (long-running orchestration, multi-agent coordination, live schema evolution) not present in the source material.; Remove or qualify the unsupported limitations to align strictly with the provided grounding pack, which only mentions isolated MCP tool sessions."
+    },
+    "rss:n8n Blog:6aba9372921c49000157735b": {
+      "retryAfter": "2026-10-08T16:12:22.574Z",
+      "reason": "editor: Two internal links and their specific titles (/posts/first-n8n-workflow/ and /posts/n8n-introduces-dedicated-agents-with-native-workflow-and-mcp-tool-integration/) are absent from the source material. The second title introduces an unsourced specific claim (MCP Tool Integration). Remove or qualify per grounding guidelines.; The phrase \"dynamic switching between vector and graph queries based on the prompt\" extrapolates beyond the source's description. The source only states the AI Agent node \"orchestrates multiple retrieval tools\". Align wording with source capabilities."
     }
   }
 }
