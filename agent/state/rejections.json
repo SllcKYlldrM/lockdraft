@@ -51,6 +51,14 @@
     "github-release:openai/openai-python:v3.24.0": {
       "retryAfter": "2026-10-09T06:47:41.865Z",
       "reason": "source has only 39 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.6.8": {
+      "retryAfter": "2026-10-09T15:54:13.050Z",
+      "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.6.7": {
+      "retryAfter": "2026-10-09T15:54:13.050Z",
+      "reason": "source has only 64 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
