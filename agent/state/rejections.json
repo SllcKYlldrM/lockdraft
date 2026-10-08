@@ -1,45 +1,5 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.292": {
-      "retryAfter": "2026-10-08T00:16:06.380Z",
-      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
-    },
-    "github-release:openai/openai-python:v3.26.0": {
-      "retryAfter": "2026-10-08T00:16:06.380Z",
-      "reason": "source has only 13 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.25.0": {
-      "retryAfter": "2026-10-08T00:16:06.380Z",
-      "reason": "source has only 55 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.24.0": {
-      "retryAfter": "2026-10-08T00:16:06.380Z",
-      "reason": "source has only 39 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/sharing-ai-progress-in-mathematics": {
-      "retryAfter": "2026-10-08T00:16:06.428Z",
-      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:Hugging Face Blog:https://huggingface.co/blog/ServiceNow-AI/autosynthdata": {
-      "retryAfter": "2026-10-08T00:20:12.955Z",
-      "reason": "editor: \"What to do next\" advises integrating accepted samples into \"reinforcement learning loops,\" but the source material only references supervised fine-tuning (SFT) and general post-training; reinforcement learning is not mentioned.; The body includes references to \"[Architecting with Claude]\" and \"Holo4 Series Launches Multi-Interface Agentic Models\" with links, which are entirely absent from the source material; these external references are unsupported."
-    },
-    "github-release:anthropics/claude-code:v2.1.289": {
-      "retryAfter": "2026-10-08T00:24:39.181Z",
-      "reason": "editor: Unsubstantiated instruction: The caveats section claims first-session loading fixes 'require clean plugin caches to take effect,' but the source material makes no mention of cache clearing requirements.; Broken/placeholder editorial links: Two reference links in the 'Why it matters' section appear truncated or internal (`...session-st/` and `/posts/claude-code-adds-deep...`). Verify or replace with valid URLs.; Minor attribution inaccuracy: The source specifies '[VSCode]' for the `claude auth status` revert, but the article attributes it broadly to the 'CLI team.'"
-    },
-    "github-release:langchain-ai/langchain:langchain-core==1.6.7": {
-      "retryAfter": "2026-10-08T00:24:39.181Z",
-      "reason": "source has only 64 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-openai==1.6.7": {
-      "retryAfter": "2026-10-08T00:24:39.181Z",
-      "reason": "source has only 31 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/practical-guide-building-gpt-6": {
-      "retryAfter": "2026-10-08T06:34:26.890Z",
-      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
-    },
     "rss:Hugging Face Blog:https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026": {
       "retryAfter": "2026-10-08T16:03:46.683Z",
       "reason": "editor: Repository conflation: The article states the SFT/RL checkpoints, training datasets, and Nemotron-IMO-Bench are in the NeMo-Skills repository. Per the source, these assets belong to the 'Nemotron Labs IMO 2026 collection,' while NeMo-Skills specifically hosts the inference pipelines, prompts, and submitted proofs.; Vague architectural reference: 'applying a standardized four-step recipe to existing architectures' should specify 'Nemotron base models' to accurately reflect the source's focus on specializing within the Nemotron family.; Resource location ambiguity in 'What to do next': The quickstart mentioned corresponds to the IMO pipeline in NeMo-Skills. Clarify that the IOI methodology and pipeline are documented in the dedicated IOI paper and HF collection to prevent readers from searching NeMo-Skills for IOI-specific artifacts."
@@ -59,6 +19,38 @@
     "github-release:anthropics/claude-code:v2.1.293": {
       "retryAfter": "2026-10-08T21:41:39.063Z",
       "reason": "editor: Clarify that claude-haiku-5-5 is the default on the Anthropic API broadly, rather than specifying only the CLI.; Rephrase 'Docker Desktop evaluations on macOS' to accurately reference the claude plugin eval command refusing Bash-granting runs, avoiding ambiguity.; Remove the duplicated 'stop' command in the authentication bullet for cleaner readability, though it mirrors the source."
+    },
+    "github-release:anthropics/claude-code:v2.1.294": {
+      "retryAfter": "2026-10-09T06:42:32.288Z",
+      "reason": "source has only 53 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.292": {
+      "retryAfter": "2026-10-09T06:47:41.803Z",
+      "reason": "editor: The 'Limitations and caveats' section incorrectly states that scheduled task persistence still depends on avoiding rapid consecutive writes within milliseconds. The source material states that this issue (saved tasks ignoring later writes milliseconds apart) has been fixed in this release."
+    },
+    "rss:OpenAI:https://openai.com/index/practical-guide-building-gpt-6": {
+      "retryAfter": "2026-10-09T06:47:41.840Z",
+      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.26.0": {
+      "retryAfter": "2026-10-09T06:47:41.840Z",
+      "reason": "source has only 13 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/sharing-ai-progress-in-mathematics": {
+      "retryAfter": "2026-10-09T06:47:41.865Z",
+      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.291": {
+      "retryAfter": "2026-10-09T06:47:41.865Z",
+      "reason": "source has only 36 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.25.0": {
+      "retryAfter": "2026-10-09T06:47:41.865Z",
+      "reason": "source has only 55 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.24.0": {
+      "retryAfter": "2026-10-09T06:47:41.865Z",
+      "reason": "source has only 39 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
