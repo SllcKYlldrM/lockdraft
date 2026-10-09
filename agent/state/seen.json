@@ -24,6 +24,7 @@
     "github-release:anthropics/claude-code:v2.1.288",
     "github-release:anthropics/claude-code:v2.1.290",
     "rss:Hugging Face Blog:https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source",
-    "github-release:anthropics/claude-code:v2.1.295"
+    "github-release:anthropics/claude-code:v2.1.295",
+    "github-release:anthropics/claude-code:v2.1.293"
   ]
 }

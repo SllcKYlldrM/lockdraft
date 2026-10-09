@@ -1,45 +1,5 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/gpt-6-for-everyone": {
-      "retryAfter": "2026-10-08T21:38:44.659Z",
-      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:anthropics/claude-code:v2.1.293": {
-      "retryAfter": "2026-10-08T21:41:39.063Z",
-      "reason": "editor: Clarify that claude-haiku-5-5 is the default on the Anthropic API broadly, rather than specifying only the CLI.; Rephrase 'Docker Desktop evaluations on macOS' to accurately reference the claude plugin eval command refusing Bash-granting runs, avoiding ambiguity.; Remove the duplicated 'stop' command in the authentication bullet for cleaner readability, though it mirrors the source."
-    },
-    "github-release:anthropics/claude-code:v2.1.294": {
-      "retryAfter": "2026-10-09T06:42:32.288Z",
-      "reason": "source has only 53 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:anthropics/claude-code:v2.1.292": {
-      "retryAfter": "2026-10-09T06:47:41.803Z",
-      "reason": "editor: The 'Limitations and caveats' section incorrectly states that scheduled task persistence still depends on avoiding rapid consecutive writes within milliseconds. The source material states that this issue (saved tasks ignoring later writes milliseconds apart) has been fixed in this release."
-    },
-    "rss:OpenAI:https://openai.com/index/practical-guide-building-gpt-6": {
-      "retryAfter": "2026-10-09T06:47:41.840Z",
-      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.26.0": {
-      "retryAfter": "2026-10-09T06:47:41.840Z",
-      "reason": "source has only 13 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/sharing-ai-progress-in-mathematics": {
-      "retryAfter": "2026-10-09T06:47:41.865Z",
-      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:anthropics/claude-code:v2.1.291": {
-      "retryAfter": "2026-10-09T06:47:41.865Z",
-      "reason": "source has only 36 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.25.0": {
-      "retryAfter": "2026-10-09T06:47:41.865Z",
-      "reason": "source has only 55 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.24.0": {
-      "retryAfter": "2026-10-09T06:47:41.865Z",
-      "reason": "source has only 39 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:langchain-ai/langchain:langchain-core==1.6.8": {
       "retryAfter": "2026-10-09T15:54:13.050Z",
       "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
@@ -47,6 +7,10 @@
     "github-release:langchain-ai/langchain:langchain-core==1.6.7": {
       "retryAfter": "2026-10-09T15:54:13.050Z",
       "reason": "source has only 64 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/gpt-6-for-everyone": {
+      "retryAfter": "2026-10-10T06:49:13.418Z",
+      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
