@@ -11,6 +11,14 @@
     "rss:OpenAI:https://openai.com/index/gpt-6-for-everyone": {
       "retryAfter": "2026-10-10T06:49:13.418Z",
       "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.292": {
+      "retryAfter": "2026-10-10T15:40:01.740Z",
+      "reason": "editor: The specific version number 'v2.1.292' and its release notes URL are not mentioned or verified in the provided source material.; The reference to a previous post ('deep plugin mods and command safeguards') introduces external facts not supported by the source material."
+    },
+    "github-release:anthropics/claude-code:v2.1.294": {
+      "retryAfter": "2026-10-10T15:40:01.740Z",
+      "reason": "source has only 53 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
