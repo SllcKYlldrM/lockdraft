@@ -1,9 +1,5 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/gpt-6-for-everyone": {
-      "retryAfter": "2026-10-10T06:49:13.418Z",
-      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:anthropics/claude-code:v2.1.292": {
       "retryAfter": "2026-10-10T15:40:01.740Z",
       "reason": "editor: The specific version number 'v2.1.292' and its release notes URL are not mentioned or verified in the provided source material.; The reference to a previous post ('deep plugin mods and command safeguards') introduces external facts not supported by the source material."
@@ -43,6 +39,14 @@
     "github-release:openai/openai-python:v3.25.0": {
       "retryAfter": "2026-10-11T06:38:49.840Z",
       "reason": "source has only 55 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/gpt-6-for-everyone": {
+      "retryAfter": "2026-10-11T14:48:18.195Z",
+      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-openai==1.7.0": {
+      "retryAfter": "2026-10-11T14:48:18.195Z",
+      "reason": "source has only 51 usable words; needs at least 80 — skipped before writing"
     }
   }
 }

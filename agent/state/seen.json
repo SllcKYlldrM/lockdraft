@@ -26,6 +26,7 @@
     "rss:Hugging Face Blog:https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source",
     "github-release:anthropics/claude-code:v2.1.295",
     "github-release:anthropics/claude-code:v2.1.293",
-    "github-release:n8n-io/n8n:stable"
+    "github-release:n8n-io/n8n:stable",
+    "rss:Hugging Face Blog:https://huggingface.co/blog/tiiuae/falcon-asr"
   ]
 }
