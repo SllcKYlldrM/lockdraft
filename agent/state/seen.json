@@ -27,6 +27,7 @@
     "github-release:anthropics/claude-code:v2.1.295",
     "github-release:anthropics/claude-code:v2.1.293",
     "github-release:n8n-io/n8n:stable",
-    "rss:Hugging Face Blog:https://huggingface.co/blog/tiiuae/falcon-asr"
+    "rss:Hugging Face Blog:https://huggingface.co/blog/tiiuae/falcon-asr",
+    "github-release:anthropics/claude-code:v2.1.292"
   ]
 }

@@ -1,13 +1,5 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.292": {
-      "retryAfter": "2026-10-10T15:40:01.740Z",
-      "reason": "editor: The specific version number 'v2.1.292' and its release notes URL are not mentioned or verified in the provided source material.; The reference to a previous post ('deep plugin mods and command safeguards') introduces external facts not supported by the source material."
-    },
-    "github-release:anthropics/claude-code:v2.1.294": {
-      "retryAfter": "2026-10-10T15:40:01.740Z",
-      "reason": "source has only 53 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:anthropics/claude-code:v2.1.296": {
       "retryAfter": "2026-10-11T06:31:14.230Z",
       "reason": "editor: \"introduced last month\" is an unsourced temporal reference regarding earlier plugin safeguards.; \"following the session stability diagnostics guide\" cites an external resource not present in the release notes.; \"discard existing authentication tokens\" misrepresents the source, which states the saved sign-in was simply \"ignored\".; \"dedicated infrastructure\" is an unsupported inference for CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL; the source only specifies model isolation, not compute resources.; \"manual chunking strategies\" is an unsupported recommendation in the limitations section; the source only confirms the truncation bug is fixed."
