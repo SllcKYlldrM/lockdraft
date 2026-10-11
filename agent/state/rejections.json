@@ -1,17 +1,5 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.296": {
-      "retryAfter": "2026-10-11T06:31:14.230Z",
-      "reason": "editor: \"introduced last month\" is an unsourced temporal reference regarding earlier plugin safeguards.; \"following the session stability diagnostics guide\" cites an external resource not present in the release notes.; \"discard existing authentication tokens\" misrepresents the source, which states the saved sign-in was simply \"ignored\".; \"dedicated infrastructure\" is an unsupported inference for CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL; the source only specifies model isolation, not compute resources.; \"manual chunking strategies\" is an unsupported recommendation in the limitations section; the source only confirms the truncation bug is fixed."
-    },
-    "github-release:openai/openai-python:v3.28.0": {
-      "retryAfter": "2026-10-11T06:31:14.230Z",
-      "reason": "source has only 48 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.27.0": {
-      "retryAfter": "2026-10-11T06:31:14.230Z",
-      "reason": "source has only 13 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:n8n-io/n8n:n8n@2.42.6": {
       "retryAfter": "2026-10-11T06:34:38.696Z",
       "reason": "editor: The article states that switching to Nano Banana 2.1 or 2 Lite requires handling an 'adjusted JSON payload structure', which introduces an unverified specific fact not present in the source material.; The text includes speculative technical claims presented as fact, such as context window truncation risks during multi-step visual generation."
@@ -39,6 +27,14 @@
     "github-release:langchain-ai/langchain:langchain-openai==1.7.0": {
       "retryAfter": "2026-10-11T14:48:18.195Z",
       "reason": "source has only 51 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.28.0": {
+      "retryAfter": "2026-10-12T06:31:41.380Z",
+      "reason": "source has only 48 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.27.0": {
+      "retryAfter": "2026-10-12T06:31:41.380Z",
+      "reason": "source has only 13 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
