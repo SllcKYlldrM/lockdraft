@@ -1,33 +1,5 @@
 {
   "items": {
-    "github-release:n8n-io/n8n:n8n@2.42.6": {
-      "retryAfter": "2026-10-11T06:34:38.696Z",
-      "reason": "editor: The article states that switching to Nano Banana 2.1 or 2 Lite requires handling an 'adjusted JSON payload structure', which introduces an unverified specific fact not present in the source material.; The text includes speculative technical claims presented as fact, such as context window truncation risks during multi-step visual generation."
-    },
-    "github-release:ollama/ollama:v0.40.2": {
-      "retryAfter": "2026-10-11T06:38:49.812Z",
-      "reason": "editor: Body is 273 words, needs at least 300 (too thin/filler-heavy)."
-    },
-    "rss:OpenAI:https://openai.com/index/sharing-ai-progress-in-mathematics": {
-      "retryAfter": "2026-10-11T06:38:49.840Z",
-      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.26.0": {
-      "retryAfter": "2026-10-11T06:38:49.840Z",
-      "reason": "source has only 13 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.25.0": {
-      "retryAfter": "2026-10-11T06:38:49.840Z",
-      "reason": "source has only 55 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/gpt-6-for-everyone": {
-      "retryAfter": "2026-10-11T14:48:18.195Z",
-      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-openai==1.7.0": {
-      "retryAfter": "2026-10-11T14:48:18.195Z",
-      "reason": "source has only 51 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:openai/openai-python:v3.28.0": {
       "retryAfter": "2026-10-12T06:31:41.380Z",
       "reason": "source has only 48 usable words; needs at least 80 — skipped before writing"
@@ -35,6 +7,14 @@
     "github-release:openai/openai-python:v3.27.0": {
       "retryAfter": "2026-10-12T06:31:41.380Z",
       "reason": "source has only 13 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/gpt-6-for-everyone": {
+      "retryAfter": "2026-10-12T15:07:50.162Z",
+      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.296": {
+      "retryAfter": "2026-10-12T15:11:14.314Z",
+      "reason": "editor: Contradicts source on workflow script truncation: The article states workflows 'continue to silently truncate deeply nested structures,' but the source explicitly marks this as a fixed issue.; Contradicts source on secret redaction: The article claims redaction 'may still omit values immediately following empty keys,' but the source explicitly marks this as a fixed issue."
     }
   }
 }

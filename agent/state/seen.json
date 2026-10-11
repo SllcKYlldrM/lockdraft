@@ -29,6 +29,7 @@
     "github-release:n8n-io/n8n:stable",
     "rss:Hugging Face Blog:https://huggingface.co/blog/tiiuae/falcon-asr",
     "github-release:anthropics/claude-code:v2.1.292",
-    "github-release:langchain-ai/langchain:langchain==1.4.4"
+    "github-release:langchain-ai/langchain:langchain==1.4.4",
+    "github-release:n8n-io/n8n:n8n@2.42.6"
   ]
 }
