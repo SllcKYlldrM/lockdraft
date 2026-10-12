@@ -1,13 +1,5 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/gpt-6-for-everyone": {
-      "retryAfter": "2026-10-12T15:07:50.162Z",
-      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:anthropics/claude-code:v2.1.296": {
-      "retryAfter": "2026-10-12T15:11:14.314Z",
-      "reason": "editor: Contradicts source on workflow script truncation: The article states workflows 'continue to silently truncate deeply nested structures,' but the source explicitly marks this as a fixed issue.; Contradicts source on secret redaction: The article claims redaction 'may still omit values immediately following empty keys,' but the source explicitly marks this as a fixed issue."
-    },
     "github-release:langchain-ai/langchain:langchain-core==1.6.8": {
       "retryAfter": "2026-10-13T00:01:52.172Z",
       "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
@@ -43,6 +35,22 @@
     "github-release:openai/openai-python:v3.26.0": {
       "retryAfter": "2026-10-13T06:41:29.980Z",
       "reason": "source has only 13 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.296": {
+      "retryAfter": "2026-10-13T18:16:48.963Z",
+      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
+    },
+    "github-release:langchain-ai/langchain:langchain-openai==1.7.1": {
+      "retryAfter": "2026-10-13T18:16:48.963Z",
+      "reason": "source has only 14 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.6.10": {
+      "retryAfter": "2026-10-13T18:16:48.963Z",
+      "reason": "source has only 14 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-anthropic==1.7.6": {
+      "retryAfter": "2026-10-13T18:16:48.963Z",
+      "reason": "source has only 50 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
