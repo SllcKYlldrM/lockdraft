@@ -1,13 +1,5 @@
 {
   "items": {
-    "github-release:openai/openai-python:v3.28.0": {
-      "retryAfter": "2026-10-12T06:31:41.380Z",
-      "reason": "source has only 48 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.27.0": {
-      "retryAfter": "2026-10-12T06:31:41.380Z",
-      "reason": "source has only 13 usable words; needs at least 80 — skipped before writing"
-    },
     "rss:OpenAI:https://openai.com/index/gpt-6-for-everyone": {
       "retryAfter": "2026-10-12T15:07:50.162Z",
       "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
@@ -23,6 +15,34 @@
     "github-release:langchain-ai/langchain:langchain-openai==1.7.0": {
       "retryAfter": "2026-10-13T00:01:52.172Z",
       "reason": "source has only 51 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.294": {
+      "retryAfter": "2026-10-13T06:37:46.085Z",
+      "reason": "source has only 53 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:ollama/ollama:v0.40.2": {
+      "retryAfter": "2026-10-13T06:41:29.979Z",
+      "reason": "editor: The shell script block contains a syntax error: 'jq -r \\\\' uses double backslashes instead of a single backslash ('\\'), which breaks line continuation in bash/sh.; Duplicate 'Sources' headers and links are present at the end of the article, including an unrelated internal link ('Ai2 Open-Sources AstaBrief 8B')."
+    },
+    "github-release:openai/openai-python:v3.28.0": {
+      "retryAfter": "2026-10-13T06:41:29.979Z",
+      "reason": "source has only 48 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.27.0": {
+      "retryAfter": "2026-10-13T06:41:29.979Z",
+      "reason": "source has only 13 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:n8n-io/n8n:n8n@2.42.5": {
+      "retryAfter": "2026-10-13T06:41:29.980Z",
+      "reason": "source has only 68 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.6.9": {
+      "retryAfter": "2026-10-13T06:41:29.980Z",
+      "reason": "source has only 13 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.26.0": {
+      "retryAfter": "2026-10-13T06:41:29.980Z",
+      "reason": "source has only 13 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
