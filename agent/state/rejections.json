@@ -15,6 +15,14 @@
     "github-release:anthropics/claude-code:v2.1.296": {
       "retryAfter": "2026-10-12T15:11:14.314Z",
       "reason": "editor: Contradicts source on workflow script truncation: The article states workflows 'continue to silently truncate deeply nested structures,' but the source explicitly marks this as a fixed issue.; Contradicts source on secret redaction: The article claims redaction 'may still omit values immediately following empty keys,' but the source explicitly marks this as a fixed issue."
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.6.8": {
+      "retryAfter": "2026-10-13T00:01:52.172Z",
+      "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-openai==1.7.0": {
+      "retryAfter": "2026-10-13T00:01:52.172Z",
+      "reason": "source has only 51 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
