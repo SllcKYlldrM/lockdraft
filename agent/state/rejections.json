@@ -1,21 +1,5 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.296": {
-      "retryAfter": "2026-10-13T18:16:48.963Z",
-      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
-    },
-    "github-release:langchain-ai/langchain:langchain-openai==1.7.1": {
-      "retryAfter": "2026-10-13T18:16:48.963Z",
-      "reason": "source has only 14 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-core==1.6.10": {
-      "retryAfter": "2026-10-13T18:16:48.963Z",
-      "reason": "source has only 14 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-anthropic==1.7.6": {
-      "retryAfter": "2026-10-13T18:16:48.963Z",
-      "reason": "source has only 50 usable words; needs at least 80 — skipped before writing"
-    },
     "rss:OpenAI:https://openai.com/index/gpt-6-for-everyone": {
       "retryAfter": "2026-10-14T12:15:02.497Z",
       "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
