@@ -1,20 +1,32 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/gpt-6-for-everyone": {
-      "retryAfter": "2026-10-14T12:15:02.497Z",
-      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:anthropics/claude-code:v2.1.294": {
-      "retryAfter": "2026-10-14T12:15:02.497Z",
-      "reason": "source has only 53 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain==1.4.5": {
-      "retryAfter": "2026-10-14T12:15:02.497Z",
-      "reason": "source has only 12 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:anthropics/claude-code:v2.1.299": {
       "retryAfter": "2026-10-15T05:34:52.552Z",
       "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
+    },
+    "github-release:openai/openai-python:v3.31.0": {
+      "retryAfter": "2026-10-15T14:09:00.432Z",
+      "reason": "source has only 14 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:n8n Blog:6ace28e3fdd8d400013dc4b0": {
+      "retryAfter": "2026-10-15T14:14:24.378Z",
+      "reason": "editor: \"reasoning model\" terminology for Gemini 4 Argon is unsupported; the source only states it is used \"for the thinking\".; Claim that human-in-the-loop approval is exclusive to MCP workflows and that agents lack built-in pause points is not substantiated in the source material.; Includes an unsourced internal link (`/posts/n8n-introduces-dedicated-agents-with-native-workflow-and-mcp-tool-integration/`).; Speculative assertion that separated Assistant and Gateway credits \"may complicate cost tracking\" exceeds the source's neutral description of billing allocation."
+    },
+    "github-release:anthropics/claude-code:v2.1.294": {
+      "retryAfter": "2026-10-15T14:14:24.379Z",
+      "reason": "source has only 53 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.28.0": {
+      "retryAfter": "2026-10-15T14:14:24.379Z",
+      "reason": "source has only 48 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.27.0": {
+      "retryAfter": "2026-10-15T14:14:24.379Z",
+      "reason": "source has only 13 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/higgsfield-longer-videos-voice": {
+      "retryAfter": "2026-10-15T14:14:24.416Z",
+      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
