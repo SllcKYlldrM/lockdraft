@@ -31,6 +31,7 @@
     "github-release:anthropics/claude-code:v2.1.292",
     "github-release:langchain-ai/langchain:langchain==1.4.4",
     "github-release:n8n-io/n8n:n8n@2.42.6",
-    "rss:Google AI Blog:https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/"
+    "rss:Google AI Blog:https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+    "github-release:ollama/ollama:v0.40.4"
   ]
 }

@@ -11,6 +11,10 @@
     "github-release:langchain-ai/langchain:langchain==1.4.5": {
       "retryAfter": "2026-10-14T12:15:02.497Z",
       "reason": "source has only 12 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.299": {
+      "retryAfter": "2026-10-15T05:34:52.552Z",
+      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
     }
   }
 }
