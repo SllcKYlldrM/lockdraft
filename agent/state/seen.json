@@ -34,6 +34,7 @@
     "rss:Google AI Blog:https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
     "github-release:ollama/ollama:v0.40.4",
     "rss:Hugging Face Blog:https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b",
-    "github-release:anthropics/claude-code:v2.1.296"
+    "github-release:anthropics/claude-code:v2.1.296",
+    "github-release:anthropics/claude-code:v2.1.299"
   ]
 }
