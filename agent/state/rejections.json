@@ -27,6 +27,10 @@
     "rss:OpenAI:https://openai.com/index/higgsfield-longer-videos-voice": {
       "retryAfter": "2026-10-15T14:14:24.416Z",
       "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.300": {
+      "retryAfter": "2026-10-16T05:21:13.649Z",
+      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
     }
   }
 }
