@@ -52,7 +52,8 @@ const { analyticsId } = Astro.props;
 		let lastPageViewAt = 0;
 
 		const getConsent = () => localStorage.getItem(CONSENT_KEY);
-		const hasConsent = () => isProduction && getConsent() === "granted";
+		// Analytics is enabled by default; only an explicit footer opt-out disables it.
+		const hasConsent = () => isProduction && getConsent() !== "denied";
 
 		function updateBanner() {
 			if (banner) banner.hidden = getConsent() !== null;
@@ -268,7 +269,7 @@ const { analyticsId } = Astro.props;
 			updateBanner();
 		});
 		updateBanner();
-		if (getConsent() === "granted") loadGoogleAnalytics();
+		if (getConsent() !== "denied") loadGoogleAnalytics();
 		schedulePageView();
 	})();
 </script>
