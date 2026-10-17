@@ -1,9 +1,5 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.301": {
-      "retryAfter": "2026-10-17T05:10:26.828Z",
-      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
-    },
     "github-release:openai/openai-python:v3.31.0": {
       "retryAfter": "2026-10-17T13:33:55.744Z",
       "reason": "source has only 14 usable words; needs at least 80 — skipped before writing"
