@@ -7,6 +7,10 @@
     "github-release:openai/openai-python:v3.31.0": {
       "retryAfter": "2026-10-17T13:33:55.744Z",
       "reason": "source has only 14 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.302": {
+      "retryAfter": "2026-10-18T05:08:17.633Z",
+      "reason": "editor: In the 'Limitations' section, conflates two distinct changelog entries: incorrectly states that cloud sessions lack MCP server authorization options and require navigation to `claude.ai/design/settings`. The source specifies the MCP redirection fix applies to the desktop app, while the `claude.ai/design/settings` redirect applies to `/design consent` and `/design revoke` failures in cloud sessions.; In 'Why it matters', overstates the credit logic fix by claiming it prevents waste when agents 'exhaust their allocated budget mid-session'; the source only notes that prompt suggestions are skipped after a reply billed to credits occurs, not necessarily due to total budget exhaustion."
     }
   }
 }

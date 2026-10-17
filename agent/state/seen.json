@@ -37,6 +37,7 @@
     "github-release:anthropics/claude-code:v2.1.296",
     "github-release:anthropics/claude-code:v2.1.299",
     "github-release:ollama/ollama:v0.40.5",
-    "rss:n8n Blog:6ace28e3fdd8d400013dc4b0"
+    "rss:n8n Blog:6ace28e3fdd8d400013dc4b0",
+    "rss:Hugging Face Blog:https://huggingface.co/blog/nvidia/scaling-indic-pretraining"
   ]
 }
