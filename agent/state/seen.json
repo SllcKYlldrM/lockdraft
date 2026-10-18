@@ -40,6 +40,7 @@
     "rss:n8n Blog:6ace28e3fdd8d400013dc4b0",
     "rss:Hugging Face Blog:https://huggingface.co/blog/nvidia/scaling-indic-pretraining",
     "rss:Hugging Face Blog:https://huggingface.co/blog/reflection-beam",
-    "github-release:anthropics/claude-code:v2.1.301"
+    "github-release:anthropics/claude-code:v2.1.301",
+    "rss:Hugging Face Blog:https://huggingface.co/blog/meta-muse-spark-open"
   ]
 }
