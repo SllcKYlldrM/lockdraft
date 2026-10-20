@@ -42,6 +42,7 @@
     "rss:Hugging Face Blog:https://huggingface.co/blog/reflection-beam",
     "github-release:anthropics/claude-code:v2.1.301",
     "rss:Hugging Face Blog:https://huggingface.co/blog/meta-muse-spark-open",
-    "github-release:anthropics/claude-code:v2.1.302"
+    "github-release:anthropics/claude-code:v2.1.302",
+    "github-release:anthropics/claude-code:v2.1.304"
   ]
 }
