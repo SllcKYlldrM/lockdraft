@@ -43,6 +43,7 @@
     "github-release:anthropics/claude-code:v2.1.301",
     "rss:Hugging Face Blog:https://huggingface.co/blog/meta-muse-spark-open",
     "github-release:anthropics/claude-code:v2.1.302",
-    "github-release:anthropics/claude-code:v2.1.304"
+    "github-release:anthropics/claude-code:v2.1.304",
+    "rss:n8n Blog:6ad61856981bfc000110b965"
   ]
 }
