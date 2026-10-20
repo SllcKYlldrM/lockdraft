@@ -1,3 +1,20 @@
 {
-  "items": {}
+  "items": {
+    "rss:OpenAI:https://openai.com/index/low-resource-programming-languages": {
+      "retryAfter": "2026-10-21T13:53:13.414Z",
+      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:Hugging Face Blog:https://huggingface.co/blog/ibm-granite/granite-switch-4-1": {
+      "retryAfter": "2026-10-21T14:03:08.396Z",
+      "reason": "editor: Irrelevant footer cross-link: The '[Ai2 Open-Sources AstaBrief 8B for Fast Scientific Report Generation]' link is unrelated to the Granite Switch 4.1 announcement and appears to be a site template artifact; remove or replace it with contextually relevant links."
+    },
+    "github-release:anthropics/claude-code:v2.1.300": {
+      "retryAfter": "2026-10-21T14:10:51.254Z",
+      "reason": "editor: Contradiction in 'Limitations & Caveats': The article claims Unicode separator handling in `/branch` and `claude purge` still exhibits message drops, but the source explicitly lists this as fixed.; Misrepresentation of CLI help fix: The caveats section implies the `--restricted` documentation still references deprecated tools, contradicting the source which marks this as fixed.; Framing explicitly resolved bugs as ongoing limitations misleads readers about the current state of the software."
+    },
+    "github-release:ollama/ollama:v0.40.6": {
+      "retryAfter": "2026-10-21T14:10:51.254Z",
+      "reason": "source has only 50 usable words; needs at least 80 — skipped before writing"
+    }
+  }
 }
