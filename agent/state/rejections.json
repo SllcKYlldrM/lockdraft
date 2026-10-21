@@ -27,6 +27,10 @@
     "rss:Hugging Face Blog:https://huggingface.co/blog/nvidia/kumo-forecast": {
       "retryAfter": "2026-10-22T14:18:02.146Z",
       "reason": "editor: Unsupported instruction: 'without rewriting the training loop' is not stated in the source; the source only mentions a 'documented starting point for adapting the model'.; Terminology mismatch: 'adapter' is used where the source explicitly describes a frozen backbone (encoder/embedder) and a separately trained 'forecasting head'. This could mislead readers about the fine-tuning mechanism.; Imprecise limitation phrasing: 'capped at 256, 512, 1024, and 2048 observations' implies a hard upper limit, whereas the source states these are simply 'included' as supported sequence lengths."
+    },
+    "rss:Hugging Face Blog:https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization": {
+      "retryAfter": "2026-10-22T20:27:18.257Z",
+      "reason": "editor: Unsubstantiated external references in 'What to do next': Directs readers to review guides on 'Anthropic's API surface' and the 'Gemini 4 Argon release.' Neither entity, product, or benchmark appears in or follows from the source material. Remove these filler recommendations or replace them with actionable steps strictly derived from the VocabX methodology.; Over-specified metric attribution in 'Why it matters': Claims the 7.4x figure measures 'memory bandwidth,' whereas the source frames it as a general cost/time ratio ('a generated token costs 7.4 times a token read') that varies with hardware, batch size, and context length. Adjust phrasing to preserve the source's caveat about variability.; Unsupported engineering guidance in 'What to do next': Advises capping vocabulary growth to prevent the LM head from exceeding 'accelerator's memory bandwidth' limits. The source discusses controlling vocabulary size via a fixed budget for macro tokens and rebuilding sub-word merges, not general hardware capacity planning. Reframe this point to align with the documented VocabX selection criteria."
     }
   }
 }
