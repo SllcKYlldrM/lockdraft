@@ -1,9 +1,5 @@
 {
   "items": {
-    "rss:Hugging Face Blog:https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization": {
-      "retryAfter": "2026-10-22T20:27:18.257Z",
-      "reason": "editor: Unsubstantiated external references in 'What to do next': Directs readers to review guides on 'Anthropic's API surface' and the 'Gemini 4 Argon release.' Neither entity, product, or benchmark appears in or follows from the source material. Remove these filler recommendations or replace them with actionable steps strictly derived from the VocabX methodology.; Over-specified metric attribution in 'Why it matters': Claims the 7.4x figure measures 'memory bandwidth,' whereas the source frames it as a general cost/time ratio ('a generated token costs 7.4 times a token read') that varies with hardware, batch size, and context length. Adjust phrasing to preserve the source's caveat about variability.; Unsupported engineering guidance in 'What to do next': Advises capping vocabulary growth to prevent the LM head from exceeding 'accelerator's memory bandwidth' limits. The source discusses controlling vocabulary size via a fixed budget for macro tokens and rebuilding sub-word merges, not general hardware capacity planning. Reframe this point to align with the documented VocabX selection criteria."
-    },
     "github-release:anthropics/claude-code:v2.1.307": {
       "retryAfter": "2026-10-23T05:31:30.471Z",
       "reason": "editor: Conflates two distinct self-hosted runner fixes (git proxy committing leftover settings vs. checkout hook processes lingering) into a single causal statement in the limitations section.; Mischaracterizes the `setModel()` timeout change as a hard \"cap\" rather than an extended wait period; source states it now \"waits up to 15 seconds\" instead of refusing after 5."
@@ -59,6 +55,10 @@
     "github-release:openai/openai-python:v3.35.0": {
       "retryAfter": "2026-10-23T20:27:03.493Z",
       "reason": "source has only 37 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.309": {
+      "retryAfter": "2026-10-23T23:44:20.139Z",
+      "reason": "editor: Truncated description ending mid-sentence ('and resolves edge').; Introduces unsourced external reference to v2.1.295 and a specific blog post URL in the 'Why it matters' section that is not present in or derivable from the provided source material.; Ensure all editorial analysis remains strictly grounded in the provided changelog; avoid implying broader ecosystem trends or linking to unrelated versions without explicit source verification."
     }
   }
 }
