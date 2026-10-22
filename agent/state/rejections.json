@@ -1,25 +1,5 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.305": {
-      "retryAfter": "2026-10-22T05:28:59.175Z",
-      "reason": "editor: Compaction notification direction contradicts source: Source states the fix ensures cloud sessions/teammates tell *Claude*, but article claims sessions/teammates *receive* notifications. Correct the recipient/direction to match source.; Bash disk-full error fix omits critical operational context: Source explicitly notes the new error message also states 'nothing ran'. Add this detail for accuracy.; Self-hosted runner TERM failure fix lacks prerequisite condition: Source specifies the failure occurs specifically when 'a start script that shares only its stdout with the runner or orchestrator' runs. Include this scope.; Truncated source line omitted without verification: Source ends with '- Changed a mod's docked pane to st' (likely a cutoff/typo). Verify intent or omit if unrelated to the main release scope."
-    },
-    "github-release:anthropics/claude-code:v2.1.306": {
-      "retryAfter": "2026-10-22T05:28:59.175Z",
-      "reason": "source has only 43 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:ollama/ollama:v0.40.7": {
-      "retryAfter": "2026-10-22T05:33:43.312Z",
-      "reason": "editor: Misnamed product: \"Anthropic Code’s\" in the body should be \"Claude Code's\" per source material.; Unsupported limitation claim: States pplx-decider is \"architecture-specific and optimized for decision routing rather than general-purpose text generation,\" which is not present in the source.; Unsupported limitation claim: Claims speculative decoding improvements \"may vary across different GPU architectures,\" which is not supported by the source material.; Remove or qualify unsupported details in the Limitations section to align strictly with the provided release notes."
-    },
-    "github-release:langchain-ai/langchain:langchain==1.4.6": {
-      "retryAfter": "2026-10-22T05:33:43.312Z",
-      "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:Hugging Face Blog:https://huggingface.co/blog/ibm-research/altk-evolve-bc": {
-      "retryAfter": "2026-10-22T05:39:46.703Z",
-      "reason": "editor: Technical inaccuracy: \"deterministic rule extraction\" and \"single forward pass\" are not in the source and misrepresent the stochastic nature of LLM-based distillation.; Mischaracterization: Claims guidelines improve \"routing efficiency,\" but the source explicitly attributes gains to \"better-informed calls.\"; Structural inconsistency: Introduces \"three guideline density configurations\" but the bulleted list only details `sup3` and `lossless`, leaving `baseline` unlabeled.; Unsubstantiated filler: Includes internal placeholder links (\"architecting with Claude\", \"Ai2 Open-Sources AstaBrief\") and generic implementation advice not grounded in the provided source material.; Contradictory phrasing: States configurations were tested \"against a baseline,\" then separately describes baseline self-comparisons, confusing the experimental setup outlined in the source tables."
-    },
     "rss:OpenAI:https://openai.com/index/openai-models-google-cloud": {
       "retryAfter": "2026-10-22T14:12:55.383Z",
       "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
