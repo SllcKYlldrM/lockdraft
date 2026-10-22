@@ -1,13 +1,5 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/openai-models-google-cloud": {
-      "retryAfter": "2026-10-22T14:12:55.383Z",
-      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:Hugging Face Blog:https://huggingface.co/blog/nvidia/kumo-forecast": {
-      "retryAfter": "2026-10-22T14:18:02.146Z",
-      "reason": "editor: Unsupported instruction: 'without rewriting the training loop' is not stated in the source; the source only mentions a 'documented starting point for adapting the model'.; Terminology mismatch: 'adapter' is used where the source explicitly describes a frozen backbone (encoder/embedder) and a separately trained 'forecasting head'. This could mislead readers about the fine-tuning mechanism.; Imprecise limitation phrasing: 'capped at 256, 512, 1024, and 2048 observations' implies a hard upper limit, whereas the source states these are simply 'included' as supported sequence lengths."
-    },
     "rss:Hugging Face Blog:https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization": {
       "retryAfter": "2026-10-22T20:27:18.257Z",
       "reason": "editor: Unsubstantiated external references in 'What to do next': Directs readers to review guides on 'Anthropic's API surface' and the 'Gemini 4 Argon release.' Neither entity, product, or benchmark appears in or follows from the source material. Remove these filler recommendations or replace them with actionable steps strictly derived from the VocabX methodology.; Over-specified metric attribution in 'Why it matters': Claims the 7.4x figure measures 'memory bandwidth,' whereas the source frames it as a general cost/time ratio ('a generated token costs 7.4 times a token read') that varies with hardware, batch size, and context length. Adjust phrasing to preserve the source's caveat about variability.; Unsupported engineering guidance in 'What to do next': Advises capping vocabulary growth to prevent the LM head from exceeding 'accelerator's memory bandwidth' limits. The source discusses controlling vocabulary size via a fixed budget for macro tokens and rebuilding sub-word merges, not general hardware capacity planning. Reframe this point to align with the documented VocabX selection criteria."
@@ -35,6 +27,38 @@
     "github-release:langchain-ai/langchain:langchain-core==1.6.13": {
       "retryAfter": "2026-10-23T05:38:50.637Z",
       "reason": "source has only 23 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/decisions-api": {
+      "retryAfter": "2026-10-23T20:20:19.633Z",
+      "reason": "source has only 7 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/openai-models-google-cloud": {
+      "retryAfter": "2026-10-23T20:20:19.729Z",
+      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.7.0": {
+      "retryAfter": "2026-10-23T20:20:19.729Z",
+      "reason": "source has only 76 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/low-resource-programming-languages": {
+      "retryAfter": "2026-10-23T20:20:19.785Z",
+      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:Hugging Face Blog:https://huggingface.co/blog/allenai/olmoearth-v1-3": {
+      "retryAfter": "2026-10-23T20:23:37.156Z",
+      "reason": "editor: Carbon emission reduction misstated: Source states v1.3 retains '50% and 22% of the carbon emissions' relative to v1.2 and v1, implying 50% and 78% reductions. The article incorrectly claims emissions were lowered 'by 50 percent and 22 percent respectively.'; Incorrect temporal scope: Article claims the model 'compresses multi-year radar and optical sequences,' but the source explicitly states it 'reads a year of radar... and multispectral... satellite time series.'; Sanitized/unsubstantiated use-case examples: Source lists four specific applications (Kenya smallholder crops, Dhaka brick kilns, Indonesia fire damage, Peruvian gold mining). Article replaces these with generic 'tracking deforestation shifts,' which is not present in the source material.; Precision on compute costs: Article conflates 'final training compute' cuts with reproduction costs. Source distinguishes between pre-training efficiency gains (53%/18% compute time) and the separate $2,720 reproduction estimate for rented H100 time. Clarify whether the percentage figures apply to pre-training or fine-tuning."
+    },
+    "github-release:anthropics/claude-code:v2.1.306": {
+      "retryAfter": "2026-10-23T20:23:37.156Z",
+      "reason": "source has only 43 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:ollama/ollama:v0.40.7": {
+      "retryAfter": "2026-10-23T20:27:03.493Z",
+      "reason": "editor: Contradicts itself by stating 'two new API response fields' while explicitly listing three (`renderer`, `parser`, and `template_source`)."
+    },
+    "github-release:openai/openai-python:v3.35.0": {
+      "retryAfter": "2026-10-23T20:27:03.493Z",
+      "reason": "source has only 37 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
