@@ -31,6 +31,30 @@
     "rss:Hugging Face Blog:https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization": {
       "retryAfter": "2026-10-22T20:27:18.257Z",
       "reason": "editor: Unsubstantiated external references in 'What to do next': Directs readers to review guides on 'Anthropic's API surface' and the 'Gemini 4 Argon release.' Neither entity, product, or benchmark appears in or follows from the source material. Remove these filler recommendations or replace them with actionable steps strictly derived from the VocabX methodology.; Over-specified metric attribution in 'Why it matters': Claims the 7.4x figure measures 'memory bandwidth,' whereas the source frames it as a general cost/time ratio ('a generated token costs 7.4 times a token read') that varies with hardware, batch size, and context length. Adjust phrasing to preserve the source's caveat about variability.; Unsupported engineering guidance in 'What to do next': Advises capping vocabulary growth to prevent the LM head from exceeding 'accelerator's memory bandwidth' limits. The source discusses controlling vocabulary size via a fixed budget for macro tokens and rebuilding sub-word merges, not general hardware capacity planning. Reframe this point to align with the documented VocabX selection criteria."
+    },
+    "github-release:anthropics/claude-code:v2.1.307": {
+      "retryAfter": "2026-10-23T05:31:30.471Z",
+      "reason": "editor: Conflates two distinct self-hosted runner fixes (git proxy committing leftover settings vs. checkout hook processes lingering) into a single causal statement in the limitations section.; Mischaracterizes the `setModel()` timeout change as a hard \"cap\" rather than an extended wait period; source states it now \"waits up to 15 seconds\" instead of refusing after 5."
+    },
+    "github-release:ollama/ollama:v0.40.8": {
+      "retryAfter": "2026-10-23T05:34:03.147Z",
+      "reason": "editor: Body is 227 words, needs at least 300 (too thin/filler-heavy)."
+    },
+    "rss:OpenAI:https://openai.com/index/cloudflare-cyber": {
+      "retryAfter": "2026-10-23T05:34:03.203Z",
+      "reason": "source has only 23 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:Hugging Face Blog:https://huggingface.co/blog/ibm-granite/granite-speech-5": {
+      "retryAfter": "2026-10-23T05:38:50.637Z",
+      "reason": "editor: Promotional filler and self-referential link in 'Why it matters' ('aligns well with broader API surface design practices, such as those outlined in our guide to architecting reliable agent tool calls') are not grounded in the source.; Technical assertion in 'Why it matters' claiming keyword biasing reduces errors 'without altering the underlying probability distribution' is unsupported by the source and contradicts standard decoding mechanics.; Benchmark claim ('5.06% average word error rate') omits the source's temporal qualifier ('as of 21 October 2026'), reducing verifiability in a fast-moving ecosystem.; Opening sentence references 'explicit clarifications around framework support', but the source simply lists supported runtimes without framing them as clarifications."
+    },
+    "github-release:langchain-ai/langchain:langchain==1.4.7": {
+      "retryAfter": "2026-10-23T05:38:50.637Z",
+      "reason": "source has only 63 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.6.13": {
+      "retryAfter": "2026-10-23T05:38:50.637Z",
+      "reason": "source has only 23 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
