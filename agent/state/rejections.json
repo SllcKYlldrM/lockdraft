@@ -1,29 +1,5 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.307": {
-      "retryAfter": "2026-10-23T05:31:30.471Z",
-      "reason": "editor: Conflates two distinct self-hosted runner fixes (git proxy committing leftover settings vs. checkout hook processes lingering) into a single causal statement in the limitations section.; Mischaracterizes the `setModel()` timeout change as a hard \"cap\" rather than an extended wait period; source states it now \"waits up to 15 seconds\" instead of refusing after 5."
-    },
-    "github-release:ollama/ollama:v0.40.8": {
-      "retryAfter": "2026-10-23T05:34:03.147Z",
-      "reason": "editor: Body is 227 words, needs at least 300 (too thin/filler-heavy)."
-    },
-    "rss:OpenAI:https://openai.com/index/cloudflare-cyber": {
-      "retryAfter": "2026-10-23T05:34:03.203Z",
-      "reason": "source has only 23 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:Hugging Face Blog:https://huggingface.co/blog/ibm-granite/granite-speech-5": {
-      "retryAfter": "2026-10-23T05:38:50.637Z",
-      "reason": "editor: Promotional filler and self-referential link in 'Why it matters' ('aligns well with broader API surface design practices, such as those outlined in our guide to architecting reliable agent tool calls') are not grounded in the source.; Technical assertion in 'Why it matters' claiming keyword biasing reduces errors 'without altering the underlying probability distribution' is unsupported by the source and contradicts standard decoding mechanics.; Benchmark claim ('5.06% average word error rate') omits the source's temporal qualifier ('as of 21 October 2026'), reducing verifiability in a fast-moving ecosystem.; Opening sentence references 'explicit clarifications around framework support', but the source simply lists supported runtimes without framing them as clarifications."
-    },
-    "github-release:langchain-ai/langchain:langchain==1.4.7": {
-      "retryAfter": "2026-10-23T05:38:50.637Z",
-      "reason": "source has only 63 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-core==1.6.13": {
-      "retryAfter": "2026-10-23T05:38:50.637Z",
-      "reason": "source has only 23 usable words; needs at least 80 — skipped before writing"
-    },
     "rss:OpenAI:https://openai.com/index/decisions-api": {
       "retryAfter": "2026-10-23T20:20:19.633Z",
       "reason": "source has only 7 usable words; needs at least 80 — skipped before writing"

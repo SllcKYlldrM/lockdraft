@@ -48,6 +48,7 @@
     "rss:Hugging Face Blog:https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
     "rss:Hugging Face Blog:https://huggingface.co/blog/nvidia/kumo-relational",
     "github-release:anthropics/claude-code:v2.1.305",
-    "rss:Hugging Face Blog:https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization"
+    "rss:Hugging Face Blog:https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization",
+    "github-release:anthropics/claude-code:v2.1.307"
   ]
 }
