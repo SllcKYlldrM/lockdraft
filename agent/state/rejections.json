@@ -35,6 +35,10 @@
     "github-release:anthropics/claude-code:v2.1.309": {
       "retryAfter": "2026-10-23T23:44:20.139Z",
       "reason": "editor: Truncated description ending mid-sentence ('and resolves edge').; Introduces unsourced external reference to v2.1.295 and a specific blog post URL in the 'Why it matters' section that is not present in or derivable from the provided source material.; Ensure all editorial analysis remains strictly grounded in the provided changelog; avoid implying broader ecosystem trends or linking to unrelated versions without explicit source verification."
+    },
+    "github-release:ollama/ollama:v0.40.10": {
+      "retryAfter": "2026-10-24T20:07:34.253Z",
+      "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
