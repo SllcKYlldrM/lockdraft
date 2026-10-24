@@ -3,6 +3,42 @@
     "github-release:ollama/ollama:v0.40.10": {
       "retryAfter": "2026-10-24T20:07:34.253Z",
       "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.7.0": {
+      "retryAfter": "2026-10-25T12:57:04.711Z",
+      "reason": "source has only 76 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/decisions-api": {
+      "retryAfter": "2026-10-25T12:57:04.780Z",
+      "reason": "source has only 7 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.309": {
+      "retryAfter": "2026-10-25T12:58:55.148Z",
+      "reason": "editor: The article references 'Claude Code v2.1.295', a specific version number that does not appear in or follow from the provided source material."
+    },
+    "github-release:ollama/ollama:v0.40.8": {
+      "retryAfter": "2026-10-25T13:00:15.478Z",
+      "reason": "editor: Body is 267 words, needs at least 300 (too thin/filler-heavy)."
+    },
+    "rss:OpenAI:https://openai.com/index/openai-models-google-cloud": {
+      "retryAfter": "2026-10-25T13:00:15.523Z",
+      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.306": {
+      "retryAfter": "2026-10-25T13:00:15.523Z",
+      "reason": "source has only 43 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.6.13": {
+      "retryAfter": "2026-10-25T13:00:15.523Z",
+      "reason": "source has only 23 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:ollama/ollama:v0.40.7": {
+      "retryAfter": "2026-10-25T13:03:18.740Z",
+      "reason": "editor: The advice telling developers to 'remove any hardcoded draft type flags' in speculative decoding loops misinterprets the source; the automatic draft type inference refers to an internal change between Ollama and llama-server, not a user-facing configuration flag.; The article mentions remote requests being terminated broadly, but omits the source detail that this request cancellation specifically applies to remote models on ollama.com."
+    },
+    "rss:n8n Blog:6ad9f4da2f1ad6000113582e": {
+      "retryAfter": "2026-10-25T13:06:50.753Z",
+      "reason": "editor: Unsubstantiated internal links and resource titles in the 'What to do next' section do not appear in or derive from the source material."
     }
   }
 }

@@ -51,6 +51,7 @@
     "rss:Hugging Face Blog:https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization",
     "github-release:anthropics/claude-code:v2.1.307",
     "github-release:ollama/ollama:v0.40.9",
-    "github-release:anthropics/claude-code:v2.1.310"
+    "github-release:anthropics/claude-code:v2.1.310",
+    "rss:n8n Blog:6ad22cb0029ec000015e4ebf"
   ]
 }
