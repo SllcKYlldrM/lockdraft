@@ -1,41 +1,5 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/decisions-api": {
-      "retryAfter": "2026-10-23T20:20:19.633Z",
-      "reason": "source has only 7 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/openai-models-google-cloud": {
-      "retryAfter": "2026-10-23T20:20:19.729Z",
-      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-core==1.7.0": {
-      "retryAfter": "2026-10-23T20:20:19.729Z",
-      "reason": "source has only 76 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/low-resource-programming-languages": {
-      "retryAfter": "2026-10-23T20:20:19.785Z",
-      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:Hugging Face Blog:https://huggingface.co/blog/allenai/olmoearth-v1-3": {
-      "retryAfter": "2026-10-23T20:23:37.156Z",
-      "reason": "editor: Carbon emission reduction misstated: Source states v1.3 retains '50% and 22% of the carbon emissions' relative to v1.2 and v1, implying 50% and 78% reductions. The article incorrectly claims emissions were lowered 'by 50 percent and 22 percent respectively.'; Incorrect temporal scope: Article claims the model 'compresses multi-year radar and optical sequences,' but the source explicitly states it 'reads a year of radar... and multispectral... satellite time series.'; Sanitized/unsubstantiated use-case examples: Source lists four specific applications (Kenya smallholder crops, Dhaka brick kilns, Indonesia fire damage, Peruvian gold mining). Article replaces these with generic 'tracking deforestation shifts,' which is not present in the source material.; Precision on compute costs: Article conflates 'final training compute' cuts with reproduction costs. Source distinguishes between pre-training efficiency gains (53%/18% compute time) and the separate $2,720 reproduction estimate for rented H100 time. Clarify whether the percentage figures apply to pre-training or fine-tuning."
-    },
-    "github-release:anthropics/claude-code:v2.1.306": {
-      "retryAfter": "2026-10-23T20:23:37.156Z",
-      "reason": "source has only 43 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:ollama/ollama:v0.40.7": {
-      "retryAfter": "2026-10-23T20:27:03.493Z",
-      "reason": "editor: Contradicts itself by stating 'two new API response fields' while explicitly listing three (`renderer`, `parser`, and `template_source`)."
-    },
-    "github-release:openai/openai-python:v3.35.0": {
-      "retryAfter": "2026-10-23T20:27:03.493Z",
-      "reason": "source has only 37 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:anthropics/claude-code:v2.1.309": {
-      "retryAfter": "2026-10-23T23:44:20.139Z",
-      "reason": "editor: Truncated description ending mid-sentence ('and resolves edge').; Introduces unsourced external reference to v2.1.295 and a specific blog post URL in the 'Why it matters' section that is not present in or derivable from the provided source material.; Ensure all editorial analysis remains strictly grounded in the provided changelog; avoid implying broader ecosystem trends or linking to unrelated versions without explicit source verification."
-    },
     "github-release:ollama/ollama:v0.40.10": {
       "retryAfter": "2026-10-24T20:07:34.253Z",
       "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
