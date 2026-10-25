@@ -1,9 +1,5 @@
 {
   "items": {
-    "github-release:ollama/ollama:v0.40.10": {
-      "retryAfter": "2026-10-24T20:07:34.253Z",
-      "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:langchain-ai/langchain:langchain-core==1.7.0": {
       "retryAfter": "2026-10-25T12:57:04.711Z",
       "reason": "source has only 76 usable words; needs at least 80 — skipped before writing"
@@ -39,6 +35,14 @@
     "rss:n8n Blog:6ad9f4da2f1ad6000113582e": {
       "retryAfter": "2026-10-25T13:06:50.753Z",
       "reason": "editor: Unsubstantiated internal links and resource titles in the 'What to do next' section do not appear in or derive from the source material."
+    },
+    "github-release:ollama/ollama:v0.40.11": {
+      "retryAfter": "2026-10-26T05:26:50.408Z",
+      "reason": "editor: Version tag discrepancy: article references 'v0.40.11' throughout, but the source changelog explicitly specifies 'v0.40.11-rc0'. Align the version identifier with the source designation."
+    },
+    "github-release:ollama/ollama:v0.40.10": {
+      "retryAfter": "2026-10-26T05:26:50.408Z",
+      "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
