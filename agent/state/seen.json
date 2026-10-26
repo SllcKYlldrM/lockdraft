@@ -54,6 +54,7 @@
     "github-release:anthropics/claude-code:v2.1.310",
     "rss:n8n Blog:6ad22cb0029ec000015e4ebf",
     "github-release:anthropics/claude-code:v2.1.309",
-    "rss:n8n Blog:6ad9f4da2f1ad6000113582e"
+    "rss:n8n Blog:6ad9f4da2f1ad6000113582e",
+    "github-release:ollama/ollama:v0.40.11"
   ]
 }
