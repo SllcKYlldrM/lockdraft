@@ -1,16 +1,20 @@
 {
   "items": {
-    "github-release:langchain-ai/langchain:langchain-core==1.7.0": {
-      "retryAfter": "2026-10-26T13:23:49.312Z",
-      "reason": "source has only 76 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/decisions-api": {
-      "retryAfter": "2026-10-26T13:23:49.344Z",
-      "reason": "source has only 7 usable words; needs at least 80 — skipped before writing"
-    },
     "rss:OpenAI:https://openai.com/index/openai-models-google-cloud": {
       "retryAfter": "2026-10-26T22:50:11.138Z",
       "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/decisions-api": {
+      "retryAfter": "2026-10-27T15:31:42.489Z",
+      "reason": "source has only 7 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.7.0": {
+      "retryAfter": "2026-10-27T15:31:42.489Z",
+      "reason": "source has only 76 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:ollama/ollama:v0.40.10": {
+      "retryAfter": "2026-10-27T15:31:42.491Z",
+      "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
