@@ -43,6 +43,10 @@
     "rss:OpenAI:https://openai.com/index/scaling-ai-research-for-complex-biological-data": {
       "retryAfter": "2026-10-28T05:47:00.378Z",
       "reason": "source has only 23 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:n8n Blog:6adf6f9c2fe82a000155fec7": {
+      "retryAfter": "2026-10-28T15:02:44.812Z",
+      "reason": "editor: Factual contradiction: The article states a 'January 2026 support cutoff' for v1.x, but the source material explicitly says support ends December 31, 2026.; Unsubstantiated claim: The limitations section asserts automated migration fixes may struggle with 'deeply nested conditional logic or custom environment variables,' which is not present in or inferred from the source.; Inaccurate conflation: The article claims both Chat Hub and the Ask AI tab can be re-enabled, but the source only confirms Chat Hub can be toggled back on; the Ask AI tab is simply removed from the Code node.; Editorial filler: The limitations/caveats section introduces speculative troubleshooting scenarios not grounded in the provided source material."
     }
   }
 }
