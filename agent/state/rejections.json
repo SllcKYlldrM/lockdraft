@@ -1,9 +1,5 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/openai-models-google-cloud": {
-      "retryAfter": "2026-10-26T22:50:11.138Z",
-      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
-    },
     "rss:OpenAI:https://openai.com/index/decisions-api": {
       "retryAfter": "2026-10-27T15:31:42.489Z",
       "reason": "source has only 7 usable words; needs at least 80 — skipped before writing"
@@ -15,6 +11,38 @@
     "github-release:ollama/ollama:v0.40.10": {
       "retryAfter": "2026-10-27T15:31:42.491Z",
       "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-1-terra": {
+      "retryAfter": "2026-10-28T05:42:23.376Z",
+      "reason": "source has only 8 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.311": {
+      "retryAfter": "2026-10-28T05:44:47.315Z",
+      "reason": "editor: The version number 'v2.1.311' (and the GitHub release link) does not appear in the provided source material.; Grammar error in the first bullet point: 'Added an guidance tip' should be 'Added a guidance tip' (or 'Added guidance')."
+    },
+    "rss:OpenAI:https://openai.com/index/openai-models-google-cloud": {
+      "retryAfter": "2026-10-28T05:44:47.347Z",
+      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:ollama/ollama:v0.40.8": {
+      "retryAfter": "2026-10-28T05:47:00.283Z",
+      "reason": "editor: Body is 297 words, needs at least 300 (too thin/filler-heavy)."
+    },
+    "github-release:openai/openai-python:v3.39.0": {
+      "retryAfter": "2026-10-28T05:47:00.283Z",
+      "reason": "source has only 13 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/scaling-storage-one-billion-users-part-two": {
+      "retryAfter": "2026-10-28T05:47:00.314Z",
+      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities": {
+      "retryAfter": "2026-10-28T05:47:00.342Z",
+      "reason": "source has only 18 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/scaling-ai-research-for-complex-biological-data": {
+      "retryAfter": "2026-10-28T05:47:00.378Z",
+      "reason": "source has only 23 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
