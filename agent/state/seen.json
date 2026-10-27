@@ -57,6 +57,7 @@
     "rss:n8n Blog:6ad9f4da2f1ad6000113582e",
     "github-release:ollama/ollama:v0.40.11",
     "rss:Hugging Face Blog:https://huggingface.co/blog/ibm-granite/granite-speech-5",
-    "rss:Hugging Face Blog:https://huggingface.co/blog/microsoft/thinkingbox-training"
+    "rss:Hugging Face Blog:https://huggingface.co/blog/microsoft/thinkingbox-training",
+    "github-release:anthropics/claude-code:v2.1.312"
   ]
 }

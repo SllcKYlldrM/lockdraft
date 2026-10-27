@@ -1,17 +1,5 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/decisions-api": {
-      "retryAfter": "2026-10-27T15:31:42.489Z",
-      "reason": "source has only 7 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-core==1.7.0": {
-      "retryAfter": "2026-10-27T15:31:42.489Z",
-      "reason": "source has only 76 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:ollama/ollama:v0.40.10": {
-      "retryAfter": "2026-10-27T15:31:42.491Z",
-      "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
-    },
     "rss:OpenAI:https://openai.com/index/introducing-gpt-6-1-terra": {
       "retryAfter": "2026-10-28T05:42:23.376Z",
       "reason": "source has only 8 usable words; needs at least 80 — skipped before writing"
@@ -47,6 +35,10 @@
     "rss:n8n Blog:6adf6f9c2fe82a000155fec7": {
       "retryAfter": "2026-10-28T15:02:44.812Z",
       "reason": "editor: Factual contradiction: The article states a 'January 2026 support cutoff' for v1.x, but the source material explicitly says support ends December 31, 2026.; Unsubstantiated claim: The limitations section asserts automated migration fixes may struggle with 'deeply nested conditional logic or custom environment variables,' which is not present in or inferred from the source.; Inaccurate conflation: The article claims both Chat Hub and the Ask AI tab can be re-enabled, but the source only confirms Chat Hub can be toggled back on; the Ask AI tab is simply removed from the Code node.; Editorial filler: The limitations/caveats section introduces speculative troubleshooting scenarios not grounded in the provided source material."
+    },
+    "rss:OpenAI:https://openai.com/index/decisions-api": {
+      "retryAfter": "2026-10-28T21:00:27.700Z",
+      "reason": "source has only 7 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
