@@ -1,9 +1,5 @@
 {
   "items": {
-    "rss:n8n Blog:6adf6f9c2fe82a000155fec7": {
-      "retryAfter": "2026-10-28T15:02:44.812Z",
-      "reason": "editor: Factual contradiction: The article states a 'January 2026 support cutoff' for v1.x, but the source material explicitly says support ends December 31, 2026.; Unsubstantiated claim: The limitations section asserts automated migration fixes may struggle with 'deeply nested conditional logic or custom environment variables,' which is not present in or inferred from the source.; Inaccurate conflation: The article claims both Chat Hub and the Ask AI tab can be re-enabled, but the source only confirms Chat Hub can be toggled back on; the Ask AI tab is simply removed from the Code node.; Editorial filler: The limitations/caveats section introduces speculative troubleshooting scenarios not grounded in the provided source material."
-    },
     "rss:OpenAI:https://openai.com/index/decisions-api": {
       "retryAfter": "2026-10-28T21:00:27.700Z",
       "reason": "source has only 7 usable words; needs at least 80 — skipped before writing"
@@ -15,6 +11,42 @@
     "rss:OpenAI:https://openai.com/index/openai-models-google-cloud": {
       "retryAfter": "2026-10-29T06:21:46.029Z",
       "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:n8n Blog:6adf6f9c2fe82a000155fec7": {
+      "retryAfter": "2026-10-29T15:35:23.423Z",
+      "reason": "editor: \"eliminates instance freezes during active debugging sessions\" is an unsupported specific capability introduced in the analysis section; the source only states manual executions now run on workers to relieve the main instance.; \"strictly require Docker, Kubernetes, or Helm container environments\" slightly misrepresents the source, which notes Kubernetes and Helm deployments \"aren't affected\" (i.e., were already supported) rather than being newly required.; \"generates automatic fixes as draft workflow versions\" adds the qualifier \"draft,\" which is absent from the source text (\"saved as a new workflow version\")."
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.7.0": {
+      "retryAfter": "2026-10-29T15:35:23.424Z",
+      "reason": "source has only 76 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.7.1": {
+      "retryAfter": "2026-10-29T15:35:23.424Z",
+      "reason": "source has only 63 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.39.0": {
+      "retryAfter": "2026-10-29T15:36:21.684Z",
+      "reason": "source has only 13 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-anthropic==1.7.7": {
+      "retryAfter": "2026-10-29T15:36:21.685Z",
+      "reason": "source has only 37 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain==1.4.7": {
+      "retryAfter": "2026-10-29T15:36:21.685Z",
+      "reason": "source has only 63 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:ollama/ollama:v0.40.10": {
+      "retryAfter": "2026-10-29T15:36:21.685Z",
+      "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:ollama/ollama:v0.40.8": {
+      "retryAfter": "2026-10-29T15:42:31.546Z",
+      "reason": "editor: Body is 206 words, needs at least 300 (too thin/filler-heavy)."
+    },
+    "rss:Hugging Face Blog:https://huggingface.co/blog/nvidia/nemotron-transcribe-granary": {
+      "retryAfter": "2026-10-29T15:46:33.634Z",
+      "reason": "editor: Replace 'clinical trial scenario' with 'medical case study' to accurately reflect the source; 'clinical trial' implies formal human-subject testing not mentioned in the reference.; Change 'strongest zero-shot prompt' to 'best prompt' as the source does not specify zero-shot evaluation."
     }
   }
 }
