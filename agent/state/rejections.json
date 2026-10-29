@@ -1,17 +1,5 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/decisions-api": {
-      "retryAfter": "2026-10-28T21:00:27.700Z",
-      "reason": "source has only 7 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-1-terra": {
-      "retryAfter": "2026-10-29T06:21:45.957Z",
-      "reason": "source has only 8 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/openai-models-google-cloud": {
-      "retryAfter": "2026-10-29T06:21:46.029Z",
-      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
-    },
     "rss:n8n Blog:6adf6f9c2fe82a000155fec7": {
       "retryAfter": "2026-10-29T15:35:23.423Z",
       "reason": "editor: \"eliminates instance freezes during active debugging sessions\" is an unsupported specific capability introduced in the analysis section; the source only states manual executions now run on workers to relieve the main instance.; \"strictly require Docker, Kubernetes, or Helm container environments\" slightly misrepresents the source, which notes Kubernetes and Helm deployments \"aren't affected\" (i.e., were already supported) rather than being newly required.; \"generates automatic fixes as draft workflow versions\" adds the qualifier \"draft,\" which is absent from the source text (\"saved as a new workflow version\")."
@@ -47,6 +35,14 @@
     "rss:Hugging Face Blog:https://huggingface.co/blog/nvidia/nemotron-transcribe-granary": {
       "retryAfter": "2026-10-29T15:46:33.634Z",
       "reason": "editor: Replace 'clinical trial scenario' with 'medical case study' to accurately reflect the source; 'clinical trial' implies formal human-subject testing not mentioned in the reference.; Change 'strongest zero-shot prompt' to 'best prompt' as the source does not specify zero-shot evaluation."
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-1-terra": {
+      "retryAfter": "2026-10-30T06:32:11.440Z",
+      "reason": "source has only 8 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/decisions-api": {
+      "retryAfter": "2026-10-30T06:32:11.501Z",
+      "reason": "source has only 7 usable words; needs at least 80 — skipped before writing"
     }
   }
 }

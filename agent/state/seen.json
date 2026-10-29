@@ -60,6 +60,7 @@
     "rss:Hugging Face Blog:https://huggingface.co/blog/microsoft/thinkingbox-training",
     "github-release:anthropics/claude-code:v2.1.312",
     "github-release:anthropics/claude-code:v2.1.311",
-    "rss:Hugging Face Blog:https://huggingface.co/blog/LiquidAI/lfm3"
+    "rss:Hugging Face Blog:https://huggingface.co/blog/LiquidAI/lfm3",
+    "hackernews:50284255"
   ]
 }
