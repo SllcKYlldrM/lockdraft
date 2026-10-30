@@ -1,13 +1,5 @@
 {
   "items": {
-    "github-release:ollama/ollama:v0.40.8": {
-      "retryAfter": "2026-10-29T15:42:31.546Z",
-      "reason": "editor: Body is 206 words, needs at least 300 (too thin/filler-heavy)."
-    },
-    "rss:Hugging Face Blog:https://huggingface.co/blog/nvidia/nemotron-transcribe-granary": {
-      "retryAfter": "2026-10-29T15:46:33.634Z",
-      "reason": "editor: Replace 'clinical trial scenario' with 'medical case study' to accurately reflect the source; 'clinical trial' implies formal human-subject testing not mentioned in the reference.; Change 'strongest zero-shot prompt' to 'best prompt' as the source does not specify zero-shot evaluation."
-    },
     "rss:OpenAI:https://openai.com/index/introducing-gpt-6-1-terra": {
       "retryAfter": "2026-10-30T06:32:11.440Z",
       "reason": "source has only 8 usable words; needs at least 80 — skipped before writing"
@@ -35,6 +27,14 @@
     "github-release:openai/openai-python:v3.39.0": {
       "retryAfter": "2026-10-30T15:38:52.095Z",
       "reason": "source has only 13 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.314": {
+      "retryAfter": "2026-10-31T06:34:24.098Z",
+      "reason": "editor: The source material does not mention version number 'v2.1.314' or prior updates/versions 'v2.1.295' and 'v2.1.311'. These specific version numbers and historical context need to be removed or qualified.; Grammar error under 'Resilience and Infrastructure Fixes': 'lacking a active deployment' should be 'lacking an active deployment'."
+    },
+    "github-release:ollama/ollama:v0.40.10": {
+      "retryAfter": "2026-10-31T06:34:42.163Z",
+      "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
