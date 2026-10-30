@@ -1,13 +1,5 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-1-terra": {
-      "retryAfter": "2026-10-30T06:32:11.440Z",
-      "reason": "source has only 8 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/decisions-api": {
-      "retryAfter": "2026-10-30T06:32:11.501Z",
-      "reason": "source has only 7 usable words; needs at least 80 — skipped before writing"
-    },
     "rss:n8n Blog:6adf6f9c2fe82a000155fec7": {
       "retryAfter": "2026-10-30T15:38:52.093Z",
       "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
@@ -35,6 +27,10 @@
     "github-release:ollama/ollama:v0.40.10": {
       "retryAfter": "2026-10-31T06:34:42.163Z",
       "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-1-terra": {
+      "retryAfter": "2026-10-31T15:22:35.230Z",
+      "reason": "source has only 8 usable words; needs at least 80 — skipped before writing"
     }
   }
 }

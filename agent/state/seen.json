@@ -62,6 +62,7 @@
     "github-release:anthropics/claude-code:v2.1.311",
     "rss:Hugging Face Blog:https://huggingface.co/blog/LiquidAI/lfm3",
     "hackernews:50284255",
-    "rss:Hugging Face Blog:https://huggingface.co/blog/mistral-large4"
+    "rss:Hugging Face Blog:https://huggingface.co/blog/mistral-large4",
+    "rss:Hugging Face Blog:https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1"
   ]
 }
