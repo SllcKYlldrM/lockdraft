@@ -1,25 +1,5 @@
 {
   "items": {
-    "rss:n8n Blog:6adf6f9c2fe82a000155fec7": {
-      "retryAfter": "2026-10-30T15:38:52.093Z",
-      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
-    },
-    "github-release:langchain-ai/langchain:langchain-core==1.7.0": {
-      "retryAfter": "2026-10-30T15:38:52.093Z",
-      "reason": "source has only 76 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-core==1.7.1": {
-      "retryAfter": "2026-10-30T15:38:52.093Z",
-      "reason": "source has only 63 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:ollama/ollama:v0.40.13": {
-      "retryAfter": "2026-10-30T15:38:52.095Z",
-      "reason": "source has only 30 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.39.0": {
-      "retryAfter": "2026-10-30T15:38:52.095Z",
-      "reason": "source has only 13 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:anthropics/claude-code:v2.1.314": {
       "retryAfter": "2026-10-31T06:34:24.098Z",
       "reason": "editor: The source material does not mention version number 'v2.1.314' or prior updates/versions 'v2.1.295' and 'v2.1.311'. These specific version numbers and historical context need to be removed or qualified.; Grammar error under 'Resilience and Infrastructure Fixes': 'lacking a active deployment' should be 'lacking an active deployment'."
