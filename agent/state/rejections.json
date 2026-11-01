@@ -1,7 +1,7 @@
 {
   "items": {
     "rss:OpenAI:https://openai.com/index/introducing-gpt-6-1-terra": {
-      "retryAfter": "2026-10-31T15:22:35.230Z",
+      "retryAfter": "2026-11-02T06:54:13.426Z",
       "reason": "source has only 8 usable words; needs at least 80 — skipped before writing"
     }
   }
