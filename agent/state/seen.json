@@ -66,6 +66,7 @@
     "rss:Hugging Face Blog:https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1",
     "rss:n8n Blog:6adf6f9c2fe82a000155fec7",
     "github-release:anthropics/claude-code:v2.1.316",
-    "github-release:anthropics/claude-code:v2.1.314"
+    "github-release:anthropics/claude-code:v2.1.314",
+    "github-release:ollama/ollama:v0.40.12"
   ]
 }
