@@ -1,8 +1,20 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-1-terra": {
-      "retryAfter": "2026-11-02T06:54:13.426Z",
-      "reason": "source has only 8 usable words; needs at least 80 — skipped before writing"
+    "github-release:ollama/ollama:v0.40.13": {
+      "retryAfter": "2026-11-03T06:55:29.551Z",
+      "reason": "source has only 30 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.39.0": {
+      "retryAfter": "2026-11-03T06:55:29.551Z",
+      "reason": "source has only 13 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/helping-websites-express-ai-training-preferences": {
+      "retryAfter": "2026-11-03T06:55:29.583Z",
+      "reason": "source has only 19 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/openai-servicenow-partnership-expansion": {
+      "retryAfter": "2026-11-03T06:55:29.610Z",
+      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
