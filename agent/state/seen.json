@@ -70,6 +70,7 @@
     "github-release:ollama/ollama:v0.40.12",
     "rss:Hugging Face Blog:https://huggingface.co/blog/anydecisionmodel",
     "github-release:langchain-ai/langchain:langchain==1.4.8",
-    "github-release:anthropics/claude-code:v2.1.317"
+    "github-release:anthropics/claude-code:v2.1.317",
+    "rss:n8n Blog:6ae0e1dfc09a010001550c51"
   ]
 }
