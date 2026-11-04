@@ -11,6 +11,18 @@
     "rss:OpenAI:https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties": {
       "retryAfter": "2026-11-04T12:25:30.926Z",
       "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.318": {
+      "retryAfter": "2026-11-05T00:57:38.247Z",
+      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.7.4": {
+      "retryAfter": "2026-11-05T00:57:38.247Z",
+      "reason": "source has only 48 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.44.0": {
+      "retryAfter": "2026-11-05T00:57:38.247Z",
+      "reason": "source has only 16 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
