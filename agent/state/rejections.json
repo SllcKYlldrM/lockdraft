@@ -1,17 +1,5 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/scaling-git-at-openai": {
-      "retryAfter": "2026-11-04T12:25:30.834Z",
-      "reason": "source has only 17 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/openai-servicenow-partnership-expansion": {
-      "retryAfter": "2026-11-04T12:25:30.879Z",
-      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties": {
-      "retryAfter": "2026-11-04T12:25:30.926Z",
-      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:anthropics/claude-code:v2.1.318": {
       "retryAfter": "2026-11-05T00:57:38.247Z",
       "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
@@ -23,6 +11,10 @@
     "github-release:openai/openai-python:v3.44.0": {
       "retryAfter": "2026-11-05T00:57:38.247Z",
       "reason": "source has only 16 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.45.0": {
+      "retryAfter": "2026-11-05T12:36:56.274Z",
+      "reason": "source has only 33 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
