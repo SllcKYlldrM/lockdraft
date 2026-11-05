@@ -1,17 +1,5 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.318": {
-      "retryAfter": "2026-11-05T00:57:38.247Z",
-      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
-    },
-    "github-release:langchain-ai/langchain:langchain-core==1.7.4": {
-      "retryAfter": "2026-11-05T00:57:38.247Z",
-      "reason": "source has only 48 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.44.0": {
-      "retryAfter": "2026-11-05T00:57:38.247Z",
-      "reason": "source has only 16 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:openai/openai-python:v3.45.0": {
       "retryAfter": "2026-11-05T12:36:56.274Z",
       "reason": "source has only 33 usable words; needs at least 80 — skipped before writing"
@@ -47,6 +35,34 @@
     "github-release:langchain-ai/langchain:langchain-typesafe==0.0.1": {
       "retryAfter": "2026-11-05T20:07:50.613Z",
       "reason": "source has only 60 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-images-2-6": {
+      "retryAfter": "2026-11-06T01:06:25.449Z",
+      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.7.6": {
+      "retryAfter": "2026-11-06T01:06:25.449Z",
+      "reason": "source has only 27 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/a-thousand-fewer-paths-to-root": {
+      "retryAfter": "2026-11-06T01:06:25.467Z",
+      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.46.0": {
+      "retryAfter": "2026-11-06T01:06:25.467Z",
+      "reason": "source has only 65 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.44.0": {
+      "retryAfter": "2026-11-06T01:06:25.467Z",
+      "reason": "source has only 16 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties": {
+      "retryAfter": "2026-11-06T01:06:25.491Z",
+      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:Hugging Face Blog:https://huggingface.co/blog/Dharma-AI/dharma-field-extractor": {
+      "retryAfter": "2026-11-06T01:10:22.131Z",
+      "reason": "editor: Truncated description ends mid-word ('fraction of t').; Unsupported claim in 'Limitations & Caveats': asserts that 'highly irregular or heavily distorted documents may still require manual review', which is entirely absent from the source material.; Unsubstantiated addition: lists 'network overhead' as a deployment expense variable, whereas the source only specifies hardware, volume, and latency."
     }
   }
 }
