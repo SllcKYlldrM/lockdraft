@@ -1,9 +1,5 @@
 {
   "items": {
-    "github-release:openai/openai-python:v3.45.0": {
-      "retryAfter": "2026-11-05T12:36:56.274Z",
-      "reason": "source has only 33 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:langchain-ai/langchain:langchain==1.4.9": {
       "retryAfter": "2026-11-05T20:05:14.193Z",
       "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
