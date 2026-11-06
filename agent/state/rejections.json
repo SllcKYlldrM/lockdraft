@@ -1,9 +1,5 @@
 {
   "items": {
-    "rss:Hugging Face Blog:https://huggingface.co/blog/Dharma-AI/dharma-field-extractor": {
-      "retryAfter": "2026-11-06T01:10:22.131Z",
-      "reason": "editor: Truncated description ends mid-word ('fraction of t').; Unsupported claim in 'Limitations & Caveats': asserts that 'highly irregular or heavily distorted documents may still require manual review', which is entirely absent from the source material.; Unsubstantiated addition: lists 'network overhead' as a deployment expense variable, whereas the source only specifies hardware, volume, and latency."
-    },
     "rss:OpenAI:https://openai.com/index/introducing-images-2-6": {
       "retryAfter": "2026-11-07T01:10:08.079Z",
       "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
@@ -23,6 +19,10 @@
     "rss:OpenAI:https://openai.com/index/openai-to-acquire-pierre": {
       "retryAfter": "2026-11-07T01:11:31.163Z",
       "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.318": {
+      "retryAfter": "2026-11-07T12:32:43.150Z",
+      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
     }
   }
 }
