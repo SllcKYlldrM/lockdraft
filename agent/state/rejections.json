@@ -1,64 +1,28 @@
 {
   "items": {
-    "github-release:langchain-ai/langchain:langchain==1.4.9": {
-      "retryAfter": "2026-11-05T20:05:14.193Z",
-      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-core==1.7.5": {
-      "retryAfter": "2026-11-05T20:05:14.193Z",
-      "reason": "source has only 37 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.43.0": {
-      "retryAfter": "2026-11-05T20:05:14.193Z",
-      "reason": "source has only 63 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-openai==1.7.4": {
-      "retryAfter": "2026-11-05T20:05:14.193Z",
-      "reason": "source has only 26 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-anthropic==1.7.10": {
-      "retryAfter": "2026-11-05T20:05:14.193Z",
-      "reason": "source has only 30 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/scaling-git-at-openai": {
-      "retryAfter": "2026-11-05T20:05:14.253Z",
-      "reason": "source has only 17 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:Hugging Face Blog:https://huggingface.co/blog/allenai/statebench": {
-      "retryAfter": "2026-11-05T20:07:50.613Z",
-      "reason": "editor: The article claims researchers from Hugging Face co-introduced StateBench alongside Allen AI; while the blog post is hosted on Hugging Face under the 'allenai' organization, the source text does not explicitly attribute the benchmark's creation to Hugging Face researchers."
-    },
-    "github-release:langchain-ai/langchain:langchain-typesafe==0.0.1": {
-      "retryAfter": "2026-11-05T20:07:50.613Z",
-      "reason": "source has only 60 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/introducing-images-2-6": {
-      "retryAfter": "2026-11-06T01:06:25.449Z",
-      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-core==1.7.6": {
-      "retryAfter": "2026-11-06T01:06:25.449Z",
-      "reason": "source has only 27 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/a-thousand-fewer-paths-to-root": {
-      "retryAfter": "2026-11-06T01:06:25.467Z",
-      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.46.0": {
-      "retryAfter": "2026-11-06T01:06:25.467Z",
-      "reason": "source has only 65 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.44.0": {
-      "retryAfter": "2026-11-06T01:06:25.467Z",
-      "reason": "source has only 16 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties": {
-      "retryAfter": "2026-11-06T01:06:25.491Z",
-      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
-    },
     "rss:Hugging Face Blog:https://huggingface.co/blog/Dharma-AI/dharma-field-extractor": {
       "retryAfter": "2026-11-06T01:10:22.131Z",
       "reason": "editor: Truncated description ends mid-word ('fraction of t').; Unsupported claim in 'Limitations & Caveats': asserts that 'highly irregular or heavily distorted documents may still require manual review', which is entirely absent from the source material.; Unsubstantiated addition: lists 'network overhead' as a deployment expense variable, whereas the source only specifies hardware, volume, and latency."
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-images-2-6": {
+      "retryAfter": "2026-11-07T01:10:08.079Z",
+      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-cyber": {
+      "retryAfter": "2026-11-07T01:10:08.153Z",
+      "reason": "source has only 19 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:Google AI Blog:https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/": {
+      "retryAfter": "2026-11-07T01:11:31.045Z",
+      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
+    },
+    "rss:OpenAI:https://openai.com/index/a-thousand-fewer-paths-to-root": {
+      "retryAfter": "2026-11-07T01:11:31.098Z",
+      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/openai-to-acquire-pierre": {
+      "retryAfter": "2026-11-07T01:11:31.163Z",
+      "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
     }
   }
 }

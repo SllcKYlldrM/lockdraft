@@ -74,6 +74,7 @@
     "rss:n8n Blog:6ae0e1dfc09a010001550c51",
     "github-release:ollama/ollama:v0.40.14",
     "rss:Hugging Face Blog:https://huggingface.co/blog/ibm-research/palette-deck-building",
-    "rss:Hugging Face Blog:https://huggingface.co/blog/phonon-tts"
+    "rss:Hugging Face Blog:https://huggingface.co/blog/phonon-tts",
+    "rss:Hugging Face Blog:https://huggingface.co/blog/nvidia/cosmos-interactive-world-simulation"
   ]
 }
