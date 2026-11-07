@@ -1,28 +1,20 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/introducing-images-2-6": {
-      "retryAfter": "2026-11-07T01:10:08.079Z",
-      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-cyber": {
-      "retryAfter": "2026-11-07T01:10:08.153Z",
-      "reason": "source has only 19 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:Google AI Blog:https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/": {
-      "retryAfter": "2026-11-07T01:11:31.045Z",
-      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
-    },
-    "rss:OpenAI:https://openai.com/index/a-thousand-fewer-paths-to-root": {
-      "retryAfter": "2026-11-07T01:11:31.098Z",
-      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/openai-to-acquire-pierre": {
-      "retryAfter": "2026-11-07T01:11:31.163Z",
-      "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:anthropics/claude-code:v2.1.318": {
       "retryAfter": "2026-11-07T12:32:43.150Z",
       "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-cyber": {
+      "retryAfter": "2026-11-08T06:39:09.173Z",
+      "reason": "source has only 19 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/a-thousand-fewer-paths-to-root": {
+      "retryAfter": "2026-11-08T06:39:09.190Z",
+      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-images-2-6": {
+      "retryAfter": "2026-11-08T06:39:09.214Z",
+      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
