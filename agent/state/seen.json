@@ -76,6 +76,7 @@
     "rss:Hugging Face Blog:https://huggingface.co/blog/ibm-research/palette-deck-building",
     "rss:Hugging Face Blog:https://huggingface.co/blog/phonon-tts",
     "rss:Hugging Face Blog:https://huggingface.co/blog/nvidia/cosmos-interactive-world-simulation",
-    "github-release:ollama/ollama:v0.40.15"
+    "github-release:ollama/ollama:v0.40.15",
+    "github-release:anthropics/claude-code:v2.1.319"
   ]
 }
