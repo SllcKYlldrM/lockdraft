@@ -43,6 +43,30 @@
     "github-release:openai/openai-python:v3.43.0": {
       "retryAfter": "2026-11-09T06:44:55.304Z",
       "reason": "source has only 63 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/openai-to-acquire-pierre": {
+      "retryAfter": "2026-11-09T15:37:43.067Z",
+      "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/scaling-git-at-openai": {
+      "retryAfter": "2026-11-09T15:37:43.106Z",
+      "reason": "source has only 17 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science": {
+      "retryAfter": "2026-11-09T15:37:43.174Z",
+      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-openai==1.7.4": {
+      "retryAfter": "2026-11-09T15:37:43.174Z",
+      "reason": "source has only 26 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/daybreak-red-aws-govcloud": {
+      "retryAfter": "2026-11-09T15:37:43.220Z",
+      "reason": "source has only 19 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/lifeval": {
+      "retryAfter": "2026-11-09T15:37:43.271Z",
+      "reason": "source has only 22 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
