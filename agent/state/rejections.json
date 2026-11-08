@@ -1,9 +1,5 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.318": {
-      "retryAfter": "2026-11-07T12:32:43.150Z",
-      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
-    },
     "rss:OpenAI:https://openai.com/index/introducing-gpt-6-cyber": {
       "retryAfter": "2026-11-08T06:39:09.173Z",
       "reason": "source has only 19 usable words; needs at least 80 — skipped before writing"
