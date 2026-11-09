@@ -1,49 +1,5 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-cyber": {
-      "retryAfter": "2026-11-09T06:44:55.081Z",
-      "reason": "source has only 19 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/a-thousand-fewer-paths-to-root": {
-      "retryAfter": "2026-11-09T06:44:55.157Z",
-      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/introducing-images-2-6": {
-      "retryAfter": "2026-11-09T06:44:55.230Z",
-      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.47.0": {
-      "retryAfter": "2026-11-09T06:44:55.230Z",
-      "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.45.0": {
-      "retryAfter": "2026-11-09T06:44:55.230Z",
-      "reason": "source has only 33 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/devrev-enterprise-self-service": {
-      "retryAfter": "2026-11-09T06:44:55.304Z",
-      "reason": "source has only 17 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-core==1.7.6": {
-      "retryAfter": "2026-11-09T06:44:55.304Z",
-      "reason": "source has only 27 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain==1.4.9": {
-      "retryAfter": "2026-11-09T06:44:55.304Z",
-      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.46.0": {
-      "retryAfter": "2026-11-09T06:44:55.304Z",
-      "reason": "source has only 65 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.44.0": {
-      "retryAfter": "2026-11-09T06:44:55.304Z",
-      "reason": "source has only 16 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.43.0": {
-      "retryAfter": "2026-11-09T06:44:55.304Z",
-      "reason": "source has only 63 usable words; needs at least 80 — skipped before writing"
-    },
     "rss:OpenAI:https://openai.com/index/openai-to-acquire-pierre": {
       "retryAfter": "2026-11-09T15:37:43.067Z",
       "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
@@ -67,6 +23,50 @@
     "rss:OpenAI:https://openai.com/index/lifeval": {
       "retryAfter": "2026-11-09T15:37:43.271Z",
       "reason": "source has only 22 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-cyber": {
+      "retryAfter": "2026-11-10T07:15:56.079Z",
+      "reason": "source has only 19 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/a-thousand-fewer-paths-to-root": {
+      "retryAfter": "2026-11-10T07:15:56.119Z",
+      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-images-2-6": {
+      "retryAfter": "2026-11-10T07:15:56.161Z",
+      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.45.0": {
+      "retryAfter": "2026-11-10T07:15:56.161Z",
+      "reason": "source has only 33 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain==1.4.9": {
+      "retryAfter": "2026-11-10T07:15:56.161Z",
+      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/devrev-enterprise-self-service": {
+      "retryAfter": "2026-11-10T07:15:56.192Z",
+      "reason": "source has only 17 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.7.6": {
+      "retryAfter": "2026-11-10T07:15:56.192Z",
+      "reason": "source has only 27 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.47.0": {
+      "retryAfter": "2026-11-10T07:15:56.192Z",
+      "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.46.0": {
+      "retryAfter": "2026-11-10T07:15:56.192Z",
+      "reason": "source has only 65 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.44.0": {
+      "retryAfter": "2026-11-10T07:15:56.192Z",
+      "reason": "source has only 16 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.43.0": {
+      "retryAfter": "2026-11-10T07:15:56.192Z",
+      "reason": "source has only 63 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
