@@ -55,6 +55,14 @@
     "github-release:langchain-ai/langchain:langchain-openai==1.7.4": {
       "retryAfter": "2026-11-10T19:13:32.302Z",
       "reason": "source has only 26 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.321": {
+      "retryAfter": "2026-11-11T03:00:36.027Z",
+      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
+    },
+    "github-release:anthropics/claude-code:v2.1.322": {
+      "retryAfter": "2026-11-11T03:00:36.027Z",
+      "reason": "source has only 25 usable words; needs at least 80 — skipped before writing"
     }
   }
 }

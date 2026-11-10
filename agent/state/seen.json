@@ -80,6 +80,7 @@
     "github-release:anthropics/claude-code:v2.1.319",
     "rss:Google AI Blog:https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
     "github-release:anthropics/claude-code:v2.1.318",
-    "rss:Hugging Face Blog:https://huggingface.co/blog/Dharma-AI/dharma-field-extractor"
+    "rss:Hugging Face Blog:https://huggingface.co/blog/Dharma-AI/dharma-field-extractor",
+    "github-release:ollama/ollama:v0.40.16"
   ]
 }
