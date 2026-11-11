@@ -1,25 +1,5 @@
 {
   "items": {
-    "github-release:openai/openai-python:v3.48.0": {
-      "retryAfter": "2026-11-10T19:13:32.210Z",
-      "reason": "source has only 74 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science": {
-      "retryAfter": "2026-11-10T19:13:32.302Z",
-      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-openai==1.7.4": {
-      "retryAfter": "2026-11-10T19:13:32.302Z",
-      "reason": "source has only 26 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:anthropics/claude-code:v2.1.321": {
-      "retryAfter": "2026-11-11T03:00:36.027Z",
-      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
-    },
-    "github-release:anthropics/claude-code:v2.1.322": {
-      "retryAfter": "2026-11-11T03:00:36.027Z",
-      "reason": "source has only 25 usable words; needs at least 80 — skipped before writing"
-    },
     "rss:OpenAI:https://openai.com/index/introducing-images-2-6": {
       "retryAfter": "2026-11-11T13:03:37.032Z",
       "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
@@ -27,6 +7,14 @@
     "rss:OpenAI:https://openai.com/index/introducing-gpt-6-cyber": {
       "retryAfter": "2026-11-11T13:03:37.101Z",
       "reason": "source has only 19 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/a-thousand-fewer-paths-to-root": {
+      "retryAfter": "2026-11-12T07:15:15.770Z",
+      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.321": {
+      "retryAfter": "2026-11-12T07:16:46.679Z",
+      "reason": "editor: The version number 'v2.1.321' referenced in the title, description, body, and sources is not present in the source material.; The reference to version 'v2.1.295' and its hook control enhancements is unsupported by the provided source material."
     }
   }
 }
