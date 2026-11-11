@@ -1,13 +1,5 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/introducing-images-2-6": {
-      "retryAfter": "2026-11-11T13:03:37.032Z",
-      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-cyber": {
-      "retryAfter": "2026-11-11T13:03:37.101Z",
-      "reason": "source has only 19 usable words; needs at least 80 — skipped before writing"
-    },
     "rss:OpenAI:https://openai.com/index/a-thousand-fewer-paths-to-root": {
       "retryAfter": "2026-11-12T07:15:15.770Z",
       "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
@@ -15,6 +7,34 @@
     "github-release:anthropics/claude-code:v2.1.321": {
       "retryAfter": "2026-11-12T07:16:46.679Z",
       "reason": "editor: The version number 'v2.1.321' referenced in the title, description, body, and sources is not present in the source material.; The reference to version 'v2.1.295' and its hook control enhancements is unsupported by the provided source material."
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-cyber": {
+      "retryAfter": "2026-11-12T16:39:40.766Z",
+      "reason": "source has only 19 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain==1.5.0": {
+      "retryAfter": "2026-11-12T16:39:40.767Z",
+      "reason": "source has only 72 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.8.0": {
+      "retryAfter": "2026-11-12T16:39:40.767Z",
+      "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.322": {
+      "retryAfter": "2026-11-12T16:39:40.767Z",
+      "reason": "source has only 25 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-typesafe==0.1.0": {
+      "retryAfter": "2026-11-12T16:39:40.767Z",
+      "reason": "source has only 62 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.49.0": {
+      "retryAfter": "2026-11-12T16:39:40.767Z",
+      "reason": "source has only 27 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/control-room": {
+      "retryAfter": "2026-11-12T16:39:40.798Z",
+      "reason": "source has only 23 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
