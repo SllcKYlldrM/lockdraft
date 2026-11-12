@@ -84,6 +84,7 @@
     "github-release:ollama/ollama:v0.40.16",
     "rss:n8n Blog:6af201e4ad018d0001ad9721",
     "rss:n8n Blog:6af32aa1b91d440001d5a7bb",
-    "rss:Hugging Face Blog:https://huggingface.co/blog/qvac/botpsy"
+    "rss:Hugging Face Blog:https://huggingface.co/blog/qvac/botpsy",
+    "rss:Google AI Blog:https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
   ]
 }
