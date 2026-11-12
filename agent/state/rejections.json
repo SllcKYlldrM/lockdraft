@@ -1,36 +1,44 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-cyber": {
-      "retryAfter": "2026-11-12T16:39:40.766Z",
-      "reason": "source has only 19 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain==1.5.0": {
-      "retryAfter": "2026-11-12T16:39:40.767Z",
-      "reason": "source has only 72 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-core==1.8.0": {
-      "retryAfter": "2026-11-12T16:39:40.767Z",
-      "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:anthropics/claude-code:v2.1.322": {
-      "retryAfter": "2026-11-12T16:39:40.767Z",
-      "reason": "source has only 25 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-typesafe==0.1.0": {
-      "retryAfter": "2026-11-12T16:39:40.767Z",
-      "reason": "source has only 62 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.49.0": {
-      "retryAfter": "2026-11-12T16:39:40.767Z",
-      "reason": "source has only 27 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/control-room": {
-      "retryAfter": "2026-11-12T16:39:40.798Z",
-      "reason": "source has only 23 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:anthropics/claude-code:v2.1.321": {
       "retryAfter": "2026-11-13T07:49:48.367Z",
       "reason": "editor: Misrepresents `claude -p` fix: The source indicates the bug involved the CLI incorrectly prompting the model about a 30-minute timeout while commands actually stopped after 10 minutes. The article falsely frames this as correcting the actual runtime timeout parameter from 30 to 10 minutes.; Assumes input/output pricing split: The source lists '$8/$40 per Mtok' without specifying which rate applies to input versus output tokens. Remove the explicit assignment or qualify it as inferred.; Terminology drift: Describes `pkill`/`pgrep`/`pidwait` as running in 'containers', whereas the source specifies 'cloud sessions'. Align terminology with the source material."
+    },
+    "rss:OpenAI:https://openai.com/index/cogent-security": {
+      "retryAfter": "2026-11-13T17:09:59.852Z",
+      "reason": "source has only 14 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.322": {
+      "retryAfter": "2026-11-13T17:09:59.852Z",
+      "reason": "source has only 25 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain==1.5.0": {
+      "retryAfter": "2026-11-13T17:09:59.852Z",
+      "reason": "source has only 72 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.8.0": {
+      "retryAfter": "2026-11-13T17:09:59.852Z",
+      "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.49.0": {
+      "retryAfter": "2026-11-13T17:09:59.852Z",
+      "reason": "source has only 27 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.48.0": {
+      "retryAfter": "2026-11-13T17:09:59.852Z",
+      "reason": "source has only 74 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.47.0": {
+      "retryAfter": "2026-11-13T17:09:59.852Z",
+      "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science": {
+      "retryAfter": "2026-11-13T17:09:59.903Z",
+      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/jiostar-vijay-seshadri": {
+      "retryAfter": "2026-11-13T17:09:59.940Z",
+      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
