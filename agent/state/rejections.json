@@ -1,9 +1,5 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.321": {
-      "retryAfter": "2026-11-13T07:49:48.367Z",
-      "reason": "editor: Misrepresents `claude -p` fix: The source indicates the bug involved the CLI incorrectly prompting the model about a 30-minute timeout while commands actually stopped after 10 minutes. The article falsely frames this as correcting the actual runtime timeout parameter from 30 to 10 minutes.; Assumes input/output pricing split: The source lists '$8/$40 per Mtok' without specifying which rate applies to input versus output tokens. Remove the explicit assignment or qualify it as inferred.; Terminology drift: Describes `pkill`/`pgrep`/`pidwait` as running in 'containers', whereas the source specifies 'cloud sessions'. Align terminology with the source material."
-    },
     "rss:OpenAI:https://openai.com/index/cogent-security": {
       "retryAfter": "2026-11-13T17:09:59.852Z",
       "reason": "source has only 14 usable words; needs at least 80 — skipped before writing"
