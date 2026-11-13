@@ -39,6 +39,10 @@
     "rss:OpenAI:https://openai.com/index/jiostar-vijay-seshadri": {
       "retryAfter": "2026-11-13T17:09:59.940Z",
       "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.323": {
+      "retryAfter": "2026-11-14T01:32:09.213Z",
+      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
     }
   }
 }
