@@ -1,44 +1,28 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/cogent-security": {
-      "retryAfter": "2026-11-13T17:09:59.852Z",
-      "reason": "source has only 14 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:anthropics/claude-code:v2.1.322": {
-      "retryAfter": "2026-11-13T17:09:59.852Z",
-      "reason": "source has only 25 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain==1.5.0": {
-      "retryAfter": "2026-11-13T17:09:59.852Z",
-      "reason": "source has only 72 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-core==1.8.0": {
-      "retryAfter": "2026-11-13T17:09:59.852Z",
-      "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.49.0": {
-      "retryAfter": "2026-11-13T17:09:59.852Z",
-      "reason": "source has only 27 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.48.0": {
-      "retryAfter": "2026-11-13T17:09:59.852Z",
-      "reason": "source has only 74 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:openai/openai-python:v3.47.0": {
-      "retryAfter": "2026-11-13T17:09:59.852Z",
-      "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science": {
-      "retryAfter": "2026-11-13T17:09:59.903Z",
-      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/jiostar-vijay-seshadri": {
-      "retryAfter": "2026-11-13T17:09:59.940Z",
-      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:anthropics/claude-code:v2.1.323": {
       "retryAfter": "2026-11-14T01:32:09.213Z",
       "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
+    },
+    "github-release:anthropics/claude-code:v2.1.325": {
+      "retryAfter": "2026-11-15T01:06:41.708Z",
+      "reason": "editor: The specific version number 'v2.1.325' used in the title, description, body, and sources is not present in or supported by the source material."
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-chatgpt-wallet": {
+      "retryAfter": "2026-11-15T01:06:41.850Z",
+      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-openai==1.8.0": {
+      "retryAfter": "2026-11-15T01:06:41.850Z",
+      "reason": "source has only 67 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain==1.5.0": {
+      "retryAfter": "2026-11-15T01:06:41.850Z",
+      "reason": "source has only 72 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.8.0": {
+      "retryAfter": "2026-11-15T01:06:41.850Z",
+      "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
