@@ -89,6 +89,7 @@
     "rss:Google AI Blog:https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare/",
     "rss:Google AI Blog:https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
     "github-release:anthropics/claude-code:v2.1.321",
-    "rss:n8n Blog:6af487c72c54d200011d87a7"
+    "rss:n8n Blog:6af487c72c54d200011d87a7",
+    "github-release:anthropics/claude-code:v2.1.323"
   ]
 }

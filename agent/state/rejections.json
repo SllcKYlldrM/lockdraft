@@ -1,9 +1,5 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.323": {
-      "retryAfter": "2026-11-14T01:32:09.213Z",
-      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
-    },
     "github-release:anthropics/claude-code:v2.1.325": {
       "retryAfter": "2026-11-15T01:06:41.708Z",
       "reason": "editor: The specific version number 'v2.1.325' used in the title, description, body, and sources is not present in or supported by the source material."
