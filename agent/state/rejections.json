@@ -19,6 +19,18 @@
     "github-release:langchain-ai/langchain:langchain-core==1.8.0": {
       "retryAfter": "2026-11-15T01:06:41.850Z",
       "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.51.0": {
+      "retryAfter": "2026-11-16T00:23:40.897Z",
+      "reason": "source has only 17 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.322": {
+      "retryAfter": "2026-11-16T00:23:40.897Z",
+      "reason": "source has only 25 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.50.0": {
+      "retryAfter": "2026-11-16T00:23:40.897Z",
+      "reason": "source has only 36 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
