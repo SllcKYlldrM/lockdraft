@@ -1,25 +1,5 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.325": {
-      "retryAfter": "2026-11-15T01:06:41.708Z",
-      "reason": "editor: The specific version number 'v2.1.325' used in the title, description, body, and sources is not present in or supported by the source material."
-    },
-    "rss:OpenAI:https://openai.com/index/introducing-chatgpt-wallet": {
-      "retryAfter": "2026-11-15T01:06:41.850Z",
-      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-openai==1.8.0": {
-      "retryAfter": "2026-11-15T01:06:41.850Z",
-      "reason": "source has only 67 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain==1.5.0": {
-      "retryAfter": "2026-11-15T01:06:41.850Z",
-      "reason": "source has only 72 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-core==1.8.0": {
-      "retryAfter": "2026-11-15T01:06:41.850Z",
-      "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:openai/openai-python:v3.51.0": {
       "retryAfter": "2026-11-16T00:23:40.897Z",
       "reason": "source has only 17 usable words; needs at least 80 — skipped before writing"
@@ -31,6 +11,54 @@
     "github-release:openai/openai-python:v3.50.0": {
       "retryAfter": "2026-11-16T00:23:40.897Z",
       "reason": "source has only 36 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.325": {
+      "retryAfter": "2026-11-16T07:18:17.153Z",
+      "reason": "editor: In 'Configuration and State Fixes', the article claims `claude plugin eval --output-dir ''` was polluting the 'root directory'. The source material states it was writing into the 'current folder' (working directory), not the system root directory."
+    },
+    "github-release:langchain-ai/langchain:langchain-openai==1.8.0": {
+      "retryAfter": "2026-11-16T07:18:17.153Z",
+      "reason": "source has only 67 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain==1.5.0": {
+      "retryAfter": "2026-11-16T07:18:17.153Z",
+      "reason": "source has only 72 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.8.0": {
+      "retryAfter": "2026-11-16T07:18:17.153Z",
+      "reason": "source has only 47 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-chatgpt-wallet": {
+      "retryAfter": "2026-11-16T07:18:17.187Z",
+      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-typesafe==0.1.0": {
+      "retryAfter": "2026-11-16T07:18:17.187Z",
+      "reason": "source has only 62 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-businesses-chatgpt": {
+      "retryAfter": "2026-11-16T07:18:17.216Z",
+      "reason": "source has only 19 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/chatgpt-enterprise-aws-marketplace": {
+      "retryAfter": "2026-11-16T07:18:17.247Z",
+      "reason": "source has only 19 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/control-room": {
+      "retryAfter": "2026-11-16T07:18:17.275Z",
+      "reason": "source has only 23 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:Hugging Face Blog:https://huggingface.co/blog/token-pooling": {
+      "retryAfter": "2026-11-16T07:20:37.144Z",
+      "reason": "editor: The internal link section ('For related LockDraft context, see [Ai2 Open-Sources AstaBrief 8B...]') references an unrelated topic not supported by or relevant to the source material."
+    },
+    "github-release:openai/openai-python:v3.49.0": {
+      "retryAfter": "2026-11-16T07:20:37.144Z",
+      "reason": "source has only 27 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.48.0": {
+      "retryAfter": "2026-11-16T07:20:37.144Z",
+      "reason": "source has only 74 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
