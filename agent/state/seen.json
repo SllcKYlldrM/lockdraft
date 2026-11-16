@@ -92,6 +92,7 @@
     "rss:n8n Blog:6af487c72c54d200011d87a7",
     "github-release:anthropics/claude-code:v2.1.323",
     "rss:Hugging Face Blog:https://huggingface.co/blog/ggml-org/llama-cpp-v1",
-    "rss:Hugging Face Blog:https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite"
+    "rss:Hugging Face Blog:https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
+    "github-release:anthropics/claude-code:v2.1.325"
   ]
 }
