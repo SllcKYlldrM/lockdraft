@@ -93,6 +93,7 @@
     "github-release:anthropics/claude-code:v2.1.323",
     "rss:Hugging Face Blog:https://huggingface.co/blog/ggml-org/llama-cpp-v1",
     "rss:Hugging Face Blog:https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
-    "github-release:anthropics/claude-code:v2.1.325"
+    "github-release:anthropics/claude-code:v2.1.325",
+    "github-release:langchain-ai/langchain:langchain-deepseek==1.2.0"
   ]
 }
