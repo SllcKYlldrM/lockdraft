@@ -31,6 +31,18 @@
     "github-release:anthropics/claude-code:v2.1.326": {
       "retryAfter": "2026-11-18T03:17:02.402Z",
       "reason": "editor: The version number 'v2.1.326' (appearing in the title, description, body, and sources URL) is not present in the provided source material.; References to previous releases 'v2.1.325' and 'v2.1.309' do not appear in the source material."
+    },
+    "rss:OpenAI:https://openai.com/index/step-toward-defining-the-standard-model": {
+      "retryAfter": "2026-11-18T13:55:19.257Z",
+      "reason": "source has only 22 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare": {
+      "retryAfter": "2026-11-18T13:55:19.285Z",
+      "reason": "source has only 20 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/our-first-phase-of-embedded-assessments": {
+      "retryAfter": "2026-11-18T13:55:19.311Z",
+      "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
