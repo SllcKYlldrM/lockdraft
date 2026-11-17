@@ -1,33 +1,5 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.322": {
-      "retryAfter": "2026-11-17T18:57:50.954Z",
-      "reason": "source has only 25 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-core==1.8.1": {
-      "retryAfter": "2026-11-17T18:57:50.954Z",
-      "reason": "source has only 34 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/introducing-chatgpt-wallet": {
-      "retryAfter": "2026-11-17T18:57:51.021Z",
-      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/chatgpt-enterprise-aws-marketplace": {
-      "retryAfter": "2026-11-17T18:57:51.068Z",
-      "reason": "source has only 19 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:langchain-ai/langchain:langchain-xai==1.4.0": {
-      "retryAfter": "2026-11-17T19:00:55.865Z",
-      "reason": "editor: The 'Limitations' section includes an irrelevant, off-topic cross-reference link to an Anthropic Claude Code article that is unrelated to the xAI/LangChain release notes."
-    },
-    "github-release:langchain-ai/langchain:langchain-mistralai==1.2.0": {
-      "retryAfter": "2026-11-17T19:03:55.465Z",
-      "reason": "editor: Body is 285 words, needs at least 300 (too thin/filler-heavy)."
-    },
-    "github-release:langchain-ai/langchain:langchain-groq==1.2.0": {
-      "retryAfter": "2026-11-17T19:07:47.570Z",
-      "reason": "editor: Includes an irrelevant cross-reference link at the end of the Limitations section referring to an Anthropic/Claude Code update that is unrelated to the langchain-groq release."
-    },
     "github-release:anthropics/claude-code:v2.1.326": {
       "retryAfter": "2026-11-18T03:17:02.402Z",
       "reason": "editor: The version number 'v2.1.326' (appearing in the title, description, body, and sources URL) is not present in the provided source material.; References to previous releases 'v2.1.325' and 'v2.1.309' do not appear in the source material."
@@ -43,6 +15,26 @@
     "rss:OpenAI:https://openai.com/index/our-first-phase-of-embedded-assessments": {
       "retryAfter": "2026-11-18T13:55:19.311Z",
       "reason": "source has only 21 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-2-astra-sol": {
+      "retryAfter": "2026-11-18T23:40:39.497Z",
+      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.53.0": {
+      "retryAfter": "2026-11-18T23:44:24.415Z",
+      "reason": "source has only 44 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-chatgpt-wallet": {
+      "retryAfter": "2026-11-18T23:44:24.475Z",
+      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-openai==1.8.1": {
+      "retryAfter": "2026-11-18T23:44:24.475Z",
+      "reason": "source has only 15 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.54.0": {
+      "retryAfter": "2026-11-18T23:44:24.475Z",
+      "reason": "source has only 14 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
