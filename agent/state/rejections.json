@@ -27,6 +27,10 @@
     "github-release:langchain-ai/langchain:langchain-groq==1.2.0": {
       "retryAfter": "2026-11-17T19:07:47.570Z",
       "reason": "editor: Includes an irrelevant cross-reference link at the end of the Limitations section referring to an Anthropic/Claude Code update that is unrelated to the langchain-groq release."
+    },
+    "github-release:anthropics/claude-code:v2.1.326": {
+      "retryAfter": "2026-11-18T03:17:02.402Z",
+      "reason": "editor: The version number 'v2.1.326' (appearing in the title, description, body, and sources URL) is not present in the provided source material.; References to previous releases 'v2.1.325' and 'v2.1.309' do not appear in the source material."
     }
   }
 }
