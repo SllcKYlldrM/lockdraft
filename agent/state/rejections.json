@@ -1,9 +1,5 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.326": {
-      "retryAfter": "2026-11-18T03:17:02.402Z",
-      "reason": "editor: The version number 'v2.1.326' (appearing in the title, description, body, and sources URL) is not present in the provided source material.; References to previous releases 'v2.1.325' and 'v2.1.309' do not appear in the source material."
-    },
     "rss:OpenAI:https://openai.com/index/step-toward-defining-the-standard-model": {
       "retryAfter": "2026-11-18T13:55:19.257Z",
       "reason": "source has only 22 usable words; needs at least 80 — skipped before writing"
@@ -35,6 +31,18 @@
     "github-release:openai/openai-python:v3.54.0": {
       "retryAfter": "2026-11-18T23:44:24.475Z",
       "reason": "source has only 14 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.55.0": {
+      "retryAfter": "2026-11-19T07:59:23.255Z",
+      "reason": "source has only 26 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.327": {
+      "retryAfter": "2026-11-19T08:01:23.854Z",
+      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
+    },
+    "github-release:anthropics/claude-code:v2.1.326": {
+      "retryAfter": "2026-11-19T08:12:00.619Z",
+      "reason": "editor: The exact version number 'v2.1.326' does not appear in the provided source material.; The article conflates the 64-level nesting limit (which applies to settings files in the source) with plugin manifest files ('plugin.json')."
     }
   }
 }
