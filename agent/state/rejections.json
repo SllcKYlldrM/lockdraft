@@ -1,23 +1,27 @@
 {
   "items": {
-    "github-release:openai/openai-python:v3.55.0": {
-      "retryAfter": "2026-11-19T07:59:23.255Z",
-      "reason": "source has only 26 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:anthropics/claude-code:v2.1.327": {
-      "retryAfter": "2026-11-19T08:01:23.854Z",
-      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
-    },
-    "github-release:anthropics/claude-code:v2.1.326": {
-      "retryAfter": "2026-11-19T08:12:00.619Z",
-      "reason": "editor: The exact version number 'v2.1.326' does not appear in the provided source material.; The article conflates the 64-level nesting limit (which applies to settings files in the source) with plugin manifest files ('plugin.json')."
-    },
     "github-release:langchain-ai/langchain:langchain-openai==1.8.2": {
       "retryAfter": "2026-11-19T17:38:34.364Z",
       "reason": "source has only 28 usable words; needs at least 80 — skipped before writing"
     },
     "rss:OpenAI:https://openai.com/index/introducing-gpt-6-2-astra-sol": {
       "retryAfter": "2026-11-20T02:04:20.066Z",
+      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.53.0": {
+      "retryAfter": "2026-11-20T14:02:49.916Z",
+      "reason": "source has only 44 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.326": {
+      "retryAfter": "2026-11-20T14:04:26.794Z",
+      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
+    },
+    "github-release:openai/openai-python:v3.55.0": {
+      "retryAfter": "2026-11-20T14:04:26.794Z",
+      "reason": "source has only 26 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:OpenAI:https://openai.com/index/introducing-chatgpt-wallet": {
+      "retryAfter": "2026-11-20T14:04:26.861Z",
       "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
     }
   }
