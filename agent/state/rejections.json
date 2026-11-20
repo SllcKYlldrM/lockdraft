@@ -1,24 +1,16 @@
 {
   "items": {
-    "github-release:openai/openai-python:v3.53.0": {
-      "retryAfter": "2026-11-20T14:02:49.916Z",
-      "reason": "source has only 44 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:anthropics/claude-code:v2.1.326": {
-      "retryAfter": "2026-11-20T14:04:26.794Z",
-      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
-    },
-    "github-release:openai/openai-python:v3.55.0": {
-      "retryAfter": "2026-11-20T14:04:26.794Z",
-      "reason": "source has only 26 usable words; needs at least 80 — skipped before writing"
-    },
-    "rss:OpenAI:https://openai.com/index/introducing-chatgpt-wallet": {
-      "retryAfter": "2026-11-20T14:04:26.861Z",
-      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
-    },
     "rss:OpenAI:https://openai.com/index/introducing-gpt-6-2-astra-sol": {
       "retryAfter": "2026-11-21T07:49:50.639Z",
       "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:anthropics/claude-code:v2.1.329": {
+      "retryAfter": "2026-11-21T17:22:03.919Z",
+      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
+    },
+    "github-release:anthropics/claude-code:v2.1.327": {
+      "retryAfter": "2026-11-21T17:27:02.049Z",
+      "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
     }
   }
 }
