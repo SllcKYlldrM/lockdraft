@@ -1,9 +1,5 @@
 {
   "items": {
-    "rss:OpenAI:https://openai.com/index/introducing-gpt-6-2-astra-sol": {
-      "retryAfter": "2026-11-21T07:49:50.639Z",
-      "reason": "source has only 24 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:anthropics/claude-code:v2.1.329": {
       "retryAfter": "2026-11-21T17:22:03.919Z",
       "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
