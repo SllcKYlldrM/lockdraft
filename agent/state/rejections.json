@@ -11,6 +11,10 @@
     "github-release:anthropics/claude-code:v2.1.327": {
       "retryAfter": "2026-11-21T17:27:02.049Z",
       "reason": "frontmatter: title: Too big: expected string to have <=100 characters"
+    },
+    "github-release:anthropics/claude-code:v2.1.330": {
+      "retryAfter": "2026-11-22T01:51:50.317Z",
+      "reason": "editor: Limitations & Caveats section contains unsourced claims regarding legacy terminal reconfiguration and distinct endpoint path behavior; remove these or frame them clearly as speculation.; Omits source qualification for easel availability: article states it runs on Team and Enterprise plans, but source explicitly qualifies these as 'where available.' Add the qualifier.; Minor casing inconsistency: easel is capitalized as a proper noun throughout the article, whereas the source refers to it as a lowercase built-in mod. Align with source convention."
     }
   }
 }

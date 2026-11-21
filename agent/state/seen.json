@@ -100,6 +100,7 @@
     "github-release:anthropics/claude-code:v2.1.328",
     "rss:Hugging Face Blog:https://huggingface.co/blog/rumble-2-flash",
     "rss:Google AI Blog:https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
-    "github-release:anthropics/claude-code:v2.1.326"
+    "github-release:anthropics/claude-code:v2.1.326",
+    "rss:OpenAI:https://openai.com/index/combatting-adversarial-distillation"
   ]
 }
