@@ -103,6 +103,7 @@
     "github-release:anthropics/claude-code:v2.1.326",
     "rss:OpenAI:https://openai.com/index/combatting-adversarial-distillation",
     "rss:OpenAI:https://openai.com/index/introducing-gpt-6-2-astra-sol",
-    "github-release:anthropics/claude-code:v2.1.327"
+    "github-release:anthropics/claude-code:v2.1.327",
+    "rss:OpenAI:https://openai.com/index/research-acceleration-jagged-frontier"
   ]
 }
