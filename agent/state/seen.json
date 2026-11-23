@@ -104,6 +104,7 @@
     "rss:OpenAI:https://openai.com/index/combatting-adversarial-distillation",
     "rss:OpenAI:https://openai.com/index/introducing-gpt-6-2-astra-sol",
     "github-release:anthropics/claude-code:v2.1.327",
-    "rss:OpenAI:https://openai.com/index/research-acceleration-jagged-frontier"
+    "rss:OpenAI:https://openai.com/index/research-acceleration-jagged-frontier",
+    "rss:OpenAI:https://openai.com/index/perplexity-and-intelligence"
   ]
 }
