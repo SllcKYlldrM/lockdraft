@@ -105,6 +105,7 @@
     "rss:OpenAI:https://openai.com/index/introducing-gpt-6-2-astra-sol",
     "github-release:anthropics/claude-code:v2.1.327",
     "rss:OpenAI:https://openai.com/index/research-acceleration-jagged-frontier",
-    "rss:OpenAI:https://openai.com/index/perplexity-and-intelligence"
+    "rss:OpenAI:https://openai.com/index/perplexity-and-intelligence",
+    "rss:Hugging Face Blog:https://huggingface.co/blog/inkling2mini"
   ]
 }
