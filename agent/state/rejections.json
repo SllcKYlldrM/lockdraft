@@ -1,9 +1,5 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.330": {
-      "retryAfter": "2026-11-24T08:21:56.971Z",
-      "reason": "editor: The article specifies 'Claude 3.5 Opus' in the Cloud Provider Fixes section, but the source material only refers to 'a pinned Opus model'."
-    },
     "github-release:openai/openai-python:v3.55.0": {
       "retryAfter": "2026-11-24T20:40:36.947Z",
       "reason": "source has only 26 usable words; needs at least 80 — skipped before writing"
