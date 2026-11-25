@@ -108,6 +108,7 @@
     "rss:OpenAI:https://openai.com/index/perplexity-and-intelligence",
     "rss:Hugging Face Blog:https://huggingface.co/blog/inkling2mini",
     "github-release:anthropics/claude-code:v2.1.331",
-    "rss:OpenAI:https://openai.com/index/introducing-shirudo"
+    "rss:OpenAI:https://openai.com/index/introducing-shirudo",
+    "github-release:anthropics/claude-code:v2.1.332"
   ]
 }
