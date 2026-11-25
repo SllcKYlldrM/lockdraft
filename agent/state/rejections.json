@@ -1,3 +1,8 @@
 {
-  "items": {}
+  "items": {
+    "github-release:anthropics/claude-code:v2.1.330": {
+      "retryAfter": "2026-11-26T15:07:29.847Z",
+      "reason": "editor: Formatting typo: ' key updates in this release include:' has a leading space and uncapitalized 'key' at the start of the sentence."
+    }
+  }
 }
