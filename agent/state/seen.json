@@ -110,6 +110,7 @@
     "github-release:anthropics/claude-code:v2.1.331",
     "rss:OpenAI:https://openai.com/index/introducing-shirudo",
     "github-release:anthropics/claude-code:v2.1.332",
-    "rss:OpenAI:https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities"
+    "rss:OpenAI:https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
+    "github-release:anthropics/claude-code:v2.1.329"
   ]
 }

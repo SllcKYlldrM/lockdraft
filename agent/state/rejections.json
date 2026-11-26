@@ -3,6 +3,10 @@
     "github-release:anthropics/claude-code:v2.1.330": {
       "retryAfter": "2026-11-26T15:07:29.847Z",
       "reason": "editor: Formatting typo: ' key updates in this release include:' has a leading space and uncapitalized 'key' at the start of the sentence."
+    },
+    "rss:n8n Blog:6abbdf9f3f51f300010a8210": {
+      "retryAfter": "2026-11-27T00:47:40.662Z",
+      "reason": "editor: Unsubstantiated reference: 'Building Your First n8n Workflow' walkthrough is not mentioned in the source material.; Unsupported speculation: References to 'MCP and SDK-driven architectures' and 'compliance debt' are entirely absent from the source and should be removed or clearly framed as independent editorial opinion.; Promotional filler: The closing cross-link to an unrelated 'AI Integration Patterns' post acts as traffic-driving padding without grounding in the provided source."
     }
   }
 }
