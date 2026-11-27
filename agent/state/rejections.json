@@ -1,16 +1,24 @@
 {
   "items": {
     "github-release:anthropics/claude-code:v2.1.330": {
-      "retryAfter": "2026-11-26T15:07:29.847Z",
-      "reason": "editor: Formatting typo: ' key updates in this release include:' has a leading space and uncapitalized 'key' at the start of the sentence."
+      "retryAfter": "2026-11-28T09:13:15.345Z",
+      "reason": "editor: The version number 'v2.1.330' is referenced throughout the article but does not appear in the provided source material.; The article specifies 'Claude 3.5 Opus', whereas the source material only mentions a 'pinned Opus model'.; References and internal links to prior versions (v2.1.309 and v2.1.295) are not present in or supported by the source material."
     },
-    "rss:n8n Blog:6abbdf9f3f51f300010a8210": {
-      "retryAfter": "2026-11-27T00:47:40.662Z",
-      "reason": "editor: Unsubstantiated reference: 'Building Your First n8n Workflow' walkthrough is not mentioned in the source material.; Unsupported speculation: References to 'MCP and SDK-driven architectures' and 'compliance debt' are entirely absent from the source and should be removed or clearly framed as independent editorial opinion.; Promotional filler: The closing cross-link to an unrelated 'AI Integration Patterns' post acts as traffic-driving padding without grounding in the provided source."
+    "github-release:langchain-ai/langchain:langchain-core==1.8.5": {
+      "retryAfter": "2026-11-28T09:15:12.638Z",
+      "reason": "source has only 46 usable words; needs at least 80 — skipped before writing"
     },
-    "hackernews:50651117": {
-      "retryAfter": "2026-11-27T09:05:26.114Z",
-      "reason": "editor: Mischaracterized the incident as a 'telemetry bug' in the 'What changed' section; the source explicitly identifies it as a 'billing mistake' affecting usage discounts, not a telemetry issue."
+    "github-release:ollama/ollama:v0.40.18": {
+      "retryAfter": "2026-11-28T09:15:12.638Z",
+      "reason": "source has only 58 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.60.0": {
+      "retryAfter": "2026-11-28T09:15:12.638Z",
+      "reason": "source has only 61 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.58.0": {
+      "retryAfter": "2026-11-28T09:15:12.638Z",
+      "reason": "source has only 30 usable words; needs at least 80 — skipped before writing"
     }
   }
 }
