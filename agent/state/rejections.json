@@ -1,24 +1,36 @@
 {
   "items": {
-    "github-release:anthropics/claude-code:v2.1.330": {
-      "retryAfter": "2026-11-28T09:13:15.345Z",
-      "reason": "editor: The version number 'v2.1.330' is referenced throughout the article but does not appear in the provided source material.; The article specifies 'Claude 3.5 Opus', whereas the source material only mentions a 'pinned Opus model'.; References and internal links to prior versions (v2.1.309 and v2.1.295) are not present in or supported by the source material."
-    },
-    "github-release:langchain-ai/langchain:langchain-core==1.8.5": {
-      "retryAfter": "2026-11-28T09:15:12.638Z",
-      "reason": "source has only 46 usable words; needs at least 80 — skipped before writing"
-    },
-    "github-release:ollama/ollama:v0.40.18": {
-      "retryAfter": "2026-11-28T09:15:12.638Z",
-      "reason": "source has only 58 usable words; needs at least 80 — skipped before writing"
-    },
     "github-release:openai/openai-python:v3.60.0": {
-      "retryAfter": "2026-11-28T09:15:12.638Z",
+      "retryAfter": "2026-11-29T17:13:14.466Z",
       "reason": "source has only 61 usable words; needs at least 80 — skipped before writing"
     },
     "github-release:openai/openai-python:v3.58.0": {
-      "retryAfter": "2026-11-28T09:15:12.638Z",
+      "retryAfter": "2026-11-29T17:13:14.466Z",
       "reason": "source has only 30 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:ollama/ollama:v0.40.19": {
+      "retryAfter": "2026-11-29T17:13:14.466Z",
+      "reason": "source has only 37 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:openai/openai-python:v3.59.0": {
+      "retryAfter": "2026-11-29T17:13:14.466Z",
+      "reason": "source has only 79 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-core==1.8.5": {
+      "retryAfter": "2026-11-29T17:13:14.466Z",
+      "reason": "source has only 46 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:langchain-ai/langchain:langchain-anthropic==1.7.13": {
+      "retryAfter": "2026-11-29T17:13:14.466Z",
+      "reason": "source has only 29 usable words; needs at least 80 — skipped before writing"
+    },
+    "github-release:ollama/ollama:v0.40.18": {
+      "retryAfter": "2026-11-29T17:13:14.466Z",
+      "reason": "source has only 58 usable words; needs at least 80 — skipped before writing"
+    },
+    "rss:n8n Blog:6b084be7b557bc000182e3b5": {
+      "retryAfter": "2026-11-29T17:24:19.321Z",
+      "reason": "editor: Unsubstantiated hardware recommendation: Suggests deploying isolated agent runners on 'NVIDIA DGX Spark' to reduce resource contention, which is not mentioned in the source material.; Unsourced internal links: Includes three internal blog references (AI Integration Patterns Shift, NVIDIA DGX Spark deployment, Building Your First n8n Workflow) that do not appear in or derive from the provided source text.; Grounding violation in actionable advice: The 'What to do next' section introduces specific products and internal site navigation beyond the source's scope; per guidelines, these must be removed or explicitly qualified as independent recommendations rather than presented as part of the reported n8n guidance."
     }
   }
 }

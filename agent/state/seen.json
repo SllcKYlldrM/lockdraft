@@ -114,6 +114,7 @@
     "github-release:anthropics/claude-code:v2.1.329",
     "github-release:n8n-io/n8n:n8n@2.49.7",
     "rss:n8n Blog:6abbdf9f3f51f300010a8210",
-    "rss:Hugging Face Blog:https://huggingface.co/blog/agentic-evals"
+    "rss:Hugging Face Blog:https://huggingface.co/blog/agentic-evals",
+    "rss:n8n Blog:6b0852a1b557bc000182e3e5"
   ]
 }
