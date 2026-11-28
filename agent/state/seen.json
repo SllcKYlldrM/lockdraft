@@ -113,6 +113,7 @@
     "rss:OpenAI:https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
     "github-release:anthropics/claude-code:v2.1.329",
     "github-release:n8n-io/n8n:n8n@2.49.7",
-    "rss:n8n Blog:6abbdf9f3f51f300010a8210"
+    "rss:n8n Blog:6abbdf9f3f51f300010a8210",
+    "rss:Hugging Face Blog:https://huggingface.co/blog/agentic-evals"
   ]
 }
